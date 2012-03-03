@@ -28,6 +28,7 @@ group :assets do
   gem 'kaminari'
   gem 'jquery-rails'
   gem 'coffee-rails'
+  gem 'pjax_rails', git: 'git://github.com/rails/pjax_rails.git' 
 end
 
 group :test, :development do  

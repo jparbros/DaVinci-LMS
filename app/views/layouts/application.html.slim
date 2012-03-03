@@ -20,7 +20,7 @@ html
             ul.nav
               li class="divider-vertical"
               li
-                = link_to 'Home'
+                = link_to 'Home', root_path
               li class="divider-vertical"
               li
                 = link_to 'Courses', management_courses_path
@@ -30,5 +30,5 @@ html
     .container
       .row
         .span12
-          .well
-            = yield
+          .well data-pjax-container=true
+              = yield

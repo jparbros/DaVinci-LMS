@@ -33,6 +33,13 @@ GIT
     formtastic (2.1.1)
       actionpack (~> 3.0)
 
+GIT
+  remote: git://github.com/rails/pjax_rails.git
+  revision: e79a1cf58a8935eb132f4910f300cf86d081ae6d
+  specs:
+    pjax_rails (0.1.7)
+      jquery-rails
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -263,6 +270,7 @@ DEPENDENCIES
   mongoid
   mongoid-rspec
   mongoid_search
+  pjax_rails!
   powder
   rails
   rb-fsevent

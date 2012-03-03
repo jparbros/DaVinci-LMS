@@ -5,7 +5,7 @@ class Management::CoursesController < ApplicationController
   end
 
   def index 
-    @courses = Course.all    
+    @courses = Course.all
   end
   
   def new
