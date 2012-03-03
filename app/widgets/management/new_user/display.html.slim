@@ -1,0 +1,19 @@
+= widget_div do
+
+  - if @message
+    div{data-dismiss="alert" class='alert alert-info'}
+      a{href='#' class='close'} ×
+      = @message
+
+  h2 New User
+  br
+  
+  = semantic_form_for @user, remote: true, url: url_for_event(:submit) do |f|
+    = f.semantic_errors
+    = f.inputs do
+      = f.input :first_name, :placeholder => 'Gonzalo'
+      = f.input :last_name, :placeholder => 'Rodríguez'
+      = f.input :dni, :label => 'DNI'
+      = f.input :email
+    = f.actions do
+      = f.action :submit, label: 'Save new student', button_html: { disable_with: "Please wait..." }

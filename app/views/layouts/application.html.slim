@@ -14,18 +14,18 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          
+
           = link_to 'DaVinci LMS', '#', :class => 'brand'
-          .nav-collapse            
+          .nav-collapse
             ul.nav
               li class="divider-vertical"
               li
                 = link_to 'Home'
               li class="divider-vertical"
               li
-                = link_to 'Courses'
+                = link_to 'Courses', management_courses_path
               li
-                = link_to 'Users'            
+                = link_to 'Users', management_users_path
 
     .container
       .row

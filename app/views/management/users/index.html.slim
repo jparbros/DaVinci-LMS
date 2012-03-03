@@ -1,0 +1,26 @@
+ul.breadcrumb
+  li
+    span Management
+    span.divider  >
+  li.active
+    = link_to 'Users'
+
+div{style='margin-bottom:15px;'}
+  h2{style='display: inline;padding-right:15px;'} Users
+  = link_to 'New', new_management_user_path
+.form-search
+  .input-append
+    = search_field_tag :query, '', placeholder: 'Jump to a user', :name => 'query', 'data-remote' => true, 'data-url' => 'blablabla', :class => 'search-query'
+    span.add-on
+      = link_to 'blablabla', {:remote => true, :style => 'color:black'} do
+        i
+          span Jump
+
+table.table
+  thead
+    tr
+      th Name
+  tbody
+    - @users.each do |user|
+      tr
+        td = link_to "#{user.first_name} #{user.first_name}"
