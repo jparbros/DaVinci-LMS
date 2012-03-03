@@ -4,8 +4,8 @@ class Management::CoursesController < ApplicationController
     root << widget('management/new_course', :new_course)    
   end
 
-  def index
-    
+  def index 
+    @courses = Course.all    
   end
   
   def new

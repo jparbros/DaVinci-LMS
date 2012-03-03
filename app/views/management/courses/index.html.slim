@@ -5,9 +5,9 @@ ul.breadcrumb
   li.active
     = link_to 'Courses'
 
-div{style='margin-bottom:15px;'}    
+div{style='margin-bottom:15px;'}
   h2{style='display: inline;padding-right:15px;'} Courses
-  = link_to 'New', new_management_course_path  
+  = link_to 'New', new_management_course_path
 .form-search
   .input-append
     = search_field_tag :query, '', placeholder: 'Jump to a course', :name => 'query', 'data-remote' => true, 'data-url' => 'blablabla', :class => 'search-query'
@@ -15,11 +15,14 @@ div{style='margin-bottom:15px;'}
       = link_to 'blablabla', {:remote => true, :style => 'color:black'} do
         i
           span Jump
-          
-ul.unstyled
-  li = link_to 'MTP: Metodología y tecnología de la programación'
-  li = link_to 'MTP: Metodología y tecnología de la programación'
-  li = link_to 'MTP: Metodología y tecnología de la programación'
-  li = link_to 'MTP: Metodología y tecnología de la programación'
-  li = link_to 'MTP: Metodología y tecnología de la programación'
-  li = link_to 'MTP: Metodología y tecnología de la programación'
+
+table.table
+  thead
+    tr
+      th Abbreviation
+      th Full Name
+  tbody
+    - @courses.each do |course|      
+      tr        
+        td = link_to course.abbreviation
+        td = link_to course.full_name
