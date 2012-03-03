@@ -6,4 +6,15 @@ class Management::NewCourseWidget < Apotomo::Widget
     render
   end
 
+  def submit(evt)
+    @course = Course.new(params[:course])
+    if @course.save
+      @message = 'Course saved'
+      @course = Course.new
+      update :view => :display
+    else
+      update :view => :display
+    end
+  end
+
 end
