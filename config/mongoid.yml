@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: davinci_development
+
+test:
+  host: localhost
+  database: davinci_test
+
+production:
+  uri: <%= ENV['MONGOHQ_URL'] %>
+

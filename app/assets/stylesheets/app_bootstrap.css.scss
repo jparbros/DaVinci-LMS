@@ -1,0 +1,9 @@
+// import original bootstrap
+@import "bootstrap";
+body{ padding-top: 60px; padding-bottom: 40px;}
+@import "responsive";
+
+.well {
+  border: 2px solid #999;
+  @include  translucent-border(black, 0.5);
+}

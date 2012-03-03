@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title DaVinci LMS
+    = stylesheet_link_tag    :application
+    = javascript_include_tag :application
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = csrf_meta_tags
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          
+          = link_to 'DaVinci LMS', '#', :class => 'brand'
+          .nav-collapse            
+            ul.nav
+              li class="divider-vertical"
+              li
+                = link_to 'Home'
+              li class="divider-vertical"
+              li
+                = link_to 'Courses'
+              li
+                = link_to 'Users'            
+
+    .container
+      .row
+        .span12
+          .well
+            = yield

@@ -1,0 +1,13 @@
+ul.breadcrumb
+  li
+    span Management
+  li
+    span.divider  >
+  li
+    = link_to 'Courses', management_courses_path
+  li
+    span.divider  >
+  li.active
+    = link_to 'New Course', new_management_course_path
+
+= render_widget :new_course
