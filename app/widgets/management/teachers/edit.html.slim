@@ -4,7 +4,7 @@ div{style='margin-bottom:15px;'}
     = link_to 'Done', url_for_event(:done, :id => @course.id), 'data-skip-pjax' => true, :remote => true    
 
 = semantic_form_for '', remote: true, :url => url_for_event(:add_teacher, :id => @course.id), :html => {:class=>'form-search cucu'} do
-  input name='teacher_name' type="text" class="search-query typeahead"
+  input name='teacher_name' type="text" autofocus="autofocus" class="search-query typeahead"
   input name='teacher_id' type='hidden' class='teacher_id'
   button type="submit" class="btn" Add
   
