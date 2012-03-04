@@ -16,11 +16,8 @@
       = @message
 
   = render_widget :edit_course
-
-  div{style='margin-bottom:15px;'}
-    legend{style='display: inline;'}
-      span{style='padding-right:15px;'} Teachers
-      = link_to 'Add'
+  
+  = render_widget :teachers
 
   div{style='margin-bottom:15px;'}
     legend{style='display: inline;padding-right:15px;'}

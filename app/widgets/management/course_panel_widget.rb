@@ -3,6 +3,7 @@ class Management::CoursePanelWidget < Apotomo::Widget
 
   has_widgets do |root|
     root << widget('management/edit_course', :edit_course)
+    root << widget('management/teachers', :teachers)
   end
 
   def display()

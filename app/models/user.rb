@@ -7,6 +7,9 @@ class User
   field :last_name, type: String
   field :dni, type: String
   field :email, type: String
+  
+  has_and_belongs_to_many :student_in, class_name: 'Course', inverse_of: :students
+  has_and_belongs_to_many :teacher_in, class_name: 'Course', inverse_of: :teachers
     
   validates :dni, :presence => true
 
