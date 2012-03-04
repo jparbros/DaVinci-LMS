@@ -4,5 +4,10 @@
       span{style='padding-right:15px;'} Teachers
       = link_to 'Edit', url_for_event(:edit_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
     
-  = render :view => :teacher_list, :locals => { teachers: @teachers}
-    
+  table.table
+    tbody
+      - @teachers.each do |teacher|
+        tr
+          td
+            =teacher.first_name + " " + teacher.last_name
+  

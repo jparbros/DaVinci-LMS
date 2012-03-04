@@ -2,6 +2,7 @@ class Management::TeachersWidget < Apotomo::Widget
   responds_to_event :edit_mode
   responds_to_event :done
   responds_to_event :add_teacher
+  responds_to_event :remove_teacher
 
   def display
     @course = Course.find(params[:id])
@@ -14,6 +15,13 @@ class Management::TeachersWidget < Apotomo::Widget
     @teachers = @course.teachers
     @candidates = candidates
     update :view => :edit    
+  end
+  
+  def remove_teacher(evt)
+    teacher = User.find(evt[:teacher_id])
+    course = Course.find(evt[:id])
+    course.teachers.delete(teacher)
+    render :state => :edit
   end
 
   def edit_mode(evt)
