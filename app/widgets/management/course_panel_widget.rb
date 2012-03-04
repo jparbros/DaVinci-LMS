@@ -1,18 +1,17 @@
 class Management::CoursePanelWidget < Apotomo::Widget
-  responds_to_event :submit
+  responds_to_event :course_edited
+
+  has_widgets do |root|
+    root << widget('management/edit_course', :edit_course)
+  end
 
   def display
     @course = Course.find(params[:id])
     render
   end
   
-  def submit(evt)
-    @course = Course.find(evt[:id])
-    if @course.update_attributes(evt[:course])
-      update :state => :display
-    else
-      update :view => :display
-    end
+  def course_edited(evt)
+    @message = 'Course edited'
+    update :state => :display
   end
-
 end
