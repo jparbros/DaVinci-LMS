@@ -25,5 +25,5 @@ table.table
   tbody
     - @courses.each do |course|      
       tr        
-        td = link_to course.abbreviation
-        td = link_to course.full_name
+        td = link_to course.abbreviation, management_course_path(course.id)
+        td = link_to course.full_name, management_course_path(course.id)
