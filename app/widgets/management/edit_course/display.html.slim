@@ -1,9 +1,4 @@
 = widget_div do
-  - if @message
-    div{data-dismiss="alert" class='alert alert-info'}
-      a{href='#' class='close'} ×
-      = @message
-
   = semantic_form_for @course, remote: true, url: url_for_event(:submit, :id => @course.id), :html => {:class=>'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs 'Course' do

@@ -5,13 +5,14 @@ class Management::CoursePanelWidget < Apotomo::Widget
     root << widget('management/edit_course', :edit_course)
   end
 
-  def display
+  def display()
     @course = Course.find(params[:id])
     render
   end
   
   def course_edited(evt)
     @message = 'Course edited'
-    update :state => :display
+    @course = Course.find(params[:id])
+    update :view => :display
   end
 end

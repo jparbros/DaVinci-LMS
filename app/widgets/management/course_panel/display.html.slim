@@ -9,6 +9,11 @@
     li
       span.divider  >
     li = link_to "#{@course.abbreviation}"
+    
+  - if @message
+    div{data-dismiss="alert" class='alert alert-info'}
+      a{href='#' class='close'} ×
+      = @message
 
   = render_widget :edit_course
 
