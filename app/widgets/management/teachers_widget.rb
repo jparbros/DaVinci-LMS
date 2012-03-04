@@ -12,7 +12,7 @@ class Management::TeachersWidget < Apotomo::Widget
   def edit(evt)
     @course = Course.find(params[:id])
     @teachers = @course.teachers
-    @users = User.all.collect { |user| {'teacher_id' => user.id, 'value' => "#{user.first_name} #{user.last_name}"} }
+    @users = candidates
     update :view => :edit
   end
 
@@ -24,11 +24,15 @@ class Management::TeachersWidget < Apotomo::Widget
     teacher = User.find(evt[:teacher_id])
     @course = Course.find(evt[:id])
     @course.teachers << teacher
-    @users = User.all.collect { |user| {'teacher_id' => user.id, 'value' => "#{user.first_name} #{user.last_name}"} }
+    @users = candidates
     if @course.save
       @teachers = @course.teachers
       update :view => :edit
     end
+  end
+  
+  def candidates
+    User.all.collect { |user| {'teacher_id' => user.id, 'value' => "#{user.first_name} #{user.last_name}"} }
   end
 
 end
