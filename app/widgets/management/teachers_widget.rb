@@ -1,5 +1,5 @@
 class Management::TeachersWidget < Apotomo::Widget
-  responds_to_event :edit
+  responds_to_event :edit_mode
   responds_to_event :done
   responds_to_event :add_teacher
 
@@ -8,12 +8,16 @@ class Management::TeachersWidget < Apotomo::Widget
     @teachers = @course.teachers
     render
   end
-
-  def edit(evt)
+  
+  def edit
     @course = Course.find(params[:id])
     @teachers = @course.teachers
-    @users = candidates
-    update :view => :edit
+    @candidates = candidates
+    update :view => :edit    
+  end
+
+  def edit_mode(evt)
+    render :state => :edit
   end
 
   def done(evt)
@@ -24,10 +28,8 @@ class Management::TeachersWidget < Apotomo::Widget
     teacher = User.find(evt[:teacher_id])
     @course = Course.find(evt[:id])
     @course.teachers << teacher
-    @users = candidates
     if @course.save
-      @teachers = @course.teachers
-      update :view => :edit
+      render :state => :edit
     end
   end
   

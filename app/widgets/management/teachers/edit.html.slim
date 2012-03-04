@@ -11,7 +11,7 @@ div{style='margin-bottom:15px;'}
 = render :view => :teacher_list, :locals => { teachers: @teachers}
 
 javascript:
-  var users=#{@users.to_json.html_safe}
+  var candidates=#{@candidates.to_json.html_safe}
 
 = javascript_tag do 
-  == "$('.typeahead').typeahead({source: users, onselect: function(obj) { $('.teacher_id').attr('value', obj.teacher_id) }})"
+  == "$('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.teacher_id').attr('value', obj.teacher_id) }})"

@@ -2,7 +2,7 @@
   div{style='margin-bottom:15px;'}
     legend{style='display: inline;padding-right:15px;'}
       span{style='padding-right:15px;'} Teachers
-      = link_to 'Edit', url_for_event(:edit, :id => @course.id), 'data-skip-pjax' => true, :remote => true
+      = link_to 'Edit', url_for_event(:edit_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
     
   = render :view => :teacher_list, :locals => { teachers: @teachers}
     
