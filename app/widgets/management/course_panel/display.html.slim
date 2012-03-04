@@ -8,7 +8,7 @@
       = link_to 'Courses', management_courses_path
     li
       span.divider  >
-    li = link_to "#{@course.abbreviation}"
+    li = link_to "#{@course.abbreviation}", management_course_path(@course.id)
     
   - if @message
     div{data-dismiss="alert" class='alert alert-info'}
