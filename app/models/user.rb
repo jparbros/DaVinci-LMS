@@ -17,4 +17,8 @@ class User
 
   search_in :first_name, :last_name, :dni, :email
   
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
 end

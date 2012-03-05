@@ -31,7 +31,7 @@ class Management::TeachersWidget < Apotomo::Widget
 
   def search(evt)
     users = User.search(evt[:query], :match => :all)
-    candidates = users.collect { |user| {'teacher_id' => user.id, 'value' => "#{user.first_name} #{user.last_name}"} }
+    candidates = users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
     render text: candidates.to_json
   end
 
@@ -49,7 +49,7 @@ class Management::TeachersWidget < Apotomo::Widget
   end
 
   def candidates
-    User.all.collect { |user| {'teacher_id' => user.id, 'value' => "#{user.first_name} #{user.last_name}"} }
+    User.all.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
   end
 
 end
