@@ -7,6 +7,7 @@ div{style='margin-bottom:15px;'}
   input name='teacher_name' type="text" autofocus="autofocus" class="search-query typeahead"
   input name='teacher_id' type='hidden' class='teacher_id'
   button type="submit" class="btn" Add
+  span{style='margin-left:20px' class='fadein hide'} =@message
 
 table.table
   tbody
@@ -19,8 +20,9 @@ table.table
 
 javascript:
   var candidates=#{@candidates.to_json.html_safe};
-  $(window).scrollTop($('#teachers').position().top-70)
-  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.teacher_id').attr('value', obj.teacher_id) }})
+  $(window).scrollTop($('#teachers').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.teacher_id').attr('value', obj.teacher_id) }});
+  $('.fadein').fadeIn();
 
 / coffee:
 /   $('.typeahead').typeahead(

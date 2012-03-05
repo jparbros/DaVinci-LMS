@@ -7,6 +7,7 @@ div{style='margin-bottom:15px;'}
   input name='student_name' type="text" autofocus="autofocus" class="search-query typeahead"
   input name='student_id' type='hidden' class='student_id'
   button type="submit" class="btn" Add
+  span{style='margin-left:20px' class='fadein hide'} =@message
 
 table.table
   tbody
@@ -18,9 +19,10 @@ table.table
           = link_to 'Remove', url_for_event(:remove_student, student_id: student.id, id: @course.id), 'data-skip-pjax' => true, remote: true
 
 javascript:
-  var candidates=#{@candidates.to_json.html_safe}  
-  $(window).scrollTop($('#students').position().top-70)
-  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.student_id').attr('value', obj.student_id) }})
+  var candidates=#{@candidates.to_json.html_safe};
+  $(window).scrollTop($('#students').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.student_id').attr('value', obj.student_id) }});
+  $('.fadein').fadeIn();
 
 / coffee:
 /   $('.typeahead').typeahead(

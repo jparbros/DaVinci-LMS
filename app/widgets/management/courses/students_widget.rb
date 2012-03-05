@@ -21,6 +21,7 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     @course = Course.find(evt[:id])
     @course.students << student
     if @course.save
+      @message = 'Added!'
       render :state => :edit
     end
   end
