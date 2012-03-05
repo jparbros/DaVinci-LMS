@@ -2,6 +2,7 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
   responds_to_event :edit_mode
   responds_to_event :done
   responds_to_event :add_student
+  responds_to_event :remove_student
 
   def display
     @course = Course.find(params[:id])
@@ -26,6 +27,14 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     end
   end
   
+  def remove_student(evt)
+    student = User.find(evt[:student_id])
+    course = Course.find(evt[:id])
+    course.students.delete(student)
+    @message = "#{student.name} is no longer a student in #{course.abbreviation}"
+    render :state => :edit
+  end
+  
   def edit_mode(evt)
     render :state => :edit
   end
@@ -34,7 +43,11 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     update :state => :display
   end
   
-  def candidates
-    User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
+  def candidates(users=[])
+    if users.empty?
+      return User.all.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+    else
+      return users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+    end
   end
 end
