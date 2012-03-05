@@ -1,9 +1,10 @@
 class Management::Courses::TeachersWidget < Apotomo::Widget
-  responds_to_event :edit_mode
+  responds_to_event :set_add_mode
+  responds_to_event :set_remove_mode
   responds_to_event :done
   responds_to_event :add_teacher
   responds_to_event :remove_teacher
-  responds_to_event :search
+  # responds_to_event :search
 
   def display
     @course = Course.find(params[:id])
@@ -11,32 +12,26 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     render
   end
 
-  def edit
+  def remove_mode
     @course = Course.find(params[:id])
     @teachers = @course.teachers
-    @candidates = candidates
-    update :view => :edit
+    @candidates = candidates(@teachers)
+    update :view => :remove
   end
 
   def remove_teacher(evt)
     teacher = User.find(evt[:teacher_id])
     course = Course.find(evt[:id])
     course.teachers.delete(teacher)
-    render :state => :edit
+    @message = "#{teacher.name} is no longer a teacher in #{course.abbreviation}"
+    render :state => :remove_mode
   end
 
-  def edit_mode(evt)
-    render :state => :edit
-  end
-
-  def search(evt)
-    users = User.search(evt[:query], :match => :all)
-    candidates = users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
-    render text: candidates.to_json
-  end
-
-  def done(evt)
-    update :state => :display
+  def add_mode
+    @course = Course.find(params[:id])
+    @teachers = @course.teachers
+    @candidates = candidates
+    update :view => :add
   end
 
   def add_teacher(evt)
@@ -44,13 +39,35 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     @course = Course.find(evt[:id])
     @course.teachers << teacher
     if @course.save
-      @message = "#{teacher.name} has been added as a teacher"
-      render :state => :edit
+      @message = "#{teacher.name} has been added as a teacher in #{@course.abbreviation}"
+      render :state => :add_mode
     end
   end
 
-  def candidates
-    User.all.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+  def set_add_mode(evt)
+    render :state => :add_mode
+  end
+
+  def set_remove_mode(evt)
+    render :state => :remove_mode
+  end
+
+  def done(evt)
+    update :state => :display
+  end
+
+  # def search(evt)
+  #   users = User.search(evt[:query], :match => :all)
+  #   candidates = users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+  #   render text: candidates.to_json
+  # end
+
+  def candidates(users=[])
+    if users.empty?
+      return User.all.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+    else
+      return users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
+    end
   end
 
 end

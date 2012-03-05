@@ -1,0 +1,37 @@
+div{style='margin-bottom:15px;'}
+  legend{style='display: inline;padding-right:15px;'}
+    span{style='padding-right:15px;'} Teachers
+    = link_to 'Done', url_for_event(:done, :id => @course.id), 'data-skip-pjax' => true, :remote => true
+
+= semantic_form_for '', remote: true, :url => url_for_event(:remove_teacher, :id => @course.id), :html => {:class=>'form-search'} do
+  input name='teacher_name' type="text" autofocus="autofocus" class="search-query typeahead"
+  input name='teacher_id' type='hidden' class='teacher_id'
+  button type="submit" class="btn" Remove
+  - if @message
+    span{data-dismiss="alert" style='margin-left: 20px'class='alert alert-info'}
+      = @message
+
+table.table
+  tbody
+    - @teachers.each do |teacher|
+      tr
+        td
+          = teacher.name
+        td
+          = link_to 'Remove', url_for_event(:remove_teacher, teacher_id: teacher.id, id: @course.id), 'data-skip-pjax' => true, remote: true
+
+javascript:
+  var candidates=#{@candidates.to_json.html_safe};
+  $(window).scrollTop($('#teachers').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.teacher_id').attr('value', obj.teacher_id) }});
+  $('.fadein').fadeIn();
+
+/ coffee:
+/   $('.typeahead').typeahead(
+/     source: (typeahead, query) ->
+/       $.ajax(
+/         url: "/management/courses/render_event_response?&amp;source=teachers&amp;type=search&amp;query="+query
+/         success: (data) =>
+/           typeahead.process(data)
+/       )
+/   )
