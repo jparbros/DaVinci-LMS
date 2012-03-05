@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Management::EditCourseWidget do
+describe Management::Courses::EditCourseWidget do
   has_widgets do |root|
-    root << widget('management/edit_course')
+    root << widget('management/courses/edit_course')
   end
   
   it "should render :display" do
