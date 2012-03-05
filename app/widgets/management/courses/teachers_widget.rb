@@ -1,4 +1,4 @@
-class Management::TeachersWidget < Apotomo::Widget
+class Management::Courses::TeachersWidget < Apotomo::Widget
   responds_to_event :edit_mode
   responds_to_event :done
   responds_to_event :add_teacher

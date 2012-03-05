@@ -1,9 +1,9 @@
-class Management::CoursePanelWidget < Apotomo::Widget
+class Management::Courses::CoursePanelWidget < Apotomo::Widget
   responds_to_event :course_edited
 
   has_widgets do |root|
-    root << widget('management/edit_course', :edit_course)
-    root << widget('management/teachers', :teachers)
+    root << widget('management/courses/edit_course', :edit_course)
+    root << widget('management/courses/teachers', :teachers)
   end
 
   def display()

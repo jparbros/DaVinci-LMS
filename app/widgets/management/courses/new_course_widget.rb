@@ -1,4 +1,4 @@
-class Management::NewCourseWidget < Apotomo::Widget
+class Management::Courses::NewCourseWidget < Apotomo::Widget
   responds_to_event :submit
 
   def display
