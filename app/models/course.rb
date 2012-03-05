@@ -7,6 +7,8 @@ class Course
   field :abbreviation, type: String
   field :description, type: String
   
+  attr_accessible :full_name, :abbreviation, :description
+  
   search_in :full_name, :abbreviation
 
   default_scope asc(:abbreviation, :full_name)
