@@ -38,7 +38,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   def add_mode
     @course = Course.find(params[:id])
     @teachers = @course.teachers
-    @candidates = candidates
+    @candidates = candidates(User.not_in(_id: @course.teacher_ids))
     update :view => :add
   end
 
