@@ -31,7 +31,8 @@ group :assets do
   gem 'pjax_rails', git: 'git://github.com/rails/pjax_rails.git' 
 end
 
-group :test, :development do  
+group :test, :development do 
+  gem "brakeman" 
   gem 'mongoid-rspec'
   gem 'ruby_gntp'
   gem 'rspec'
