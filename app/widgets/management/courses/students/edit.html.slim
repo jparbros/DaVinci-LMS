@@ -7,7 +7,10 @@ div{style='margin-bottom:15px;'}
   input name='student_name' type="text" autofocus="autofocus" class="search-query typeahead"
   input name='student_id' type='hidden' class='student_id'
   button type="submit" class="btn" Add
-  span{style='margin-left:20px' class='fadein hide'} =@message
+  - if @message
+    span{data-dismiss="alert" style='margin-left: 20px'class='alert alert-info'}
+      a{href='#' class='close'} ×
+      = @message
 
 table.table
   tbody
