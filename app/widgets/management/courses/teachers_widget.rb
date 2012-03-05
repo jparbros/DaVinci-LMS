@@ -11,6 +11,10 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     @teachers = @course.teachers
     render
   end
+  
+  def set_remove_mode(evt)
+    render :state => :remove_mode
+  end
 
   def remove_mode
     @course = Course.find(params[:id])
@@ -25,6 +29,10 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     course.teachers.delete(teacher)
     @message = "#{teacher.name} is no longer a teacher in #{course.abbreviation}"
     render :state => :remove_mode
+  end
+  
+  def set_add_mode(evt)
+    render :state => :add_mode
   end
 
   def add_mode
@@ -42,14 +50,6 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
       @message = "#{teacher.name} has been added as a teacher in #{@course.abbreviation}"
       render :state => :add_mode
     end
-  end
-
-  def set_add_mode(evt)
-    render :state => :add_mode
-  end
-
-  def set_remove_mode(evt)
-    render :state => :remove_mode
   end
 
   def done(evt)
