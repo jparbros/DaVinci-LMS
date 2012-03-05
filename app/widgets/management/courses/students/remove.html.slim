@@ -1,6 +1,6 @@
-div{style='margin-bottom:15px;'}
-  legend{style='display: inline;padding-right:15px;'}
-    span{style='padding-right:15px;'} Students
+.course-users-lists-header
+  legend
+    span Students
     = link_to 'Done', url_for_event(:done, :id => @course.id), 'data-skip-pjax' => true, :remote => true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:remove_student, :id => @course.id), :html => {:class=>'form-search'} do

@@ -1,7 +1,7 @@
 = widget_div do
-  div{style='margin-bottom:15px;'}
-    legend{style='display: inline;padding-right:15px;'}
-      span{style='padding-right:15px;'} Teachers
+  .course-users-lists-header
+    legend
+      span Teachers
       = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true, :style => "padding-right:15px;"
       = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
     
