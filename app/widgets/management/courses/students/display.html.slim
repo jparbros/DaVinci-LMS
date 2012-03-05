@@ -1,0 +1,12 @@
+= widget_div do
+  div{style='margin-bottom:15px;'}
+    legend{style='display: inline;padding-right:15px;'}
+      span{style='padding-right:15px;'} Students
+      = link_to 'Edit', url_for_event(:edit_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
+
+  table.table
+    tbody
+      - @students.each do |student|
+        tr
+          td
+            = student.name
