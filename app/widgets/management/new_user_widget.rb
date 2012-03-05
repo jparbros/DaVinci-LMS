@@ -9,7 +9,7 @@ class Management::NewUserWidget < Apotomo::Widget
   def submit(evt)
     @user = User.new(params[:user])
     if @user.save
-      @message = 'User saved'
+      @message = "User #{@user.name} saved"
       @user = User.new
       update :view => :display      
     else

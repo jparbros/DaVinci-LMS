@@ -9,7 +9,7 @@ class Management::NewCourseWidget < Apotomo::Widget
   def submit(evt)
     @course = Course.new(params[:course])
     if @course.save
-      @message = 'Course saved'
+      @message = "Course #{@course.full_name} saved"
       @course = Course.new
       update :view => :display
     else
