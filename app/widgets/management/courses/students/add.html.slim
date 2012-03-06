@@ -23,13 +23,3 @@ javascript:
   $(window).scrollTop($('#students').position().top-70);
   $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.student_id').attr('value', obj.student_id) }});
   $('.fadein').fadeIn();
-
-/ coffee:
-/   $('.typeahead').typeahead(
-/     source: (typeahead, query) ->
-/       $.ajax(
-/         url: "/management/courses/render_event_response?&amp;source=teachers&amp;type=search&amp;query="+query
-/         success: (data) =>
-/           typeahead.process(data)
-/       )
-/   )

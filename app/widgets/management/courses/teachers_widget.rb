@@ -4,7 +4,6 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   responds_to_event :done
   responds_to_event :add_teacher
   responds_to_event :remove_teacher
-  # responds_to_event :search
 
   def display
     @course = Course.find(params[:id])
@@ -55,12 +54,6 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   def done(evt)
     update :state => :display
   end
-
-  # def search(evt)
-  #   users = User.search(evt[:query], :match => :all)
-  #   candidates = users.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
-  #   render text: candidates.to_json
-  # end
 
   def candidates(users=[])
     if users.empty?
