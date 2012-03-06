@@ -30,6 +30,10 @@ Course.create(full_name: 'Ampliación de bases de datos', abbreviation: 'BD2')
   Fabricate(:user)
 end
 
-10.times do
-  Fabricate(:user, :first_name => 'hugo')
-end
+students = 10.times.collect { Fabricate(:user) }
+teachers = 10.times.collect { Fabricate(:user) }
+
+course  = Course.create(full_name: 'Course with people', abbreviation: 'AAA')
+course.students = students
+course.teachers = teachers
+course.save
