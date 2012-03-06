@@ -8,7 +8,6 @@ gem "bson_ext"
 gem 'sorcery'
 
 gem 'uglifier'
-gem 'therubyracer'
 
 gem 'database_cleaner'
 gem 'mongoid_search'
