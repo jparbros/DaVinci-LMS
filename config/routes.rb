@@ -5,6 +5,10 @@ Davinci::Application.routes.draw do
     resources :users
   end
   
-  root to: 'management/courses#index'
+  resources :session, :only => [:new, :create, :destroy]
+  match 'login' => 'session#new', :as => :login
+  match 'logout' => 'session#destroy', :as => :logout
+  
+  root to: 'home#index'
 
 end

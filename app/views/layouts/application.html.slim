@@ -16,6 +16,7 @@ html
             span.icon-bar
 
           = link_to 'DaVinci LMS', '#', :class => 'brand'
+            
           .nav-collapse
             ul.nav
               li class="divider-vertical"
@@ -26,9 +27,12 @@ html
                 = link_to 'Courses', management_courses_path
               li
                 = link_to 'Users', management_users_path
+            ul.nav.pull-right
+              li
+                = link_to 'Logout', :logout
 
     .container
       .row
         .span12
           .well data-pjax-container=true
-              = yield
+            = yield
