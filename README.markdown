@@ -27,6 +27,24 @@ rails s
 
 The website will be available at [localhost:3000](localhost:3000)
 
+The admin user is:
+
+* Username: admin@test.kiwi
+* Password: admin
+
+## Online testing environment
+
+The lasted build is visible here:
+
+[http://davinci-lms-testing.herokuapp.com/](http://davinci-lms-testing.herokuapp.com/)
+
+Feel free to do whatever you like there, it is automatically rebuilt.
+
+The admin user is:
+
+* Username: admin@test.kiwi
+* Password: admin
+
 ## How to contribute
 
 * Fork the project on Github
