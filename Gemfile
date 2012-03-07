@@ -18,6 +18,8 @@ gem 'fabrication'
 gem 'cells'
 gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
 
+gem 'dalli'
+
 group :assets do
   gem 'sass-rails'
   gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'          
