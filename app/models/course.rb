@@ -1,7 +1,7 @@
 class Course
   include Mongoid::Document
   include Mongoid::Search
-  include Mongoid::Timestamps::Updated
+  include Mongoid::Timestamps
   
   field :full_name, type: String
   field :abbreviation, type: String

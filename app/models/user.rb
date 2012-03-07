@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Search
-  include Mongoid::Timestamps::Updated
+  include Mongoid::Timestamps
   
   authenticates_with_sorcery!
   
