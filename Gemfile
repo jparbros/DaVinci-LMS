@@ -18,6 +18,8 @@ gem 'fabrication'
 gem 'cells'
 gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
 
+gem 'thin'
+
 group :production do
   gem 'dalli'
 end
