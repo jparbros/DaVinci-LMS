@@ -18,7 +18,9 @@ gem 'fabrication'
 gem 'cells'
 gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
 
-gem 'dalli'
+group :production do
+  gem 'dalli'
+end
 
 group :assets do
   gem 'sass-rails'
