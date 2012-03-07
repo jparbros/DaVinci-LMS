@@ -26,7 +26,10 @@ Course.create(full_name: 'Seguridad y medios de pagos', abbreviation: 'SYP')
 Course.create(full_name: 'Programación Web Avanzada', abbreviation: 'PWA')
 Course.create(full_name: 'Ampliación de bases de datos', abbreviation: 'BD2')
 
-Fabricate(:user, first_name: 'Albus', last_name: 'Dumbledore', email: 'admin@test.kiwi', password: 'admin', dni: '2487342387')
+admin = Fabricate(:user, first_name: 'Albus', last_name: 'Dumbledore', email: 'admin@test.kiwi', password: 'admin', dni: '2487342387')
+
+Course.asc.limit(5).each {|c| c.students << admin; c.save}
+Course.desc.limit(5).each {|c| c.teachers << admin; c.save}
 
 20.times do |i|
   Fabricate(:user)

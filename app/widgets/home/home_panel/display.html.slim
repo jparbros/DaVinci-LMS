@@ -1,0 +1,17 @@
+ul.breadcrumb
+  li
+    = link_to 'Home', root_path
+
+h2 Courses
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  li.nav-header As a student
+  - @courses_as_student.each do |course|  
+    li = link_to course.full_name, course_path(course.id)
+    
+  li.nav-header As a teacher   
+  - @courses_as_teacher.each do |course|    
+    li = link_to course.full_name, course_path(course.id) 
+
+
+  
