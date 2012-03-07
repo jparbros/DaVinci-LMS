@@ -1,4 +1,15 @@
 = widget_div do
+  ul.breadcrumb
+    li
+      span Management
+    li
+      span.divider  >
+    li
+      = link_to 'Users', management_users_path
+    li
+      span.divider  >
+    li
+      = link_to 'New User', new_management_user_path
 
   - if @message
     div{data-dismiss="alert" class='alert alert-info'}
