@@ -14,16 +14,7 @@ Davinci::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   
-  
-  class InspectableMemoryStore < ActiveSupport::Cache::MemoryStore
-    def keys
-      @data.keys
-    end
-  end
-
-  config.cache_store = InspectableMemoryStore.new
-  
-  # config.cache_store = :memory_store
+  config.cache_store = :memory_store
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
