@@ -1,5 +1,7 @@
 class Management::NewUserWidget < Apotomo::Widget
   responds_to_event :submit
+  
+  cache :display
 
   def display
     @user = User.new

@@ -1,5 +1,7 @@
 class Management::Courses::NewCourseWidget < Apotomo::Widget
   responds_to_event :submit
+  
+  cache :display
 
   def display
     @course = Course.new
