@@ -8,7 +8,5 @@
   table.table
     tbody
       - @teachers.each do |teacher|
-        tr
-          td
-            = teacher.name
+        = render({:state => :teacher}, teacher)
   

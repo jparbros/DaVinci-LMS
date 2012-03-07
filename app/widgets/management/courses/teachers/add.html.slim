@@ -14,9 +14,7 @@
 table.table
   tbody
     - @teachers.each do |teacher|
-      tr
-        td
-          = teacher.name
+      = render({:state => :teacher}, teacher)
           
 javascript:
   var candidates=#{@candidates.to_json.html_safe};

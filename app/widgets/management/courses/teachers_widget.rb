@@ -4,6 +4,10 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   responds_to_event :done
   responds_to_event :add_teacher
   responds_to_event :remove_teacher
+  
+  cache :teacher do |cell, teacher|
+    teacher.id.to_s + teacher.updated_at.to_s
+  end
 
   def display
     @course = Course.find(params[:id])
@@ -53,6 +57,10 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
 
   def done(evt)
     update :state => :display
+  end
+  
+  def teacher(teacher)
+    render :view => :teacher, :locals => { teacher: teacher}
   end
 
   def candidates(users=[])
