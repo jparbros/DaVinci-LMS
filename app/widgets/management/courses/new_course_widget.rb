@@ -1,5 +1,6 @@
 class Management::Courses::NewCourseWidget < Apotomo::Widget
   responds_to_event :submit
+  helper :application
   
   cache :display
 

@@ -1,5 +1,6 @@
 class Management::Courses::CoursePanelWidget < Apotomo::Widget
   responds_to_event :course_edited
+  helper :application
 
   has_widgets do |root|
     root << widget('management/courses/edit_course', :edit_course)
