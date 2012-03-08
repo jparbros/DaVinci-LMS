@@ -34,7 +34,7 @@ The admin user is:
 
 ## Online testing environment
 
-The lasted build is visible here:
+Check the demo:
 
 [http://davinci-lms-testing.herokuapp.com/](http://davinci-lms-testing.herokuapp.com/)
 
