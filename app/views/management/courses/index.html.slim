@@ -1,6 +1,6 @@
 = breadcrumb('Management', link_to('Courses'))
 
-.title 
+.title
   span Courses
   = link_to 'New', new_management_course_path
 .form-search
@@ -11,16 +11,12 @@
         i
           span Jump
 
-table.table
-  thead
-    tr
-      th Abbreviation
-      th Full Name
-  tbody
-    - @courses.each do |course|
-      tr
-        td = link_to course.abbreviation, management_course_path(course.id)
-        td = link_to course.full_name, management_course_path(course.id)
+ul.nav.nav-stacked.nav-list.nav-tabs
+  - @courses.each do |course|
+    li = link_to management_course_path(course.id) do
+      .row-fluid
+        .span2 = course.abbreviation
+        .span10 = course.full_name
 
 javascript:
   window.scrollTo(0,0);

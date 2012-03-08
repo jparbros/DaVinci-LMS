@@ -11,14 +11,9 @@
         i
           span Jump
 
-table.table
-  thead
-    tr
-      th Name
-  tbody
-    - @users.each do |user|
-      tr
-        td = link_to "#{user.first_name} #{user.last_name}"
+ul.nav.nav-stacked.nav-list.nav-tabs
+  - @users.each do |user|
+    li = link_to user.name
 
 javascript:
   window.scrollTo(0,0);
