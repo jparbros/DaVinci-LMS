@@ -1,9 +1,8 @@
 = widget_div do
-  .course-users-lists-header
-    legend
-      span Students
-      = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true, :style => "padding-right:15px;"
-      = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
+  .title
+    span Students
+    = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true, :style => "padding-right:15px;"
+    = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true
 
   table.table
     tbody
