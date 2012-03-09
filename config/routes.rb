@@ -5,7 +5,9 @@ Davinci::Application.routes.draw do
     resources :users
   end
   
-  resources :courses
+  resources :courses do
+    resources :tasks
+  end
   
   resources :session, :only => [:new, :create, :destroy]
   match 'login' => 'session#new', :as => :login

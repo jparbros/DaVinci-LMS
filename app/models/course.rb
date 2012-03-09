@@ -15,6 +15,7 @@ class Course
   
   has_and_belongs_to_many :students, class_name: 'User', inverse_of: :student_in
   has_and_belongs_to_many :teachers, class_name: 'User', inverse_of: :teacher_in
+  has_many :tasks
   
   validates :full_name, :presence => true
   validates :abbreviation, :presence => true  

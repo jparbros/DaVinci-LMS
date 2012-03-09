@@ -1,5 +1,5 @@
-= breadcrumb(link_to('Home', root_path), link_to(@course.abbreviation, course_path(@course.id)))
+= breadcrumb link_to('Home', root_path), link_to(@course.abbreviation, course_path(@course.id))
 
-.title Tasks
+= render_widget :tasks, :display, @course
 
 .title Files
