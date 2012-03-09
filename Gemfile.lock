@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/apotonick/apotomo.git
-  revision: 4bba5c5d33c552292d60a04fe77f642c1cc5897c
+  remote: git://github.com/Nerian/apotomo.git
+  revision: f1748449d75dbd6fac30f8454fb921fe65d4d729
+  branch: patch-4
   specs:
     apotomo (1.2.2)
       cells (>= 3.6.7)

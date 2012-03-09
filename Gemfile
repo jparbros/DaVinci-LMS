@@ -16,7 +16,8 @@ gem 'forgery'
 gem 'fabrication'
 
 gem 'cells'
-gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
+# gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
+gem 'apotomo', git: 'git://github.com/Nerian/apotomo.git', :branch => 'patch-4'
 
 gem 'thin'
 
