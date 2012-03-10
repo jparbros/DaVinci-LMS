@@ -1,0 +1,8 @@
+.title Tasks
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  li.nav-header Active
+  - @tasks.each do |task|
+    li = link_to task.title
+  li.nav-header Pending revision
+  li.nav-header Archived

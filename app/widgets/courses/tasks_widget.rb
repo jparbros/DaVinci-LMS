@@ -1,9 +1,15 @@
 class Courses::TasksWidget < Apotomo::Widget
 
-  def display(course)
+  def display_teacher(course)
     @course = course
     @tasks = @course.tasks
-    render
+    render 
+  end
+  
+  def display_student(course)
+    @course = course
+    @tasks = @course.tasks
+    render 
   end
 
 end

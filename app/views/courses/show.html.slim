@@ -1,5 +1,8 @@
 = breadcrumb link_to('Home', root_path), link_to(@course.abbreviation, course_path(@course.id))
 
-= render_widget :tasks, :display, @course
+- if @user.student?(@course)
+  = render_widget :tasks, :display_student, @course
+- else
+  = render_widget :tasks, :display_teacher, @course
 
 .title Files

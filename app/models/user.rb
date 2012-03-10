@@ -26,4 +26,12 @@ class User
     "#{self.first_name} #{self.last_name}"
   end
   
+  def teacher?(course)
+    self.teacher_in_ids.include?(course.id)
+  end
+  
+  def student?(course)
+    self.student_in_ids.include?(course.id)
+  end
+  
 end
