@@ -14,4 +14,5 @@
 #= require bootstrap-carousel
 #= require pjax
 #= require main
+#= require bootstrap-datepicker
 #= require bootstrap-typeahead2

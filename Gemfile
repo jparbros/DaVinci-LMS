@@ -19,6 +19,8 @@ gem 'cells'
 # gem 'apotomo', git: 'git://github.com/apotonick/apotomo.git'
 gem 'apotomo', git: 'git://github.com/Nerian/apotomo.git', :branch => 'patch-4'
 
+gem 'bootstrap-datepicker-rails'
+
 gem 'thin'
 
 group :production do
@@ -26,19 +28,19 @@ group :production do
 end
 
 group :assets do
-  gem 'sass-rails'
-  gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'          
+  gem 'sass-rails'  
   gem 'formtastic', git: 'git://github.com/justinfrench/formtastic.git', branch: '2.1-stable'
   gem 'formtastic-bootstrap', git: 'git://github.com/cgunther/formtastic-bootstrap.git', branch: 'bootstrap2-rails3-2-formtastic-2-1'
+  gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
   gem "slim-rails"
   gem 'kaminari'
   gem 'jquery-rails'
   gem 'coffee-rails'
-  gem 'pjax_rails', git: 'git://github.com/rails/pjax_rails.git' 
+  gem 'pjax_rails', git: 'git://github.com/rails/pjax_rails.git'
 end
 
-group :test, :development do 
-  gem "brakeman" 
+group :test, :development do
+  gem "brakeman"
   gem 'mongoid-rspec'
   gem 'ruby_gntp'
   gem 'rspec'
