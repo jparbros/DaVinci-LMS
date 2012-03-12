@@ -1,0 +1,2 @@
+Fabricator(:submission) do
+end
