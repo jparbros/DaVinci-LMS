@@ -28,8 +28,8 @@ html
               li
                 = link_to 'Users', management_users_path
             ul.nav.pull-right
-              li
-                = link_to 'Logout', :logout
+              li = link_to "#{current_user.name}"
+              li = link_to 'Logout', :logout
 
     .container
       .row
