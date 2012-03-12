@@ -6,9 +6,11 @@ class Courses::TasksWidget < Apotomo::Widget
     render 
   end
   
-  def display_student(course)
+  def display_student(course, user)
     @course = course
-    @tasks = @course.tasks
+    @submissions = course.tasks.map.each do |task|
+      task.submissions.where(:user_id => user.id).first
+    end
     render 
   end
 
