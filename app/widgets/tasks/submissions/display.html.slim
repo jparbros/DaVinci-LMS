@@ -1,5 +1,5 @@
 .title Submissions
 
 ul
-  - @students.each do |user|
-    li = link_to user.name
+  - @submissions.each do |submission|
+    li = link_to submission.user.name, course_submission_path(@course.id, submission.id)

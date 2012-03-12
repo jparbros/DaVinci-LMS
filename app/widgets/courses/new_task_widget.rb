@@ -13,6 +13,7 @@ class Courses::NewTaskWidget < Apotomo::Widget
     @task = Task.new(evt[:task])
     @course = Course.find(evt[:course])
     @course.tasks << @task
+    create_task(@task, @course)
     if @course.save
       @message = "Task #{@task.title} saved"
       @task = Task.new
@@ -21,5 +22,18 @@ class Courses::NewTaskWidget < Apotomo::Widget
       update :view => :display
     end
   end
+  
+  private
+    def create_task(task, course)
+      course.tasks << task
+      course.students.each do |student|
+        submission = Submission.new
+        task.submissions << submission
+        student.submissions << submission
+        task.save
+        student.save
+      end
+      course.save      
+    end
 
 end

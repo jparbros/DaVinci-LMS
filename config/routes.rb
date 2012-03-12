@@ -7,6 +7,7 @@ Davinci::Application.routes.draw do
   
   resources :courses do
     resources :tasks
+    resources :submissions
   end
   
   resources :session, :only => [:new, :create, :destroy]
