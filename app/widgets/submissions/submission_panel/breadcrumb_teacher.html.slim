@@ -1,0 +1,4 @@
+= breadcrumb(link_to('Home', root_path),
+  link_to(course.abbreviation, course_path(course.id)),
+  link_to(task.title, course_task_path(course.id, task.id)),
+  link_to(submission.user.name, course_submission_path(course.id, submission.id)))
