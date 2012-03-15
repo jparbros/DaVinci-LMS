@@ -2,7 +2,7 @@
   = f.inputs 'Login' do
     - if Rails.env.development?
       = f.input :email, :input_html => { :autofocus=> "autofocus" }
-      = f.input :password, :input_html => { :autofocus=> "autofocus" }
+      = f.input :password
       
       ul.nav.nav-list.nav-tabs.nav-stacked
         li.nav-header User Admin
