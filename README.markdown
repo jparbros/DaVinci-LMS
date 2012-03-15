@@ -27,10 +27,13 @@ rails s
 
 The website will be available at [localhost:3000](localhost:3000)
 
-The admin user is:
-
-* Username: admin@test.kiwi
-* Password: admin
+* Teacher & admin
+  * Username: admin@test.kiwi
+  * Password: admin
+    
+* Student
+  * Username: student@test.kiwi
+  * Password: student
 
 ## Online testing environment
 
@@ -40,10 +43,13 @@ Check the demo:
 
 Feel free to do whatever you like there, it is automatically rebuilt.
 
-The admin user is:
-
-* Username: admin@test.kiwi
-* Password: admin
+* Teacher & admin
+  * Username: admin@test.kiwi
+  * Password: admin
+    
+* Student
+  * Username: student@test.kiwi
+  * Password: student
 
 ## How to contribute
 
