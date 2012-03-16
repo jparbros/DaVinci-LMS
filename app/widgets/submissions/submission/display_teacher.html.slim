@@ -1,0 +1,10 @@
+= widget_div do
+  .title Submission
+  - if @message
+    div{data-dismiss="alert" class='alert alert-info'}
+      a{href='#' class='close'} ×
+      = @message
+  = semantic_form_for submission, remote: true, url: '', :html => {:class=>'form-horizontal', :multipart => true} do |f|
+    = f.semantic_errors
+    = f.inputs do
+      = f.input :comment, :as => 'text', input_html: {rows: 5, class: 'row-fluid', readonly: true }

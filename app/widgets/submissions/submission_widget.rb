@@ -3,7 +3,12 @@ class Submissions::SubmissionWidget < Apotomo::Widget
   responds_to_event :submit_submission
 
   def display(submission)
-    render :view => :display, :locals => {:submission => submission}
+    user = options[:user]
+    if user.teacher?(submission.task.course)
+      render :view => :display_teacher, :locals => {:submission => submission}
+    else
+      render :view => :display, :locals => {:submission => submission}
+    end
   end
   
   def submit_submission(evt)
