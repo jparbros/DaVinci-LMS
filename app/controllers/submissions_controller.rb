@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
   
   has_widgets do |root|
-    root << widget('submissions/submission_panel', :submission_panel)
+    root << widget('submissions/submission_panel', :submission_panel, :user => current_user)
   end
   
   def show
