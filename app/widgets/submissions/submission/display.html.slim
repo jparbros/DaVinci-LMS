@@ -1,7 +1,12 @@
-#submission
+= widget_div do
+  .title Submissions
+  - if @message
+    div{data-dismiss="alert" class='alert alert-info'}
+      a{href='#' class='close'} ×
+      = @message
   = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, :submission_id => submission.id), :html => {:class=>'form-horizontal', :multipart => true} do |f|
     = f.semantic_errors
-    = f.inputs 'Submission' do
+    = f.inputs do
       = f.input :comment, :as => 'text', input_html: {rows: 10, :class=>'row-fluid', :autofocus=> "autofocus" }
     = f.actions do
       = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }

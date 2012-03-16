@@ -1,7 +1,9 @@
 class Submissions::SubmissionPanelWidget < Apotomo::Widget
-  helper :application
-
-  responds_to_event :submit_submission
+  helper :application  
+  
+  has_widgets do |root|
+    root << widget('submissions/submission', :submission, user: options[:user])
+  end
 
   def display(user, course, submission)
     @user= user
@@ -24,17 +26,4 @@ class Submissions::SubmissionPanelWidget < Apotomo::Widget
   def task(task)
     render :view => :task, :locals => {:task => task}
   end
-
-  def submission(submission)
-    render :view => :submission, :locals => {:submission => submission}
-  end
-
-  def submit_submission(evt)
-    user = options[:user]
-    submission = user.submissions.find(evt[:submission_id])
-    submission.comment = evt[:submission][:comment]
-    submission.save
-    update "#submission", {:state => :submission}, submission
-  end
-
 end
