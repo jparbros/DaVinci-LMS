@@ -16,6 +16,8 @@ Davinci::Application.routes.draw do
   match 'login' => 'session#new', :as => :login
   match 'logout' => 'session#destroy', :as => :logout
   
+  match "uploads/:id/:name" => "gridfs#serve", :as => :serve
+  
   root to: 'home#index'
 
 end

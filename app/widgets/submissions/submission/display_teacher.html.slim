@@ -9,7 +9,10 @@
     = f.inputs do
       = f.input :comment, :as => 'text', input_html: {rows: 5, class: 'row-fluid', readonly: true }
       
-.title Attachments
-ul
-  - submission.uploads_files.each do |upload|
-    li = upload.filename
+  .title Attachments
+  ul.unstyled
+    - submission.uploads_files.each do |upload|
+      li
+        .row-fluid
+          .span5 = link_to upload.filename, serve_path(upload.files_id, upload.filename), :target => "_blank", 'data-skip-pjax' => true
+          .span =number_to_human_size(upload.file_length)
