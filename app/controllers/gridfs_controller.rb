@@ -4,7 +4,7 @@ class GridfsController < ActionController::Metal
     file_id = params[:id]
     begin
       gridfs_file = Mongo::Grid.new(Mongoid.database).get(BSON::ObjectId(file_id))
-      self.response_body = gridfs_file.read
+      self.response_body = gridfs_file
       self.content_type = gridfs_file.content_type
     rescue
       self.status = :file_not_found
