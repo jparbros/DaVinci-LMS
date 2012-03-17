@@ -1,6 +1,10 @@
 development:
   host: localhost
   database: davinci_development
+  
+semi_production:
+  host: localhost
+  database: davinci_development
 
 test:
   host: localhost
