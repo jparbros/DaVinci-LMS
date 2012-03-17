@@ -1,12 +1,26 @@
 = widget_div do
-  .title Submission
+  .title Your submission
   - if @message
     div{data-dismiss="alert" class='alert alert-info'}
       a{href='#' class='close'} ×
       = @message
-  = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, :submission_id => submission.id), :html => {:class=>'form-horizontal', :multipart => true} do |f|
+  = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, :submission_id => submission.id), :html => {:class=>'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs do
       = f.input :comment, :as => 'text', input_html: {rows: 5, :class=>'row-fluid'}
     = f.actions do
       = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }
+
+  .title Attachments
+  ul
+    - submission.uploads_files.each do |upload|
+      li = upload.filename
+    
+  = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), :html => {class: 'form-horizontal', multipart: 'true'} do |f|
+    = f.inputs do
+      = f.input :authenticity_token, :as =>"hidden", :value=> form_authenticity_token.to_s
+      = f.input :new_file, :as => 'file', :label => 'Upload new file'
+    = f.actions do
+      = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }
+  
+    

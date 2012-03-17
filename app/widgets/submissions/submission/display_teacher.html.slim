@@ -8,3 +8,8 @@
     = f.semantic_errors
     = f.inputs do
       = f.input :comment, :as => 'text', input_html: {rows: 5, class: 'row-fluid', readonly: true }
+      
+.title Attachments
+ul
+  - submission.uploads_files.each do |upload|
+    li = upload.filename

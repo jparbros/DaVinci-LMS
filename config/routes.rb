@@ -7,7 +7,9 @@ Davinci::Application.routes.draw do
   
   resources :courses do
     resources :tasks
-    resources :submissions
+    resources :submissions do
+      match "add_file" => "submissions#add_file"
+    end    
   end
   
   resources :session, :only => [:new, :create, :destroy]
