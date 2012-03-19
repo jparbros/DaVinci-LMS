@@ -6,9 +6,8 @@
   input name='student_name' type="text" autofocus="autofocus" class="search-query typeahead input-medium"
   input name='student_id' type='hidden' class='student_id'
   button type="submit" class="btn" Add
-  - if @message
-    span{data-dismiss="alert" class='alert alert-info'}
-      = @message
+
+== info_message(@message)
 
 table.table
   tbody

@@ -1,6 +1,7 @@
 class Submissions::MarkWidget < Apotomo::Widget
   
   responds_to_event :mark
+  helper :application
 
   def display(user, course, submission)
     if user.student?(course)

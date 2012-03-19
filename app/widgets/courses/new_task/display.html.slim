@@ -3,12 +3,7 @@
   = breadcrumb(link_to('Home', root_path),  
     link_to(@course.abbreviation, course_path(@course.id)), 
     link_to('New Task', new_course_task_path(@course.id)))
-
-  - if @message
-    div{data-dismiss="alert" class='alert alert-info'}
-      a{href='#' class='close'} ×
-      = @message
-      
+    
   = semantic_form_for @task, remote: true, url: url_for_event(:submit, :course => @course.id), :html => {:class=>'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs 'New Task' do

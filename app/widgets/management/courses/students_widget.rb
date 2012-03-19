@@ -4,6 +4,8 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
   responds_to_event :done
   responds_to_event :add_student
   responds_to_event :remove_student
+  
+  helper :application
 
   def display
     @course = Course.find(params[:id])

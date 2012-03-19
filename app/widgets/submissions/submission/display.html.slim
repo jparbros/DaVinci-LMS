@@ -1,9 +1,8 @@
 = widget_div do
   .title Your submission
-  - if @message
-    div{data-dismiss="alert" class='alert alert-info'}
-      a{href='#' class='close'} ×
-      = @message
+  
+  == info_message(@message)
+  
   = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, :submission_id => submission.id), :html => {:class=>'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs do
