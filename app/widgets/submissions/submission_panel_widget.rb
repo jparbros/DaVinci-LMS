@@ -1,8 +1,9 @@
 class Submissions::SubmissionPanelWidget < Apotomo::Widget
-  helper :application  
-  
+  helper :application
+
   has_widgets do |root|
     root << widget('submissions/submission', :submission, user: options[:user])
+    root << widget('submissions/mark', :mark, user: options[:user])
   end
 
   def display(user, course, submission)
@@ -26,4 +27,5 @@ class Submissions::SubmissionPanelWidget < Apotomo::Widget
   def task(task)
     render :view => :task, :locals => {:task => task}
   end
+  
 end

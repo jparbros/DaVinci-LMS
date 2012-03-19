@@ -17,8 +17,7 @@
       li
         .row-fluid
           .span5 = link_to upload.filename, serve_path(upload.files_id, upload.filename), :target => "_blank", 'data-skip-pjax' => true
-          .span =number_to_human_size(upload.file_length)
-       
+          .span =number_to_human_size(upload.file_length)       
     
   = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), :html => {class: 'form-horizontal', multipart: 'true'} do |f|
     = f.inputs do
