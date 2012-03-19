@@ -1,6 +1,7 @@
 class Submissions::SubmissionWidget < Apotomo::Widget
-
   responds_to_event :submit_submission
+  
+  helper :application
 
   def display(submission)
     user = options[:user]
