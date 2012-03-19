@@ -2,4 +2,7 @@
 
 ul
   - @submissions.each do |submission|
-    li = link_to submission.user.name, course_submission_path(@course.id, submission.id)
+    - if submission.mark.nil?
+      li = link_to "#{submission.user.name} (No mark assigned)", course_submission_path(@course.id, submission.id)
+    - else
+      li = link_to "#{submission.user.name} (#{submission.mark})", course_submission_path(@course.id, submission.id)
