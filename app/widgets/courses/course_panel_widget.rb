@@ -8,7 +8,10 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   
   def tasks(course, current_user)
     if current_user.student?(course)
-      render view: :tasks_student, locals: {course: course, current_user: current_user}
+      submissions = course.tasks.map.each do |task|
+        task.submissions.where(:user_id => current_user.id).first
+      end
+      render view: :tasks_student, locals: {course: course, submissions: submissions}
     else
       render view: :tasks_teacher, locals: {course: course, tasks: course.tasks}
     end
