@@ -28,14 +28,20 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     submission = user.submissions.find(evt[:submission_id])
     file = submission.uploads.find(evt[:file_id])
     if file
-      grid = Mongo::Grid.new(Mongoid.database)
-      file = grid.delete(BSON::ObjectId(evt[:file_id]))
-      submission.uploads.delete(BSON::ObjectId(evt[:file_id]))
+      delete_file(submission, BSON::ObjectId(evt[:file_id]))
       submission.save
       update({:state => :display}, submission)
     else
       render :text => ''
-    end    
+    end
   end
+
+  private
+
+    def delete_file(submission, file)
+      grid = Mongo::Grid.new(Mongoid.database)
+      grid.delete(file)
+      submission.uploads.delete(file)
+    end
 
 end
