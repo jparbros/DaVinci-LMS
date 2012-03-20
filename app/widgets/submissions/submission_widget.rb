@@ -1,6 +1,7 @@
 class Submissions::SubmissionWidget < Apotomo::Widget
   responds_to_event :submit_submission
-  
+  responds_to_event :remove
+
   helper :application
 
   def display(submission)
@@ -21,4 +22,20 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     @message = 'Change saved!'
     update({:state => :display}, submission)
   end
+
+  def remove(evt)
+    user = options[:user]
+    submission = user.submissions.find(evt[:submission_id])
+    file = submission.uploads.find(evt[:file_id])
+    if file
+      grid = Mongo::Grid.new(Mongoid.database)
+      file = grid.delete(BSON::ObjectId(evt[:file_id]))
+      submission.uploads.delete(BSON::ObjectId(evt[:file_id]))
+      submission.save
+      update({:state => :display}, submission)
+    else
+      render :text => ''
+    end    
+  end
+
 end
