@@ -2,7 +2,7 @@
 
 ul.nav.nav-list.nav-tabs.nav-stacked
   li.nav-header Active
-  - @submissions.each do |submission|
-    li = link_to submission.task.title, course_submission_path(@course.id, submission.id)
+  - submissions.each do |submission|
+    li = link_to submission.task.title, course_submission_path(course.id, submission.id)
   li.nav-header Pending revision
   li.nav-header Archived

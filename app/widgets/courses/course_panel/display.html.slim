@@ -1,0 +1,10 @@
+= widget_div do
+  = breadcrumb link_to('Home', root_path), link_to(course.abbreviation, course_path(course.id))
+  
+  = render({state: :tasks}, course, current_user)
+  
+  .title Files
+  
+  = render({state: :teachers}, course)
+  
+  = render({state: :students}, course)

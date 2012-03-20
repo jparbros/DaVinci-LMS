@@ -1,0 +1,10 @@
+.title
+  span Tasks
+  = link_to 'New', new_course_task_path(course.id)
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  li.nav-header Active
+  - tasks.each do |task|
+    li = link_to task.title, course_task_path(course.id, task.id)
+  li.nav-header Pending revision
+  li.nav-header Archived
