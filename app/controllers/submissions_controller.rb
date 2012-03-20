@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
     file = grid.put(params[:submission][:new_file], :filename => new_file.original_filename, :content_type => new_file.content_type)
     submission.uploads << file
     submission.save
-    redirect_to course_submission_path(params[:course_id], submission.id)
+    redirect_to course_submission_path(params[:course_id], submission.id) + "#attachments"
   end
   
 end
