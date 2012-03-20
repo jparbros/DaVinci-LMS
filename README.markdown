@@ -2,7 +2,7 @@
 
 DaVinci LMS is an Open Source Learning Management System focused on usability and performance.
 
-This is in a very early phase of development and not ready for use.
+This is in a very early phase of development and not ready for use. Contributions are welcomed.
 
 ## Setting up development
 
@@ -52,6 +52,10 @@ Feel free to do whatever you like there, it is automatically rebuilt.
   * Password: student
 
 ## How to contribute
+
+Take a look at the [issues](https://github.com/Nerian/DaVinci-LMS/issues) and pick one that you like. Feel free to ask questions. You may also propose things; just open an issue and we will talk about it.
+
+Then:
 
 * Fork the project on Github
 * Create a topic branch for your changes
