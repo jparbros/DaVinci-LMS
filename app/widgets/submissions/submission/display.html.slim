@@ -10,7 +10,7 @@
     = f.actions do
       = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }
 
-  .title Attachments
+  #attachments.title Attachments
   ul.unstyled
     - submission.uploads_files.each do |upload|
       li
