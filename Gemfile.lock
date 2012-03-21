@@ -77,7 +77,7 @@ GEM
       sass
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-datepicker-rails (0.3)
+    bootstrap-datepicker-rails (0.4)
       railties (>= 3.0)
     brakeman (1.5.1)
       activesupport
@@ -137,7 +137,7 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
     hike (1.2.1)
-    hoe (2.16.1)
+    hoe (3.0.0)
       rake (~> 0.8)
     hooks (0.2.0)
     i18n (0.6.0)
@@ -156,7 +156,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.17.2)
+    mime-types (1.18)
     mongo (1.6.1)
       bson (~> 1.6.1)
     mongoid (2.4.6)
