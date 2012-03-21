@@ -16,7 +16,7 @@ table.table
         td.span3
           = teacher.name
         td
-          = link_to 'Remove', url_for_event(:remove_teacher, teacher_id: teacher.id, id: @course.id), 'data-skip-pjax' => true, remote: true
+          = link_to 'Remove', url_for_event(:remove_teacher, teacher_id: teacher.id, id: @course.id), 'data-skip-pjax' => true, remote: true, :class =>'destroy-link'
 
 javascript:
   var candidates=#{@candidates.to_json.html_safe};
