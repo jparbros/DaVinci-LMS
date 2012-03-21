@@ -3,7 +3,7 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   helper :application
   
   has_widgets do |root|
-    root << widget("courses/files", :files)
+    root << widget("courses/files", :files, :current_user => options[:current_user])
   end
 
   def display(course, current_user)    

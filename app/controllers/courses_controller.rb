@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   
   has_widgets do |root|
-    root << widget('courses/course_panel', :course_panel)
+    root << widget('courses/course_panel', :course_panel, :current_user => current_user)
   end
 
   def show

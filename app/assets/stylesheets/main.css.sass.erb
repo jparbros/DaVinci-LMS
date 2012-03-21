@@ -5,7 +5,7 @@ html
   overflow-y: scroll
 
 body
-  background-image: url("<%= asset_data_uri('background.png') %>")  
+  background-image: url("<%= asset_data_uri('background.png') %>")
 
 .table tbody tr:hover td, .table tbody tr:hover th
   background-color: #e8e8e8
@@ -13,10 +13,10 @@ body
 .site-width
   max-width: 760px
   margin: 0 auto
-  
+
 .breadcrumb li
   margin: 0 1px
-  
+
 .title
   display: block
   width: 100%
@@ -27,13 +27,20 @@ body
   color: #333
   border: 0
   border-bottom: 1px solid #EEE
-  
+
   span
     padding-right: 15px
-    
+
 .management_form
   .btn
     margin-right: 20px
     margin-left: 10px
   .alert
     display: inline-block
+
+.table-bordeless
+  td
+    border: 0
+    
+.destroy-link
+  color: red

@@ -26,7 +26,7 @@ class Course
     grid = Mongo::Grid.new(Mongoid.database)
     uploads.map.each do |file|
       grid.get(file)
-    end
+    end.sort_by &:filename
   end
   
 end
