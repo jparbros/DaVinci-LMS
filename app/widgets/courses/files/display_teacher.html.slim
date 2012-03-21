@@ -1,0 +1,8 @@
+= widget_div do
+  .title
+    span Files
+    span = link_to 'New', url_for_event(:new_file, :course_id => course.id), :remote => true
+
+  #new_file
+  
+  = render({:state => :files}, course)

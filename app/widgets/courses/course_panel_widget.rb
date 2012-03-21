@@ -1,6 +1,10 @@
 class Courses::CoursePanelWidget < Apotomo::Widget
   
   helper :application
+  
+  has_widgets do |root|
+    root << widget("courses/files", :files)
+  end
 
   def display(course, current_user)    
     render :view => :display, :locals => {course: course, current_user: current_user}

@@ -6,6 +6,7 @@ class Course
   field :full_name, type: String
   field :abbreviation, type: String
   field :description, type: String
+  field :uploads, type: Array, default: Array.new
   
   attr_accessible :full_name, :abbreviation, :description
   
@@ -20,4 +21,12 @@ class Course
   validates :full_name, :presence => true
   validates :abbreviation, :presence => true  
   validates :abbreviation, :uniqueness => true
+  
+  def uploads_files
+    grid = Mongo::Grid.new(Mongoid.database)
+    uploads.map.each do |file|
+      grid.get(file)
+    end
+  end
+  
 end
