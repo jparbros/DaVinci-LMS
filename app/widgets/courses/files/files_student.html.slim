@@ -3,4 +3,4 @@ table.table.table-bordeless
     - course.uploads_files.each do |upload|
       tr
         td = link_to truncate(upload.filename, :length => 35), serve_path(upload.files_id, upload.filename), :target => "_blank", 'data-skip-pjax' => true
-        td.hide-mobile = number_to_human_size(upload.file_length)
+        td = number_to_human_size(upload.file_length)
