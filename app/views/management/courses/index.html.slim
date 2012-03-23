@@ -16,7 +16,8 @@ ul.nav.nav-stacked.nav-list.nav-tabs
   - @courses.each do |course|
     li = link_to management_course_path(course.id) do
       .row-fluid
-        .span2 = course.abbreviation
+        .span2
+          .hide-mobile = course.abbreviation
         .span10 = course.full_name
 
 javascript:

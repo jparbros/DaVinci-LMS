@@ -9,16 +9,16 @@ ul.nav.nav-list.nav-tabs.nav-stacked
   - @courses_as_student.each do |course|  
     li = link_to course_path(course.id) do
       .row-fluid
-        .span2 = course.abbreviation
+        .span2
+          .hide-mobile = course.abbreviation
         .span10 = course.full_name
     
   li.nav-header As a teacher   
   - @courses_as_teacher.each do |course|    
     li = link_to course_path(course.id) do
       .row-fluid
-        .span2 = course.abbreviation
+        .span2 
+          .hide-mobile = course.abbreviation
         .span10 = course.full_name
-  
-
 
   
