@@ -1,7 +1,7 @@
 class Management::UsersController < ApplicationController
   
   has_widgets do |root|
-    root << widget('management/new_user', :new_user)
+    root << widget('management/users/new_user', :new_user)
   end
   
   def index
@@ -9,6 +9,10 @@ class Management::UsersController < ApplicationController
   end
   
   def new
+    
+  end
+  
+  def show
     
   end
   

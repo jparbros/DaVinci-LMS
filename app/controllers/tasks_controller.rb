@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   
   has_widgets do |root|
-    root << widget("courses/new_task", :new_task)
+    root << widget("tasks/new_task", :new_task)
     root << widget("tasks/edit_task", :edit_task)
     root << widget("tasks/submissions", :submissions)
   end

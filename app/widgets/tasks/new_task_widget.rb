@@ -1,4 +1,4 @@
-class Courses::NewTaskWidget < Apotomo::Widget
+class Tasks::NewTaskWidget < Apotomo::Widget
   helper :application
   
   responds_to_event :submit

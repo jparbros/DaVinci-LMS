@@ -1,4 +1,4 @@
-class Management::NewUserWidget < Apotomo::Widget
+class Management::Users::NewUserWidget < Apotomo::Widget
   responds_to_event :submit
   helper :application
 
