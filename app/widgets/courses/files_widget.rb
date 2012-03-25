@@ -1,5 +1,4 @@
 class Courses::FilesWidget < Apotomo::Widget
-  responds_to_event :new_file
   responds_to_event :remove
 
   def display(course, current_user)
@@ -8,10 +7,6 @@ class Courses::FilesWidget < Apotomo::Widget
     else
       render :view => :display_teacher, locals: {course: course, current_user: current_user}
     end
-  end
-  
-  def new_file(evt)    
-    update "#new_file", :view => "new_file_form", :locals => {:course => Course.find(evt[:course_id])}
   end
   
   def files(course, current_user)
