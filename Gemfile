@@ -40,7 +40,6 @@ group :assets do
 end
 
 group :test, :development do
-  gem "brakeman"
   gem 'mongoid-rspec'
   gem 'ruby_gntp'
   gem 'rspec'
