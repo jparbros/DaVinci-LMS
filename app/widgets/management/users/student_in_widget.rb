@@ -1,7 +1,44 @@
 class Management::Users::StudentInWidget < Apotomo::Widget
 
+  responds_to_event :activate_add_mode
+  responds_to_event :add_as_student
+  responds_to_event :done
+
+  helper :application
+
   def display(user)
     render locals: {user: user}
+  end
+
+  def done(evt)
+    update({:state => :display}, User.find(evt[:user_id]))
+  end
+
+  def activate_add_mode(evt)
+    user = User.find(evt[:user_id])
+    courses = Course.where(:_id.nin => user.student_in_ids)
+    update :view => :add_mode, locals: {user: user, candidates: candidates(courses)}
+  end
+
+  def add_as_student(evt)
+    user = User.find(evt[:user_id])
+    course = Course.find(evt[:course_id])
+    course.students << user
+    if course.save
+      @message = "<a href='/management/users/#{user.id}'>#{user.name}</a> is now a student in <a href='/management/courses/#{course.id}'>#{course.full_name}</a> "
+      render({:state => :activate_add_mode}, evt)
+    else
+      @message = "Something didn't work as expected. Reload the page and try again."
+      render({:state => :activate_add_mode}, evt)
+    end
+  end
+
+  def candidates(courses=[])
+    if courses.empty?
+      # return User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
+    else
+      return courses.collect { |course| {'course_id' => course.id, 'value' => course.full_name} }
+    end
   end
 
 end

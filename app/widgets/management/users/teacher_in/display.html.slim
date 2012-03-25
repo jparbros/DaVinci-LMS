@@ -1,7 +1,8 @@
-.title 
-  span Teacher in
-  = link_to 'Add'
+= widget_div do
+  .title 
+    span A teacher in these courses
+    = link_to 'Add'
   
-ul.unstyled
-  - user.teacher_in.each do |course|
-    li = link_to course.full_name
+  ul.unstyled
+    - user.teacher_in.each do |course|
+      li = link_to course.full_name
