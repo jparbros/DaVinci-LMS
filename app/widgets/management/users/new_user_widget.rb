@@ -3,18 +3,16 @@ class Management::Users::NewUserWidget < Apotomo::Widget
   helper :application
 
   def display
-    @user = User.new
-    render
+    render locals: {user: User.new}
   end
   
   def submit(evt)
-    @user = User.new(params[:user])
-    if @user.save
-      @message = "User #{@user.name} saved"
-      @user = User.new
-      update :view => :display      
+    user = User.new(evt[:user])
+    if user.save
+      @message = "User <a href='/management/users/#{user.id}'>#{user.name}</a> saved! "
+      update :view => :display, locals: {user: User.new}
     else
-      update :view => :display
+      update :view => :display, locals: {user: user}
     end
   end
 
