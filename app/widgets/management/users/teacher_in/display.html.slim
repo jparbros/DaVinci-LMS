@@ -1,7 +1,7 @@
 .title 
-  span Student in
+  span Teacher in
   = link_to 'Add'
   
 ul.unstyled
-  - user.student_in.each do |course|
+  - user.teacher_in.each do |course|
     li = link_to course.full_name
