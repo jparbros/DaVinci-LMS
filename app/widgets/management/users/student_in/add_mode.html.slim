@@ -1,4 +1,4 @@
-.title 
+.title
   span A student in these courses
   = link_to 'Done', url_for_event(:done, user_id: user.id), :remote => true
 
@@ -8,13 +8,13 @@
   button type="submit" class="btn" Add
 
 == info_message(@message)
-    
+
 table.table.table-bordeless
   tbody
     - user.student_in.each do |course|
       tr
         td = link_to course.full_name, management_course_path(course.id)
-        
+
 javascript:
   var candidates=#{candidates.to_json.html_safe};
   $(window).scrollTop($('#student_in').position().top-70);

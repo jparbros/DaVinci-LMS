@@ -1,4 +1,4 @@
-.title 
+.title
   span A student in these courses
   = link_to 'Done', url_for_event(:done, user_id: user.id), :remote => true
 
@@ -16,7 +16,6 @@ table.table.table-bordeless
         td = link_to course.full_name, management_course_path(course.id)
         td.span1 = link_to 'Remove', url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, :class =>'destroy-link'
 
-        
 javascript:
   var candidates=#{candidates.to_json.html_safe};
   $(window).scrollTop($('#student_in').position().top-70);
