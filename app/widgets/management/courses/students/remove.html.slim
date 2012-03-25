@@ -14,7 +14,7 @@ table.table
     - @students.each do |student|
       tr
         td.span3
-          = student.name
+          = link_to student.name, management_user_path(student.id)
         td
           = link_to 'Remove', url_for_event(:remove_student, student_id: student.id, id: @course.id), 'data-skip-pjax' => true, remote: true, :class =>'destroy-link'
 

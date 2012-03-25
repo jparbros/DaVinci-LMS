@@ -9,4 +9,4 @@
       - @students.each do |student|
         tr
           td
-            = student.name
+            = link_to student.name, management_user_path(student.id)

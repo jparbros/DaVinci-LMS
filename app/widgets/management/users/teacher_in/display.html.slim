@@ -3,6 +3,8 @@
     span A teacher in these courses
     = link_to 'Add'
   
-  ul.unstyled
-    - user.teacher_in.each do |course|
-      li = link_to course.full_name
+  table.table.table-bordeless
+    tbody
+      - user.teacher_in.each do |course|
+        tr
+          td = link_to course.full_name, management_course_path(course.id)
