@@ -55,11 +55,7 @@ class Management::Users::StudentInWidget < Apotomo::Widget
   end
   
   def candidates(courses=[])
-    if courses.empty?
-      # return User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
-    else
-      return courses.collect { |course| {'course_id' => course.id, 'value' => course.full_name} }
-    end
+    return courses.collect { |course| {'course_id' => course.id, 'value' => course.full_name} }
   end
 
 end
