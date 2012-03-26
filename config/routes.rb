@@ -12,8 +12,10 @@ Davinci::Application.routes.draw do
       match "add_file" => "submissions#add_file"
     end
   end
+  
+  resources :users, only: [:show]
 
-  resources :session, :only => [:create]
+  resources :session, only: [:create]
   match 'login' => 'session#new', :as => :login
   match 'logout' => 'session#destroy', :as => :logout
 

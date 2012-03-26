@@ -1,0 +1,22 @@
+.title = @user.name
+
+ul class="thumbnails"
+  li
+    .thumbnail
+      img src="http://placehold.it/260x180" alt=""
+
+      .title Profile
+      p = "Name: #{@user.name}"
+      p = "Email:  #{@user.email}"
+
+.title Studying
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  - @user.student_in.each do |course|
+    li = link_to course.full_name, management_course_path(course.id)
+
+.title Teaching
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  - @user.teacher_in.each do |course|
+    li = link_to course.full_name, management_course_path(course.id)
