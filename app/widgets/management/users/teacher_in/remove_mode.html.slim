@@ -1,0 +1,23 @@
+.title
+  span As a student
+  = link_to 'Done', url_for_event(:done, user_id: user.id), :remote => true
+
+= semantic_form_for '', remote: true, :url => url_for_event(:remove, :user_id => user.id), :html => {:class=>'form-search management_form'} do
+  input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-large"
+  input name='course_id' type='hidden' class='course_id'
+  button type="submit" class="btn" Remove
+
+== info_message(@message)
+
+table.table.table-bordeless
+  tbody
+    - user.teacher_in.each do |course|
+      tr
+        td = link_to course.full_name, management_course_path(course.id)
+        td.span1 = link_to 'Remove', url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, :class =>'destroy-link'
+
+javascript:
+  var candidates=#{candidates.to_json.html_safe};
+  $(window).scrollTop($('#teacher_in').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.course_id').attr('value', obj.course_id) }});
+  $('.fadein').fadeIn();

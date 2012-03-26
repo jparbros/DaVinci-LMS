@@ -1,0 +1,19 @@
+.title
+  span As a teacher
+  = link_to 'Done', url_for_event(:done, user_id: user.id), :remote => true
+
+= semantic_form_for '', remote: true, :url => url_for_event(:add_as_teacher, :user_id => user.id), :html => {:class=>'form-search management_form'} do
+  input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-large"
+  input name='course_id' type='hidden' class='course_id'
+  button type="submit" class="btn" Add
+
+== info_message(@message)
+
+ul.nav.nav-list.nav-tabs.nav-stacked
+  - user.teacher_in.each do |course|
+    li = link_to course.full_name, management_course_path(course.id)
+
+javascript:
+  var candidates=#{candidates.to_json.html_safe};
+  $(window).scrollTop($('#teacher_in').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.course_id').attr('value', obj.course_id) }});
