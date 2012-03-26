@@ -20,6 +20,8 @@ class User
   has_many :submissions
 
   validates :dni, :presence => true
+  validates :email, :presence => true
+  validates :first_name, :presence => true
 
   search_in :first_name, :last_name, :dni, :email
 
