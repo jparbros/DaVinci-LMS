@@ -1,12 +1,9 @@
 = widget_div do
   .title
     span Students
-    = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true, :style => "padding-right:15px;"
-    = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true unless @course.students.empty?
-
-  table.table
-    tbody
-      - @students.each do |student|
-        tr
-          td
-            = link_to student.name, management_user_path(student.id)
+    = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), :remote => true, :style => "padding-right:15px;"
+    = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), :remote => true unless @course.students.empty?
+                    
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - @students.each do |student|
+      li = link_to student.name, management_user_path(student.id)

@@ -1,11 +1,10 @@
 = widget_div do
   .title
     span Teachers
-    = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true, :style => "padding-right:15px;"
-    = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), 'data-skip-pjax' => true, :remote => true unless @course.teachers.empty?
+    = link_to 'Add', url_for_event(:set_add_mode, :id => @course.id), :remote => true, :style => "padding-right:15px;"
+    = link_to 'Remove', url_for_event(:set_remove_mode, :id => @course.id), :remote => true unless @course.teachers.empty?
     
-  table.table
-    tbody
-      - @teachers.each do |teacher|
-        = render({:state => :teacher}, teacher)
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - @teachers.each do |teacher|
+      li = link_to teacher.name, management_user_path(teacher.id)
   
