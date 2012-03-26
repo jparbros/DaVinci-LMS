@@ -1,17 +1,19 @@
 class Management::Courses::EditCourseWidget < Apotomo::Widget
   responds_to_event :submit
   
-  def display
-    @course = Course.find(params[:id])
-    render
+  helper :application
+  
+  def display(course)
+    render locals: {course: course}
   end
   
   def submit(evt)
-    @course = Course.find(evt[:id])
-    if @course.update_attributes(evt[:course])
-      trigger :course_edited
+    course = Course.find(evt[:course_id])
+    if course.update_attributes(evt[:course])
+      @message = "Changes in <a href='/management/courses/#{course.id}'>#{course.full_name}</a> saved!"
+      update view: :display, locals: {course: course}
     else
-      update :view => :display
+      update view: :display, locals: {course: course}
     end
   end
 end

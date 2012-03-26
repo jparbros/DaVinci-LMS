@@ -1,5 +1,4 @@
 class Management::Courses::CoursePanelWidget < Apotomo::Widget
-  responds_to_event :course_edited
   helper :application
 
   has_widgets do |root|
@@ -8,14 +7,8 @@ class Management::Courses::CoursePanelWidget < Apotomo::Widget
     root << widget('management/courses/students', :students)
   end
 
-  def display()
-    @course = Course.find(params[:id])
-    render
+  def display(course)
+    render locals: {course: course}
   end
   
-  def course_edited(evt)
-    @message = 'Course edited'
-    @course = Course.find(params[:id])
-    update :view => :display
-  end
 end

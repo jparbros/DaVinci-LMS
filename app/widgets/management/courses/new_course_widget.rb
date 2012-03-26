@@ -3,18 +3,16 @@ class Management::Courses::NewCourseWidget < Apotomo::Widget
   helper :application
 
   def display
-    @course = Course.new
-    render
+    render locals: { course: Course.new}
   end
 
   def submit(evt)
-    @course = Course.new(params[:course])
-    if @course.save
-      @message = "Course <a href='/management/courses/#{@course.id}'>#{@course.full_name}</a> saved"
-      @course = Course.new
-      update :view => :display
+    course = Course.new(params[:course])
+    if course.save
+      @message = "Course <a href='/management/courses/#{course.id}'>#{course.full_name}</a> saved"
+      update view: :display, locals: {course: Course.new}
     else
-      update :view => :display
+      update view: :display, locals: {course: course}
     end
   end
 

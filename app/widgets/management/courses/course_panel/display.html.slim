@@ -1,11 +1,7 @@
-= widget_div do
-
-  = breadcrumb('Management', link_to('Courses', management_courses_path), link_to("#{@course.abbreviation}", management_course_path(@course.id)))
-    
-  == info_message(@message)
+= widget_div do  
   
-  = render_widget :edit_course
+  = render_widget :edit_course, :display, course
   
-  = render_widget :teachers
+  = render_widget :teachers, :display, course
   
-  = render_widget :students
+  = render_widget :students, :display, course
