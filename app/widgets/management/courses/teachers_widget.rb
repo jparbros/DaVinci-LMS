@@ -28,7 +28,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     teacher = User.find(evt[:teacher_id])
     course = Course.find(evt[:id])
     course.teachers.delete(teacher)
-    @message = "#{teacher.name} is no longer a teacher in #{course.abbreviation}"
+    @message = "Removed <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> from <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
     render :state => :remove_mode
   end
   
@@ -48,7 +48,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     @course = Course.find(evt[:id])
     @course.teachers << teacher
     if @course.save
-      @message = "#{teacher.name} has been added as a teacher in #{@course.abbreviation}"
+      @message = "Added <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> as a teacher in <a href='/management/courses/#{@course.id}'>#{@course.full_name}</a> "
       render :state => :add_mode
     end
   end
