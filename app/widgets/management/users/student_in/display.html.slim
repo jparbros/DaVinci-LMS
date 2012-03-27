@@ -1,8 +1,8 @@
 = widget_div do
   .title
     span As a student
-    = link_to 'Add Course', url_for_event(:activate_add_mode, :user_id => user.id), :remote => true, :style => "padding-right:15px;"
-    = link_to 'Remove', url_for_event(:activate_remove_mode, :user_id => user.id), :remote => true unless user.student_in.empty?
+    = link_to 'Add Course', url_for_event(:activate_add_mode, user_id: user.id), remote: true, style: "padding-right:15px;"
+    = link_to 'Remove', url_for_event(:activate_remove_mode, user_id: user.id), remote: true unless user.student_in.empty?
 
   ul.nav.nav-list.nav-tabs.nav-stacked
     - user.student_in.each do |course|

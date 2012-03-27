@@ -19,7 +19,7 @@ class Tasks::NewTaskWidget < Apotomo::Widget
       @task = Task.new
       redirect_to course_path(@course.id)      
     else
-      update :view => :display
+      update view: :display
     end
   end
   

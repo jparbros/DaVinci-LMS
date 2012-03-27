@@ -1,6 +1,6 @@
-= render({:state => :breadcrumb}, @user, @course, @submission, @task)
+= render({state: :breadcrumb}, @user, @course, @submission, @task)
 
-= render({:state => :task}, @task)
+= render({state: :task}, @task)
 
 = render_widget :submission, :display, @submission
 

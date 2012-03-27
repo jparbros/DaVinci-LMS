@@ -5,9 +5,9 @@ class Submissions::MarkWidget < Apotomo::Widget
 
   def display(user, course, submission)
     if user.student?(course)
-      render :view => :mark_student, :locals => {:submission => submission}
+      render view: :mark_student, locals: {submission: submission}
     else
-      render :view => :mark_teacher, :locals => {:submission => submission}
+      render view: :mark_teacher, locals: {submission: submission}
     end
   end
   
@@ -17,7 +17,7 @@ class Submissions::MarkWidget < Apotomo::Widget
     submission.mark = evt[:submission][:mark]
     submission.save
     @message = "Mark saved!"
-    update({:state => :display}, user, submission.task.course, submission)
+    update({state: :display}, user, submission.task.course, submission)
   end
 
 end

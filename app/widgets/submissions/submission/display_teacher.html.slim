@@ -3,10 +3,10 @@
 
   == info_message(@message)
 
-  = semantic_form_for submission, remote: true, url: '', :html => {:class=>'form-horizontal', :multipart => true} do |f|
+  = semantic_form_for submission, remote: true, url: '', html: {class: 'form-horizontal', multipart: true} do |f|
     = f.semantic_errors
     = f.inputs do
-      = f.input :comment, :as => 'text', input_html: {rows: 5, class: 'row-fluid', readonly: true }
+      = f.input :comment, as: 'text', input_html: {rows: 5, class: 'row-fluid', readonly: true }
       
   .title Attachments
     
@@ -14,5 +14,5 @@
     tbody
       - files.each do |upload|
         tr
-          td = link_to upload.filename, serve_path(upload.files_id, upload.filename), :target => "_blank", 'data-skip-pjax' => true
+          td = link_to upload.filename, serve_path(upload.files_id, upload.filename), target: "_blank", 'data-skip-pjax' => true
           td.span2 = number_to_human_size(upload.file_length)

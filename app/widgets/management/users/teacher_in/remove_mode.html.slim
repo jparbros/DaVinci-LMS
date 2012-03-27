@@ -2,7 +2,7 @@
   span As a student
   = link_to 'Done', url_for_event(:done, user_id: user.id), :remote => true
 
-= semantic_form_for '', remote: true, :url => url_for_event(:remove, :user_id => user.id), :html => {:class=>'form-search management_form'} do
+= semantic_form_for '', remote: true, url: url_for_event(:remove, user_id: user.id), html: {class: 'form-search management_form'} do
   input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-large"
   input name='course_id' type='hidden' class='course_id'
   button type="submit" class="btn" Remove

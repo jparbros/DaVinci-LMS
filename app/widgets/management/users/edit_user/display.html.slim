@@ -6,12 +6,12 @@
 
   == info_message(@message)
       
-  = semantic_form_for user, remote: true, url: url_for_event(:submit, :user_id => user.id), :html => {:class=>'form-horizontal'} do |f|
+  = semantic_form_for user, remote: true, url: url_for_event(:submit, user_id: user.id), html: {class: 'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs user.name do
-      = f.input :first_name, :input_html => {:class=>'row-fluid', :autofocus=> "autofocus"}
-      = f.input :last_name, :input_html => {:class=>'row-fluid'}
-      = f.input :dni, :label => 'DNI', :input_html => {:class=>'row-fluid'}
-      = f.input :email, :input_html => {:class=>'row-fluid'}
+      = f.input :first_name, input_html: {class: 'row-fluid', autofocus: "autofocus"}
+      = f.input :last_name, input_html: {class: 'row-fluid'}
+      = f.input :dni, label: 'DNI', input_html: {class: 'row-fluid'}
+      = f.input :email, input_html: {class: 'row-fluid'}
     = f.actions do
       = f.action :submit, label: 'Save changes', button_html: { disable_with: "Please wait..." }
