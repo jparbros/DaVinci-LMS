@@ -8,11 +8,4 @@ class Submission
   belongs_to :task
   belongs_to :user
   
-  def uploads_files
-    grid = Mongo::Grid.new(Mongoid.database)
-    uploads.map.each do |file|
-      grid.get(file)
-    end.sort_by &:filename
-  end
-  
 end

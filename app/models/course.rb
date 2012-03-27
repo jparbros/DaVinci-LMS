@@ -22,11 +22,4 @@ class Course
   validates :abbreviation, presence: true  
   validates :abbreviation, uniqueness: true
   
-  def uploads_files
-    grid = Mongo::Grid.new(Mongoid.database)
-    uploads.map.each do |file|
-      grid.get(file)
-    end.sort_by &:filename
-  end
-  
 end
