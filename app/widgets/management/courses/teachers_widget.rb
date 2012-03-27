@@ -54,7 +54,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     render view: :teacher, locals: { teacher: teacher}
   end
 
-  def candidates(users=[])
+  def candidates(users = [])
     if users.empty?
       return User.all.collect { |user| {'teacher_id' => user.id, 'value' => user.name} }
     else
