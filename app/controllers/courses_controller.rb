@@ -11,10 +11,8 @@ class CoursesController < ApplicationController
   
   def add_file
     course = Course.find(params[:course_id])
-    grid = Mongo::Grid.new(Mongoid.database)
-    new_file = params[:course][:new_file]
-    file = grid.put(params[:course][:new_file], :filename => new_file.original_filename, :content_type => new_file.content_type)
-    course.uploads << file
+    file = params[:course][:new_file]
+    AddUploadContext.call(course, file)
     course.save
     redirect_to course_path(params[:course_id]) + "#files"
   end
