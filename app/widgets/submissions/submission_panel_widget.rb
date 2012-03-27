@@ -7,11 +7,7 @@ class Submissions::SubmissionPanelWidget < Apotomo::Widget
   end
 
   def display(user, course, submission)
-    @user= user
-    @course = course
-    @submission = submission
-    @task = @submission.task
-    render
+    render locals: {user: user, course: course, submission: submission, task: submission.task}
   end
 
   def breadcrumb(user, course, submission, task)
