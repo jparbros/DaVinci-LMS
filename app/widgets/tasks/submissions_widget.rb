@@ -1,9 +1,7 @@
 class Tasks::SubmissionsWidget < Apotomo::Widget
 
   def display(course, task)
-    @course = course
-    @submissions = task.submissions
-    render
+    render locals: {course: course, submissions: task.submissions}
   end
 
 end
