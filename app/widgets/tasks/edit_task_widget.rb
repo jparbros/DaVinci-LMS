@@ -3,20 +3,17 @@ class Tasks::EditTaskWidget < Apotomo::Widget
   helper :application
 
   def display(course, task)
-    @course = course
-    @task = task
-    render
+    render locals: {course: course, task: task}
   end
 
   def submit(evt)
-    @course = Course.find(evt[:course])    
-    @task = @course.tasks.where(_id: evt[:id]).first
-    logger.info @task
-    if @task.update_attributes(evt[:task])
-      @message = "Changes in #{@task.title} saved"
-      update view: :display
+    course = Course.find(evt[:course])    
+    task = course.tasks.find(evt[:id])
+    if task.update_attributes(evt[:task])
+      @message = "Changes in #{task.title} saved"
+      update view: :display, locals: {course: course, task: task}
     else
-      update view: :display
+      update view: :display, locals: {course: course, task: task}
     end
   end
 
