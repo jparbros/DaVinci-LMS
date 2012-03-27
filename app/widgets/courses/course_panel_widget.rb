@@ -41,7 +41,7 @@ class Courses::CoursePanelWidget < Apotomo::Widget
     end
     
     def active_tasks(course)
-      course.tasks.where(:last_day_to_submit.gt => Date.today )      
+      course.tasks.where(:last_day_to_submit.gte => Date.today )      
     end
     
     def pending_revisions_tasks(course)
