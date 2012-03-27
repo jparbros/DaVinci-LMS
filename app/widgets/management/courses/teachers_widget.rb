@@ -15,7 +15,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     course ||= Course.find(evt[:course_id])
     teachers = course.teachers
     candidates = candidates(teachers)
-    update :view => :remove_mode, locals: {course: course, teachers: teachers, candidates: candidates}
+    update view: :remove_mode, locals: {course: course, teachers: teachers, candidates: candidates}
   end
 
   def remove_teacher(evt)
@@ -30,7 +30,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     course ||= Course.find(evt[:course_id])
     teachers = course.teachers
     candidates = candidates(User.not_in(_id: teachers.map(&:id)))
-    update :view => :add_mode, locals: {course: course, teachers: teachers, candidates: candidates}
+    update view: :add_mode, locals: {course: course, teachers: teachers, candidates: candidates}
   end
 
   def add_teacher(evt)
@@ -51,7 +51,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   end
   
   def teacher(teacher)
-    render :view => :teacher, :locals => { teacher: teacher}
+    render view: :teacher, locals: { teacher: teacher}
   end
 
   def candidates(users=[])

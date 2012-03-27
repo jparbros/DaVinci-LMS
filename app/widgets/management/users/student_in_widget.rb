@@ -13,13 +13,13 @@ class Management::Users::StudentInWidget < Apotomo::Widget
   end
 
   def done(evt)
-    update({:state => :display}, User.find(evt[:user_id]))
+    update({state: :display}, User.find(evt[:user_id]))
   end
 
   def activate_add_mode(evt)
     user = User.find(evt[:user_id])
     courses = Course.where(:_id.nin => user.student_in_ids)
-    update :view => :add_mode, locals: {user: user, candidates: candidates(courses)}
+    update view: :add_mode, locals: {user: user, candidates: candidates(courses)}
   end
 
   def add_as_student(evt)
@@ -28,17 +28,17 @@ class Management::Users::StudentInWidget < Apotomo::Widget
     course.students << user
     if course.save
       @message = "Added <a href='/management/users/#{user.id}'>#{user.name}</a> as a student in <a href='/management/courses/#{course.id}'>#{course.full_name}</a> "
-      render({:state => :activate_add_mode}, evt)
+      render({state: :activate_add_mode}, evt)
     else
       @message = "Something didn't work as expected. Reload the page and try again."
-      render({:state => :activate_add_mode}, evt)
+      render({state: :activate_add_mode}, evt)
     end
   end
   
   def activate_remove_mode(evt)
     user = User.find(evt[:user_id])
     courses = user.student_in
-    update :view => :remove_mode, locals: {user: user, candidates: candidates(courses)}
+    update view: :remove_mode, locals: {user: user, candidates: candidates(courses)}
   end
   
   def remove(evt)
@@ -47,15 +47,15 @@ class Management::Users::StudentInWidget < Apotomo::Widget
     course.students.delete(user)
     if course.save
       @message = "Removed <a href='/management/users/#{user.id}'>#{user.name}</a> from <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
-      render({:state => :activate_remove_mode}, evt)
+      render({state: :activate_remove_mode}, evt)
     else
       @message = "Something didn't work as expected. Reload the page and try again."
-      render({:state => :activate_remove_mode}, evt)
+      render({state: :activate_remove_mode}, evt)
     end
   end
   
   def candidates(courses=[])
-    return courses.collect { |course| {'course_id' => course.id, 'value' => course.full_name} }
+    courses.collect { |course| {'course_id' => course.id, 'value' => course.full_name} }
   end
 
 end

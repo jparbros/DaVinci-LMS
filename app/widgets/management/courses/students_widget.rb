@@ -47,11 +47,12 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     update({state: :display}, Course.find(evt[:course_id]))
   end
   
-  def candidates(users=[])
-    if users.empty?
-      return User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
-    else
-      return users.collect { |user| {'student_id' => user.id, 'value' => user.name} }
+  def private
+    def candidates(users=[])
+      if users.empty?
+        return User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
+      else
+        return users.collect { |user| {'student_id' => user.id, 'value' => user.name} }
+      end
     end
-  end
 end

@@ -5,16 +5,16 @@ class Management::Users::EditUserWidget < Apotomo::Widget
   
 
   def display(user)
-    render :locals => {:user => user}
+    render locals: {user: user}
   end
 
   def submit(evt)
     user = User.find(evt[:user_id])
     if user.update_attributes(evt[:user])      
       @message = "Changes in <a href='/management/users/#{user.id}'>#{user.name}</a> saved!"
-      update :view => :display, locals: {user: user}
+      update view: :display, locals: {user: user}
     else
-      update :view => :display, locals: {user: user}
+      update view: :display, locals: {user: user}
     end
   end
 
