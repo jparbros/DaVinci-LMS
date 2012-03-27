@@ -1,9 +1,9 @@
-class AddUploadContext
+class RemoveUploadContext
 
   attr_reader :target, :file
 
   def self.call(target, file)
-    AddUploadContext.new(target, file).call
+    RemoveUploadContext.new(target, file).call
   end
 
   def initialize(target, file)
@@ -13,7 +13,7 @@ class AddUploadContext
   end
 
   def call
-    @target.add_file(@file)  
+    @target.destroy_file(@file)  
   end
 
 end

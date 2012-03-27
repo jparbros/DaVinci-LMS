@@ -14,7 +14,6 @@ class SubmissionsController < ApplicationController
     submission = Submission.find(params[:submission_id])
     file = params[:submission][:new_file]
     AddUploadContext.call(submission, file)
-    submission.save
     redirect_to course_submission_path(params[:course_id], submission.id) + "#attachments"
   end
 

@@ -11,4 +11,11 @@ module GridfsFileRepository
     self.uploads.map.each{ |file| grid.get(file) }.sort_by &:filename
   end
   
+  def destroy_file(file)
+    grid = Mongo::Grid.new(Mongoid.database)
+    grid.delete(file)
+    self.uploads.delete(file)
+    self.save    
+  end
+  
 end

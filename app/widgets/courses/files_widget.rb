@@ -21,22 +21,8 @@ class Courses::FilesWidget < Apotomo::Widget
   def remove(evt)
     current_user = options[:current_user]
     course = current_user.teacher_in.find(evt[:course_id])
-    file = course.uploads.find(evt[:file_id])
-    if file
-      delete_file(course, BSON::ObjectId(evt[:file_id]))
-      course.save
-      update({state: :display}, course, current_user)
-    else
-      render text: ''
-    end   
+    RemoveUploadContext.call(course, BSON::ObjectId(evt[:file_id]))
+    update({state: :display}, course, current_user)      
   end
-  
-  private
-
-    def delete_file(course, file)
-      grid = Mongo::Grid.new(Mongoid.database)
-      grid.delete(file)
-      course.uploads.delete(file)
-    end
 
 end

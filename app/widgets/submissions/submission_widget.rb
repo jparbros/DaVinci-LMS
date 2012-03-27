@@ -7,8 +7,8 @@ class Submissions::SubmissionWidget < Apotomo::Widget
   def display(submission)
     user = options[:user]
     course = submission.task.course
-    course.extend GridfsFileRepository
-    files = course.uploaded_files
+    submission.extend GridfsFileRepository
+    files = submission.uploaded_files
     if user.teacher?(course)
       render view: :display_teacher, locals: {submission: submission, files: files}
     else
@@ -28,22 +28,8 @@ class Submissions::SubmissionWidget < Apotomo::Widget
   def remove(evt)
     user = options[:user]
     submission = user.submissions.find(evt[:submission_id])
-    file = submission.uploads.find(evt[:file_id])
-    if file
-      delete_file(submission, BSON::ObjectId(evt[:file_id]))
-      submission.save
-      update({state: :display}, submission)
-    else
-      render text: ''
-    end
+    RemoveUploadContext.call(submission, BSON::ObjectId(evt[:file_id]))
+    update({state: :display}, submission)
   end
-
-  private
-
-    def delete_file(submission, file)
-      grid = Mongo::Grid.new(Mongoid.database)
-      grid.delete(file)
-      submission.uploads.delete(file)
-    end
-
+  
 end
