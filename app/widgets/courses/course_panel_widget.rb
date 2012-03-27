@@ -3,11 +3,11 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   helper :application
   
   has_widgets do |root|
-    root << widget("courses/files", :files, :current_user => options[:current_user])
+    root << widget("courses/files", :files, current_user: options[:current_user])
   end
 
   def display(course, current_user)    
-    render :view => :display, :locals => {course: course, current_user: current_user}
+    render view: :display, locals: {course: course, current_user: current_user}
   end
   
   def tasks(course, current_user)
@@ -33,11 +33,11 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   
   private
     def active_submissions(current_user, course)
-      Submission.where(:user_id => current_user.id, :task_id.in => course.tasks.map(&:id), :mark => nil)
+      Submission.where(user_id: current_user.id, :task_id.in => course.tasks.map(&:id), mark: nil)
     end
     
     def archived_submissions(current_user, course)
-      Submission.where(:user_id => current_user.id, :task_id.in => course.tasks.map(&:id), :mark.ne => nil)
+      Submission.where(user_id: current_user.id, :task_id.in => course.tasks.map(&:id), :mark.ne => nil)
     end
     
     def active_tasks(course)
@@ -49,6 +49,6 @@ class Courses::CoursePanelWidget < Apotomo::Widget
     end
     
     def archived_tasks(course)
-      course.tasks.where(:last_day_to_submit.lt => Date.today ).select{|t| t.submissions.where(:mark => nil).empty?}
+      course.tasks.where(:last_day_to_submit.lt => Date.today ).select{|t| t.submissions.where(mark: nil).empty?}
     end
 end
