@@ -2,7 +2,9 @@ class Tasks::EditTaskWidget < Apotomo::Widget
   responds_to_event :submit
   helper :application
 
-  def display(course, task)
+  def display(course, task)    
+    @message = session[:message]
+    session[:message] = nil
     render locals: {course: course, task: task}
   end
 

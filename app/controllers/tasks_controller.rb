@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @course = Course.find(params[:course_id])
   end
   
-  def show
+  def show    
     @course = Course.find(params[:course_id])
     @task = Task.find(params[:id])
   end
