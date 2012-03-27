@@ -3,17 +3,18 @@ class Courses::FilesWidget < Apotomo::Widget
 
   def display(course, current_user)
     if current_user.student?(course)
-      render :view => :display_student, locals: {course: course, current_user: current_user}
+      render view: :display_student, locals: {course: course, current_user: current_user}
     else
-      render :view => :display_teacher, locals: {course: course, current_user: current_user}
+      render view: :display_teacher, locals: {course: course, current_user: current_user}
     end
   end
   
   def files(course, current_user)
-    if current_user.student?(course)
-      render :view => :files_student, locals: {course: course}
+    course.extend GridfsFileRepository
+    if current_user.student?(course)            
+      render view: :files_student, locals: {course: course, files: course.uploaded_files}
     else
-      render :view => :files_teacher, locals: {course: course}
+      render view: :files_teacher, locals: {course: course, files: course.uploaded_files}
     end
   end
   
@@ -24,9 +25,9 @@ class Courses::FilesWidget < Apotomo::Widget
     if file
       delete_file(course, BSON::ObjectId(evt[:file_id]))
       course.save
-      update({:state => :display}, course, current_user)
+      update({state: :display}, course, current_user)
     else
-      render :text => ''
+      render text: ''
     end   
   end
   

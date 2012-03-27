@@ -7,10 +7,12 @@ class Submissions::SubmissionWidget < Apotomo::Widget
   def display(submission)
     user = options[:user]
     course = submission.task.course
+    course.extend GridfsFileRepository
+    files = course.uploaded_files
     if user.teacher?(course)
-      render :view => :display_teacher, :locals => {:submission => submission}
+      render view: :display_teacher, locals: {submission: submission, files: files}
     else
-      render :view => :display, :locals => {:submission => submission, :course => course}
+      render view: :display_student, locals: {submission: submission, course: course, files: files}
     end
   end
 
@@ -20,7 +22,7 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     submission.comment = evt[:submission][:comment]
     submission.save
     @message = 'Change saved!'
-    update({:state => :display}, submission)
+    update({state: :display}, submission)
   end
 
   def remove(evt)
@@ -30,9 +32,9 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     if file
       delete_file(submission, BSON::ObjectId(evt[:file_id]))
       submission.save
-      update({:state => :display}, submission)
+      update({state: :display}, submission)
     else
-      render :text => ''
+      render text: ''
     end
   end
 

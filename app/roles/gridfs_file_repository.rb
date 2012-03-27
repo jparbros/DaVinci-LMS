@@ -6,4 +6,9 @@ module GridfsFileRepository
     self.save
   end
   
+  def uploaded_files
+    grid = Mongo::Grid.new(Mongoid.database)
+    self.uploads.map.each{ |file| grid.get(file) }.sort_by &:filename
+  end
+  
 end
