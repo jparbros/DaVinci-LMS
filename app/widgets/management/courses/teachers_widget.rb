@@ -11,7 +11,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     render locals: {course: course, teachers: course.teachers}
   end
   
-  def set_remove_mode(evt, course=nil)
+  def set_remove_mode(evt, course = nil)
     course ||= Course.find(evt[:course_id])
     teachers = course.teachers
     candidates = candidates(teachers)
@@ -26,7 +26,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     render({state: :set_remove_mode}, evt, course)
   end
   
-  def set_add_mode(evt, course=nil)
+  def set_add_mode(evt, course = nil)
     course ||= Course.find(evt[:course_id])
     teachers = course.teachers
     candidates = candidates(User.not_in(_id: teachers.map(&:id)))

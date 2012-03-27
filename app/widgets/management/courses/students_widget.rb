@@ -11,8 +11,8 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     render locals: {course: course}
   end
 
-  def set_remove_mode(evt)
-    course = Course.find(params[:course_id])
+  def set_remove_mode(evt, course = nil)
+    course ||= Course.find(evt[:course_id])
     students = course.students
     candidates = candidates(students)
     update view: :remove_mode, locals: {course: course, students: students, candidates: candidates}
@@ -23,11 +23,11 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.students.delete(student)
     @message = "Removed <a href='/management/users/#{student.id}'>#{student.name}</a> from <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
-    render({state: :set_remove_mode}, course)
+    render({state: :set_remove_mode}, evt, course)
   end
 
-  def set_add_mode(evt)
-    course = Course.find(evt[:course_id])
+  def set_add_mode(evt, course = nil)
+    course ||= Course.find(evt[:course_id])
     students = course.students
     candidates = candidates(User.not_in(_id: course.student_ids))
     update view: :add_mode, locals: {course: course, students: students, candidates: candidates}
@@ -39,7 +39,7 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     course.students << student
     if course.save
       @message = "Added <a href='/management/users/#{student.id}'>#{student.name}</a> as a student in <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
-      render({state: :set_add_mode}, course)
+      render({state: :set_add_mode}, evt, course)
     end
   end
 
