@@ -5,7 +5,7 @@
 = semantic_form_for '', remote: true, url: url_for_event(:add_as_teacher, user_id: user.id), html: {class: 'form-search management_form'} do
   input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-large"
   input name='course_id' type='hidden' class='course_id'
-  button type="submit" class="btn" Add
+  button type="submit" class="btn" data-disable-with="Please wait..." Add
 
 == info_message(@message)
 

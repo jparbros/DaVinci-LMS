@@ -5,7 +5,7 @@
 = semantic_form_for '', remote: true, url: url_for_event(:remove, user_id: user.id), html: {class: 'form-search management_form'} do
   input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-large"
   input name='course_id' type='hidden' class='course_id'
-  button type="submit" class="btn" Remove
+  button type="submit" class="btn" data-disable-with="Please wait..." Remove
 
 == info_message(@message)
 
@@ -14,7 +14,7 @@ table.table.table-bordeless
     - user.student_in.each do |course|
       tr
         td = link_to course.full_name, management_course_path(course.id)
-        td.span1 = link_to 'Remove', url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, class: 'destroy-link'
+        td.span1 = link_to 'Remove', url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, class: 'destroy-link', 'data-disable-with'=>"Please wait..."
 
 javascript:
   var candidates=#{candidates.to_json.html_safe};
