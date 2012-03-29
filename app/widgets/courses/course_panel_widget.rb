@@ -54,7 +54,7 @@ class Courses::CoursePanelWidget < Apotomo::Widget
     end
     
     def pending_revisions_tasks(course)
-      course.tasks.where(:last_day_to_submit.lt => Date.today).select{|t| t.submissions.where(:mark.ne => nil).empty?}
+      course.tasks.where(:last_day_to_submit.lt => Date.today).select{|t| t.submissions.where(:mark.ne => nil).present?}
     end
     
     def archived_tasks(course)
