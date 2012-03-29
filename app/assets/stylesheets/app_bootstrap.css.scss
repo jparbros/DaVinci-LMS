@@ -4,7 +4,7 @@ body{ padding-top: 60px; padding-bottom: 40px;}
 @import "responsive";
 
 .well {
-  border: 2px solid #999;
-	background-color: #fbfbfb;
-  @include  translucent-border(black, 0.5);
+  border: 4px solid #999;
+	background-color: #fffdfb;	
+  @include translucent-border(black, 0.3);
 }
