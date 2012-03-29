@@ -21,4 +21,10 @@ course.teachers << admin
 course.students << student
 course.save
 
+Course.all.each { |c| c.students << student; c.teachers << teacher; c.teachers << admin}
+
+teacher.save
+student.save
+admin.save
+
 Course.all.each {|c| 10.times { c.students << Fabricate(:user) }; c.save }
