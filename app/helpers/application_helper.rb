@@ -10,9 +10,8 @@ module ApplicationHelper
   def info_message(message)
     if message      
       <<-html
-        <div data-dismiss="alert" class='alert alert-info'>
-          <a href='#' class='close'> × </a>
-            #{message}
+        <div class='alert alert-info'>
+          #{message}
         </div>
       html
     end
