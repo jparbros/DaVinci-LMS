@@ -29,8 +29,9 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
   def set_add_mode(evt, course = nil)
     course ||= Course.find(evt[:course_id])
     students = course.students
-    candidates = candidates(User.not_in(_id: course.student_ids))
-    update view: :add_mode, locals: {course: course, students: students, candidates: candidates}
+    teachers = course.teachers
+    users = candidates(User.where(:_id.nin => (students.map(&:id) + teachers.map(&:id))))
+    update view: :add_mode, locals: {course: course, students: students, candidates: users}
   end
 
   def add_student(evt)
@@ -49,10 +50,6 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
 
   private
     def candidates(users = [])
-      if users.empty?
-        return User.all.collect { |user| {'student_id' => user.id, 'value' => user.name} }
-      else
-        return users.collect { |user| {'student_id' => user.id, 'value' => user.name} }
-      end
+      users.map.each { |user| {'student_id' => user.id, 'value' => user.name} }      
     end
 end

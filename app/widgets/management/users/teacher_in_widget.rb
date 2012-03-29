@@ -18,7 +18,7 @@ class Management::Users::TeacherInWidget < Apotomo::Widget
 
   def activate_add_mode(evt)
     user = User.find(evt[:user_id])
-    courses = Course.where(:_id.nin => user.teacher_in_ids)
+    courses = Course.where(:_id.nin => user.teacher_in_ids + user.student_in_ids)
     update view: :add_mode, locals: {user: user, candidates: candidates(courses)}
   end
 
