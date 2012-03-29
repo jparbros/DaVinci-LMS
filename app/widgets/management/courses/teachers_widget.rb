@@ -57,7 +57,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
 
   private
     def candidates(users = [])
-      users.map.each { |user| {'student_id' => user.id, 'value' => user.name} }      
+      users.map.each { |user| {'teacher_id' => user.id, 'value' => user.name} }      
     end
 
 end
