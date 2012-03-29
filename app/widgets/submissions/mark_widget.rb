@@ -16,7 +16,7 @@ class Submissions::MarkWidget < Apotomo::Widget
     submission = Submission.find(evt[:submission_id])
     submission.mark = evt[:submission][:mark]
     submission.save
-    @message = "Mark saved!"
+    @message = "Mark saved! <a href='/courses/#{submission.task.course.id}/tasks/#{submission.task.id}#submissions'>Go back to the submission list</a>"
     update({state: :display}, user, submission.task.course, submission)
   end
 

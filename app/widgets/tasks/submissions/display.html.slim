@@ -1,8 +1,9 @@
-.title Submissions
+#submissions.title Submissions
 
 ul
-  - submissions.each do |submission|
-    - if submission.mark.nil?
-      li = link_to "#{submission.user.name} (No mark assigned)", course_submission_path(course.id, submission.id)
-    - else
-      li = link_to "#{submission.user.name} (#{submission.mark})", course_submission_path(course.id, submission.id)
+  - ungraded_submissions.each do |submission|
+    li = link_to "#{submission.user.name} (No mark assigned)", course_submission_path(course.id, submission.id)
+      
+ul
+  - graded_submissions.each do |submission|
+    li = link_to "#{submission.user.name} (#{submission.mark})", course_submission_path(course.id, submission.id)

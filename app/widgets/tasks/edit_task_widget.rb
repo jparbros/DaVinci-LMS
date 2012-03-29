@@ -3,8 +3,6 @@ class Tasks::EditTaskWidget < Apotomo::Widget
   helper :application
 
   def display(course, task)    
-    @message = session[:message]
-    session[:message] = nil
     render locals: {course: course, task: task}
   end
 
