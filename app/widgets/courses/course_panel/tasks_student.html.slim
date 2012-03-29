@@ -4,6 +4,9 @@ ul.nav.nav-list.nav-tabs.nav-stacked
   li.nav-header To do
   - active_submissions.each do |submission|
     li = link_to submission.task.title, course_submission_path(course.id, submission.id)
+  li.nav-header Pending revision
+  - pending_revisions.each do |submission|
+    li = link_to submission.task.title, course_submission_path(course.id, submission.id)
   li.nav-header Archived
   - archived_submissions.each do |submission|
     li = link_to submission.task.title, course_submission_path(course.id, submission.id)

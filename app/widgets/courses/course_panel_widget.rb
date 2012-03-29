@@ -14,6 +14,7 @@ class Courses::CoursePanelWidget < Apotomo::Widget
     if current_user.student?(course)
       render view: :tasks_student, locals: {course: course, 
           active_submissions: active_submissions(current_user, course), 
+          pending_revisions: pending_revisions(current_user, course),
           archived_submissions: archived_submissions(current_user, course)}
     else            
       render view: :tasks_teacher, locals: {course: course, 
@@ -33,11 +34,19 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   
   private
     def active_submissions(current_user, course)
-      Submission.where(user_id: current_user.id, :task_id.in => course.tasks.map(&:id), mark: nil)
+      Submission.where(user_id: current_user.id, 
+        :task_id.in => course.tasks.where(:last_day_to_submit.gte => Date.today).map(&:id), 
+        mark: nil)
     end
     
     def archived_submissions(current_user, course)
       Submission.where(user_id: current_user.id, :task_id.in => course.tasks.map(&:id), :mark.ne => nil)
+    end
+    
+    def pending_revisions(current_user, course)
+      Submission.where(user_id: current_user.id, 
+        :task_id.in => course.tasks.where(:last_day_to_submit.lt => Date.today).map(&:id), 
+        mark: nil)
     end
     
     def active_tasks(course)
