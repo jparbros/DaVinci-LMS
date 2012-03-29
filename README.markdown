@@ -10,6 +10,10 @@ The current state of the project is early development. This is an excellent oppo
 
 This piece of technology sits upon many other top notch technologies such as Ruby on Rails and MongoDB.
 
+## Preview
+
+![alt text](http://dl.dropbox.com/u/834494/DaVinci%20LMS/DaVinci%20LMS%20home.png "DaVinci LMS ")
+
 ## Online testing environment
 
 Check the demo:
