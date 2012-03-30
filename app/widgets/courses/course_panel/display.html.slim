@@ -11,6 +11,6 @@
   br
   = render_widget :files, :display, course, current_user
   
-  = render({state: :teachers}, course)
-  
-  = render({state: :students}, course)
+  .row-fluid
+    .span6 = render({state: :teachers}, course)
+    .span6 = render({state: :students}, course)

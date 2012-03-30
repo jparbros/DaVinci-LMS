@@ -2,6 +2,6 @@
   
   = render_widget :edit_course, :display, course
   
-  = render_widget :teachers, :display, course
-  
-  = render_widget :students, :display, course
+  .row-fluid
+    .span6 = render_widget :teachers, :display, course
+    .span6 = render_widget :students, :display, course
