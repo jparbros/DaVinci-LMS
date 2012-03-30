@@ -12,13 +12,18 @@
           span Jump
 br
 
-ul.nav.nav-stacked.nav-list.nav-tabs
-  - @courses.each do |course|
-    li = link_to management_course_path(course.id) do
-      .row-fluid
-        .span2
-          .hide-mobile = course.abbreviation
-        .span10 = course.full_name
+- if @courses.empty?
+  p 
+    span There are not courses. Start by 
+    = link_to 'creating one.', new_management_course_path
+- else
+  ul.nav.nav-stacked.nav-list.nav-tabs
+    - @courses.each do |course|
+      li = link_to management_course_path(course.id) do
+        .row-fluid
+          .span2
+            .hide-mobile = course.abbreviation
+          .span10 = course.full_name
 
 javascript:
   window.scrollTo(0,0);
