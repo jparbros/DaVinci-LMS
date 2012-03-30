@@ -1,6 +1,4 @@
 = widget_div do
-  .title Mark
-
-  = semantic_form_for submission, url: '', html: {class: 'form-horizontal'} do |f|
-    = f.inputs do
-      = f.input :mark, input_html: {readonly: true, class: 'uneditable-input'}
+  p 
+    b
+      span Mark: #{submission.mark ? submission.mark : 'Not yet rated'}

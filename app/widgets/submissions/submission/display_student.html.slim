@@ -1,4 +1,5 @@
 = widget_div do
+
   .title Your submission
 
   == info_message(@message)
@@ -6,25 +7,31 @@
   = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, submission_id: submission.id), html: {class: 'form-horizontal'} do |f|
     = f.semantic_errors
     = f.inputs do
-      = f.input :comment, as: 'text', input_html: {rows: 5, class: 'row-fluid'}
+      = f.input :comment, as: 'text',input_html: {rows: 5, class: 'row-fluid'}
+      
+      #attachments
+        .title 
+          span Attachments 
+          = link_to 'Add file', "#new_file", 'data-toggle' => "modal"
+        table.table.table-bordeless
+          tbody
+            - files.each do |upload|
+              tr
+                td = link_to upload.filename, serve_path(upload.files_id, upload.filename), target: "_blank", 'data-skip-pjax' => true
+                td.hide-mobile = number_to_human_size(upload.file_length)
+                td = link_to 'Remove', url_for_event(:remove, file_id: upload.files_id, submission_id: submission.id), remote: true, class: 'destroy-link'
+
     = f.actions do
       = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }
 
-  #attachments.title Attachments
-  
-  table.table.table-bordeless
-    tbody
-      - files.each do |upload|
-        tr
-          td = link_to upload.filename, serve_path(upload.files_id, upload.filename), target: "_blank", 'data-skip-pjax' => true
-          td.hide-mobile = number_to_human_size(upload.file_length)
-          td 
-          = link_to 'Remove', url_for_event(:remove, file_id: upload.files_id, submission_id: submission.id), remote: true, class: 'destroy-link'
-
-  = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), html: {class: 'form-horizontal', multipart: 'true'} do |f|
-    = f.inputs do
-      = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
-      = f.input :new_file, as: 'file', label: 'Upload new file'
-    = f.actions do
-      = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }
-
+  #new_file.modal.hide
+    .modal-header
+      a class="close" data-dismiss="modal" ×
+      h3 Add new file
+    .modal-body
+      = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), html: {class: 'form-horizontal', multipart: 'true'} do |f|
+        = f.inputs do
+          = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
+          = f.input :new_file, as: 'file', label: 'Upload new file'
+        = f.actions do
+          = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }

@@ -17,9 +17,5 @@ class Submissions::SubmissionPanelWidget < Apotomo::Widget
       render view: :breadcrumb_student, locals: {course: course, submission: submission, task: task}
     end
   end
-
-  def task(task)
-    render view: :task, locals: {task: task}
-  end
   
 end
