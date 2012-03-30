@@ -4,10 +4,10 @@ lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo
 
 Course.create(full_name: 'Introduction to Databases', abbreviation: 'CS-145', description: lorem)
 Course.create(full_name: 'Design and Analysis of Algorithms', abbreviation: 'CS-161', description: lorem)
-Course.create(full_name: 'Introduction to Computer Vision', abbreviation: 'CS-223B-', description: lorem)
+Course.create(full_name: 'Introduction to Computer Vision', abbreviation: 'CS-223-B', description: lorem)
 Course.create(full_name: 'Advanced Topics in Networking', abbreviation: 'CS-244', description: lorem)
 Course.create(full_name: 'Introduction to Computer Networks', abbreviation: 'CS-244-A', description: lorem)
-Course.create(full_name: 'Parallel Computer Architecture and Programming', abbreviation: 'CS-315A', description: lorem)
+Course.create(full_name: 'Parallel Computer Architecture and Programming', abbreviation: 'CS-315-A', description: lorem)
 Course.create(full_name: 'Projects in Computer Networks', abbreviation: 'CS-344', description: lorem)
 Course.create(full_name: 'Computer Graphics Geometric Modeling', abbreviation: 'CS-348-A', description: lorem)
 Course.create(full_name: 'Web Development', abbreviation: 'CS-124', description: lorem)
