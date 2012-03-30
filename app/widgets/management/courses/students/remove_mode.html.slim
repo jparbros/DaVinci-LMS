@@ -9,15 +9,17 @@
   
 == info_message(@message)
 
-table.table
+table.table.table-bordeless
   tbody
     - students.each do |student|
       tr
         td
           = link_to student.name, management_user_path(student.id)
-        td.span1
-          = link_to 'Remove', url_for_event(:remove_student, student_id: student.id, course_id: course.id), 'data-skip-pjax' => true, remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..."
-
+        td          
+          = link_to url_for_event(:remove_student, student_id: student.id, course_id: course.id), 'data-skip-pjax' => true, remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..." do
+            i class='icon-remove'
+            span  Remove
+            
 javascript:
   var candidates=#{candidates.to_json.html_safe};
   $(window).scrollTop($('#students').position().top-70);

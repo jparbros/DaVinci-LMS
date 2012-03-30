@@ -9,14 +9,16 @@
       
 == info_message(@message)
 
-table.table
+table.table.table-bordeless
   tbody
     - teachers.each do |teacher|
       tr
         td
           = link_to teacher.name, management_user_path(teacher.id)
-        td.span1
-          = link_to 'Remove', url_for_event(:remove_teacher, teacher_id: teacher.id, course_id: course.id), remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..."
+        td.span2
+          = link_to url_for_event(:remove_teacher, teacher_id: teacher.id, course_id: course.id), remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..." do
+            i class='icon-remove'
+            span  Remove
 
 javascript:
   var candidates=#{candidates.to_json.html_safe};

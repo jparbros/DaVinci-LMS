@@ -14,7 +14,9 @@ table.table.table-bordeless
     - user.teacher_in.each do |course|
       tr
         td = link_to course.full_name, management_course_path(course.id)
-        td.span1 = link_to 'Remove', url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..."
+        td.span2 = link_to url_for_event(:remove, user_id: user.id, course_id: course.id), remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..." do
+          i class='icon-remove'
+          span  Remove
 
 javascript:
   var candidates=#{candidates.to_json.html_safe};
