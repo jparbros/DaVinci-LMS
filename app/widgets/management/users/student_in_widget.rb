@@ -5,6 +5,9 @@ class Management::Users::StudentInWidget < Apotomo::Widget
   responds_to_event :add_as_student
   responds_to_event :remove
   responds_to_event :done
+  
+  responds_to_event :activate_remove_mode, passing: :user_panel, from: :teacher_in, with: :done
+  responds_to_event :activate_add_mode, passing: :user_panel, from: :teacher_in, with: :done
 
   helper :application
 

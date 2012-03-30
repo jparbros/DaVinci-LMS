@@ -5,6 +5,9 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   responds_to_event :add_teacher
   responds_to_event :remove_teacher
   
+  responds_to_event :set_add_mode, passing: :course_panel, from: :students, with: :done
+  responds_to_event :set_remove_mode, passing: :course_panel, from: :students, with: :done
+  
   helper :application
 
   def display(course)
