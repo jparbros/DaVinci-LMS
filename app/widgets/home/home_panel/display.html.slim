@@ -4,22 +4,25 @@ ul.breadcrumb
 
 .title My courses
 
-ul.nav.nav-list.nav-tabs.nav-stacked
-  - if courses_as_student.present?
-    li.nav-header As a student
-    - courses_as_student.each do |course|
-      li = link_to course_path(course.id) do
-        .row-fluid
-          .span2
-            .hide-mobile = course.abbreviation
-          .span10 = course.full_name
+- if courses_as_student.empty? && courses_as_teacher.empty?
+  p When you enrol a course as a student or a teacher, they will appear here.
+- else
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - if courses_as_student.present?
+      li.nav-header As a student
+      - courses_as_student.each do |course|
+        li = link_to course_path(course.id) do
+          .row-fluid
+            .span2
+              .hide-mobile = course.abbreviation
+            .span10 = course.full_name
 
-  - if courses_as_teacher.present?
-    li.nav-header As a teacher
-    - courses_as_teacher.each do |course|
-      li = link_to course_path(course.id) do
-        .row-fluid
-          .span2
-            .hide-mobile = course.abbreviation
-          .span10 = course.full_name
+    - if courses_as_teacher.present?
+      li.nav-header As a teacher
+      - courses_as_teacher.each do |course|
+        li = link_to course_path(course.id) do
+          .row-fluid
+            .span2
+              .hide-mobile = course.abbreviation
+            .span10 = course.full_name
 
