@@ -1,6 +1,7 @@
 = widget_div do
   .title
-    span Teachers
+    i class='icon-user'
+    span  Teachers
     = link_to 'Add', url_for_event(:set_add_mode, :course_id => course.id), :remote => true, :style => "padding-right:15px;"
     = link_to 'Remove', url_for_event(:set_remove_mode, :course_id => course.id), :remote => true unless teachers.empty?
     

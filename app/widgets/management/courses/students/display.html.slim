@@ -1,9 +1,10 @@
 = widget_div do
   .title
-    span Students
+    i class='icon-user'
+    span  Students
     = link_to 'Add', url_for_event(:set_add_mode, :course_id => course.id), :remote => true, :style => "padding-right:15px;"
     = link_to 'Remove', url_for_event(:set_remove_mode, :course_id => course.id), :remote => true unless course.students.empty?
-                    
+
   ul.nav.nav-list.nav-tabs.nav-stacked
     - course.students.each do |student|
       li = link_to student.name, management_user_path(student.id)

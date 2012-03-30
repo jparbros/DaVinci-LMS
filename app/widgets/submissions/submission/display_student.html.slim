@@ -19,7 +19,9 @@
               tr
                 td = link_to upload.filename, serve_path(upload.files_id, upload.filename), target: "_blank", 'data-skip-pjax' => true
                 td.hide-mobile = number_to_human_size(upload.file_length)
-                td = link_to 'Remove', url_for_event(:remove, file_id: upload.files_id, submission_id: submission.id), remote: true, class: 'destroy-link'
+                td = link_to url_for_event(:remove, file_id: upload.files_id, submission_id: submission.id), remote: true, class: 'destroy-link' do
+                    i class='icon-remove'
+                    span  Remove
 
     = f.actions do
       = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }

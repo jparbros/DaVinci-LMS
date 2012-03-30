@@ -1,17 +1,27 @@
 = widget_div do
 
-  = breadcrumb('Management', 
-    link_to('Users', management_users_path), 
+  = breadcrumb('Management',
+    link_to('Users', management_users_path),
     link_to(user.name, management_user_path(user.id)))
 
   == info_message(@message)
-      
-  = semantic_form_for user, remote: true, url: url_for_event(:submit, user_id: user.id), html: {class: 'form-horizontal'} do |f|
+
+  .title = user.name
+  = semantic_form_for user, remote: true, url: url_for_event(:submit, user_id: user.id), html: {} do |f|
     = f.semantic_errors
-    = f.inputs user.name do
-      = f.input :first_name, input_html: {class: 'row-fluid', autofocus: "autofocus"}
-      = f.input :last_name, input_html: {class: 'row-fluid'}
-      = f.input :dni, label: 'DNI', input_html: {class: 'row-fluid'}
-      = f.input :email, input_html: {class: 'row-fluid'}
+    = f.inputs do
+      .row-fluid
+        .span6            
+          = f.input :first_name, input_html: {class: 'row-fluid', autofocus: "autofocus"}
+          = f.input :last_name, input_html: {class: 'row-fluid'}
+          = f.input :dni, label: 'DNI', input_html: {class: 'row-fluid'}
+          = f.input :email, input_html: {class: 'row-fluid'}
+        .span6{style='margin-top: 21px;'}
+          .pull-right
+            ul class="thumbnails"
+              li
+                .thumbnail
+                  img src="http://placehold.it/260x180"
+                  .title{style='text-align:center'} = link_to 'Edit picture'
     = f.actions do
       = f.action :submit, label: 'Save changes', button_html: { disable_with: "Please wait..." }

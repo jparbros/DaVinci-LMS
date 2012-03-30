@@ -1,5 +1,6 @@
 .title
-  span Teachers
+  i class='icon-user'
+  span  Teachers
   = link_to 'Done', url_for_event(:done, :course_id => course.id), :remote => true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:remove_teacher, :course_id => course.id), :html => {:class=>'form-search management_form'} do

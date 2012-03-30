@@ -21,7 +21,9 @@ html
             ul.nav
               li class="divider-vertical"
               li
-                = link_to 'Home', root_path
+                = link_to root_path do
+                  i class='icon-home'
+                  span  Home
               li class="divider-vertical"
               li
                 = link_to 'Courses', management_courses_path
@@ -29,7 +31,9 @@ html
                 = link_to 'Users', management_users_path
             ul.nav.pull-right
               li = link_to "#{current_user.name}", user_path(current_user.id)
-              li = link_to 'Logout', :logout
+              li = link_to :logout do
+                i class='icon-off'
+                span  Logout
 
     .container
       .row

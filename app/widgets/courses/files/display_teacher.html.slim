@@ -1,6 +1,7 @@
 = widget_div do
-  .title 
-    span Files
+  .title
+    i class='icon-folder-open' 
+    span  Files
     = link_to 'Add file', "#new_file", 'data-toggle' => "modal"
   
   = render({state: :files}, course, current_user)
