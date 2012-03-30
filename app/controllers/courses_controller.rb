@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
   def add_file
     course = Course.find(params[:course_id])
     file = params[:course][:new_file]
-    AddUploadContext.call(course, file)    
+    AddUploadContext.call(course, file) unless file.nil?
     redirect_to course_path(params[:course_id]) + "#files"
   end
     

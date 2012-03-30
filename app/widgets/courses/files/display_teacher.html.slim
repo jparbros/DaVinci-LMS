@@ -3,16 +3,17 @@
     span Files
     = link_to 'Add file', "#new_file", 'data-toggle' => "modal"
   
-  = render({:state => :files}, course, current_user)
+  = render({state: :files}, course, current_user)
       
   #new_file.modal.hide
     .modal-header
       a class="close" data-dismiss="modal" ×
       h3 Add new file
-    .modal-body
-      = semantic_form_for course,  url: course_file_path(course.id), :html => {class: 'form-horizontal', multipart: 'true'} do |f|
+    = semantic_form_for course,  url: course_file_path(course.id), html: {multipart: 'true'} do |f|
+      .modal-body
         = f.inputs do
-          = f.input :authenticity_token, :as =>"hidden", :value=> form_authenticity_token.to_s
-          = f.input :new_file, :as => 'file', :label => 'Upload new file'
-        = f.actions do
-          = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }
+          = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
+          = f.input :new_file, as: 'file', label: 'Select the file you wish to upload'        
+      .modal-footer
+        = f.commit_button 'Close', button_html: {'data-dismiss' =>"modal", class: 'btn'}
+        = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }
