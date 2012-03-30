@@ -1,14 +1,16 @@
 # encoding: utf-8
 
-Course.create(full_name: 'Introduction to Databases', abbreviation: 'CS-145')
-Course.create(full_name: 'Design and Analysis of Algorithms', abbreviation: 'CS-161')
-Course.create(full_name: 'Introduction to Computer Vision', abbreviation: 'CS-223B-')
-Course.create(full_name: 'Advanced Topics in Networking', abbreviation: 'CS-244')
-Course.create(full_name: 'Introduction to Computer Networks', abbreviation: 'CS-244-A')
-Course.create(full_name: 'Parallel Computer Architecture and Programming', abbreviation: 'CS-315A')
-Course.create(full_name: 'Projects in Computer Networks', abbreviation: 'CS-344')
-Course.create(full_name: 'Computer Graphics Geometric Modeling', abbreviation: 'CS-348-A')
-Course.create(full_name: 'Web Development', abbreviation: 'CS-124')
+lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+Course.create(full_name: 'Introduction to Databases', abbreviation: 'CS-145', description: lorem)
+Course.create(full_name: 'Design and Analysis of Algorithms', abbreviation: 'CS-161', description: lorem)
+Course.create(full_name: 'Introduction to Computer Vision', abbreviation: 'CS-223B-', description: lorem)
+Course.create(full_name: 'Advanced Topics in Networking', abbreviation: 'CS-244', description: lorem)
+Course.create(full_name: 'Introduction to Computer Networks', abbreviation: 'CS-244-A', description: lorem)
+Course.create(full_name: 'Parallel Computer Architecture and Programming', abbreviation: 'CS-315A', description: lorem)
+Course.create(full_name: 'Projects in Computer Networks', abbreviation: 'CS-344', description: lorem)
+Course.create(full_name: 'Computer Graphics Geometric Modeling', abbreviation: 'CS-348-A', description: lorem)
+Course.create(full_name: 'Web Development', abbreviation: 'CS-124', description: lorem)
 
 admin = Fabricate(:user, email: 'admin@test.kiwi', password: 'admin', dni: '2487342387')
 student = Fabricate(:user, email: 'student@test.kiwi', password: 'student', dni: '3487342387')
