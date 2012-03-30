@@ -1,20 +1,23 @@
 .title 
   i class='icon-inbox'
-  span  Tasks
-
-ul.nav.nav-list.nav-tabs.nav-stacked
-  - unless active_submissions.empty?
-    li.nav-header To do 
-    - active_submissions.each do |submission|
-      li = link_to "#{submission.task.title}: Due at \
-        #{submission.task.last_day_to_submit}, that is in \
-        #{distance_of_time_in_words_to_now(submission.task.last_day_to_submit + 1.day)} ", \
-        course_submission_path(course.id, submission.id)
-  - unless pending_revisions.empty?
-    li.nav-header Pending revision
-    - pending_revisions.each do |submission|
-      li = link_to submission.task.title, course_submission_path(course.id, submission.id)
-  - unless archived_submissions.empty?
-    li.nav-header Archived
-    - archived_submissions.each do |submission|
-      li = link_to submission.task.title, course_submission_path(course.id, submission.id)
+  span  Assignments
+  
+- if active_submissions.empty? && pending_revisions.empty? && archived_submissions.empty?
+  p There are not assignments.
+- else
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - unless active_submissions.empty?
+      li.nav-header To do 
+      - active_submissions.each do |submission|
+        li = link_to "#{submission.task.title}: Due at \
+          #{submission.task.last_day_to_submit}, that is in \
+          #{distance_of_time_in_words_to_now(submission.task.last_day_to_submit + 1.day)} ", \
+          course_submission_path(course.id, submission.id)
+    - unless pending_revisions.empty?
+      li.nav-header Pending revision
+      - pending_revisions.each do |submission|
+        li = link_to submission.task.title, course_submission_path(course.id, submission.id)
+    - unless archived_submissions.empty?
+      li.nav-header Archived
+      - archived_submissions.each do |submission|
+        li = link_to submission.task.title, course_submission_path(course.id, submission.id)

@@ -1,7 +1,10 @@
 .title 
   i class='icon-user'
   span  Teachers
-    
-ul.nav.nav-list.nav-tabs.nav-stacked
-  - teachers.each do |teacher|
-    li = link_to teacher.name, user_path(teacher.id)
+
+- if teachers.empty?
+  p No teachers found.
+- else    
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - teachers.each do |teacher|
+      li = link_to teacher.name, user_path(teacher.id)
