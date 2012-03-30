@@ -1,22 +1,18 @@
 = semantic_form_for '', :url => session_index_path, :html => {:class=>'form-horizontal'} do |f|
   = f.inputs 'Login' do
-    - if Rails.env.development?
-      = f.input :email, :input_html => { :autofocus=> "autofocus" }
-      = f.input :password
-      
-      ul.nav.nav-list.nav-tabs.nav-stacked
-        li.nav-header User Admin
-        li admin@test.kiwi
-        li admin
-        li.nav-header User Student
-        li student@test.kiwi
-        li student
-        li.nav-header User Teacher
-        li teacher@test.kiwi
-        li teacher
-          
-    - else
       = f.input :email, :input_html => { :autofocus=> "autofocus" }
       = f.input :password
   = f.actions do
-    = f.action :submit
+    = f.action :submit, label: 'Log in'
+    
+- if Rails.env.development?
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    li.nav-header User Admin
+    li admin@test.kiwi
+    li admin
+    li.nav-header User Student
+    li student@test.kiwi
+    li student
+    li.nav-header User Teacher
+    li teacher@test.kiwi
+    li teacher
