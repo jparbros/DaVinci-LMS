@@ -6,7 +6,7 @@
   
   = semantic_form_for course, remote: true, url: url_for_event(:submit, :course_id => course.id), :html => {:class=>'form-horizontal'} do |f|
     = f.semantic_errors
-    = f.inputs course.abbreviation do
+    = f.inputs course.full_name do
       = f.input :full_name, :placeholder => 'Introduction to computer Science', :input_html => {:class=>'row-fluid'}
       = f.input :abbreviation, :placeholder => 'CS-101', :input_html => {:class=>'row-fluid'}
       = f.input :description, :as => 'text', input_html: {rows: 4, :class=>'row-fluid' }
