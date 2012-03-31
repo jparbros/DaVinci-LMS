@@ -15,7 +15,7 @@
           = f.input :first_name, input_html: {class: 'row-fluid', autofocus: "autofocus"}
           = f.input :last_name, input_html: {class: 'row-fluid'}
           = f.input :dni, label: 'DNI', input_html: {class: 'row-fluid'}
-          = f.input :email, input_html: {class: 'row-fluid'}
+          = f.input :email, as: :email, input_html: {class: 'row-fluid'}
         .span6{style='margin-top: 21px;'}
           .pull-right
             ul class="thumbnails"
