@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
   skip_before_filter :require_login, except: [:destroy]
+  layout 'session'
 
   def new
   end
