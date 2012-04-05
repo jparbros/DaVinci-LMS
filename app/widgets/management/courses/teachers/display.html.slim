@@ -2,7 +2,7 @@
   .title
     i class='icon-user'
     span  Teachers
-    = link_to 'Add', url_for_event(:set_add_mode, :course_id => course.id), :remote => true, :style => "padding-right:15px;"
+    = link_to 'Add', url_for_event(:set_add_mode, :course_id => course.id), :remote => true
     = link_to 'Remove', url_for_event(:set_remove_mode, :course_id => course.id), :remote => true unless teachers.empty?
     
   ul.nav.nav-list.nav-tabs.nav-stacked
