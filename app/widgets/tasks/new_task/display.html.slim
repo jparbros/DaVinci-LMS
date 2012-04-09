@@ -10,7 +10,7 @@
     = f.semantic_errors
     = f.inputs 'New Assignment' do
       = f.input :title, placeholder: 'Write an essay about chapter 4', input_html: {class: 'row-fluid', autofocus: "autofocus"}
-      = f.input :description, as: 'text', input_html: {rows: 4, class: 'row-fluid' }
+      = f.input :description, as: 'text', input_html: {rows: 14, class: 'row-fluid' }
       = f.input :last_day_to_submit, input_html: {class: 'data-datepicker', 'data-date'=>task.last_day_to_submit}
     = f.actions do
       = f.action :submit, label: 'Save new assignment', button_html: { disable_with: "Please wait..." }

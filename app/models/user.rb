@@ -10,6 +10,8 @@ class User
   field :dni, type: String
   field :email, type: String
   field :password, type: String
+  field :admin, type: Boolean
+  field :owner, type: Boolean
 
   attr_accessible :first_name, :last_name, :dni, :email, :password
 

@@ -4,4 +4,6 @@ Fabricator(:user) do
   dni { Forgery(:basic).password(:at_least => 9, :at_most => 9) }
   email { Forgery(:internet).email_address }
   password { 'password' }
+  owner { false }
+  administrator { false }
 end

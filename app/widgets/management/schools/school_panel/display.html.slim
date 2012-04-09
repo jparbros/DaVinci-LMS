@@ -1,0 +1,12 @@
+= render_widget :edit, :display, school
+        
+.row-fluid
+  .span6
+    .title Owner
+
+    ul.nav.nav-list.nav-tabs.nav-stacked
+      - owners.each do |owner|
+        li = link_to owner.name, user_path(owner.id)
+    
+  .span6
+    = render_widget :administrators
