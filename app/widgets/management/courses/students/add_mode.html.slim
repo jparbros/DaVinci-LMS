@@ -1,6 +1,6 @@
 .title
   i class='icon-user'
-  span Students
+  span  Students
   = link_to 'Done', url_for_event(:done, :course_id => course.id), :remote => true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:add_student, :course_id => course.id), :html => {:class=>'form-search management_form'} do
@@ -8,14 +8,13 @@
   input name='student_id' type='hidden' class='student_id'
   button type="submit" class="btn" data-disable-with="Please wait..." Add
 
-== info_message(@message)
-          
+== display_alert(@message)
+
 ul.nav.nav-list.nav-tabs.nav-stacked
   - students.each do |student|
     li = link_to student.name, management_user_path(student.id)
 
 javascript:
   var candidates=#{candidates.to_json.html_safe};
-  $(window).scrollTop($('#students').position().top-70);
   $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.student_id').attr('value', obj.student_id) }});
-  $('.fadein').fadeIn();
+  $(window).scrollTop($('#students').position().top-70);

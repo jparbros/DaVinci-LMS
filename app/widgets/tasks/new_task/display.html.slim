@@ -4,7 +4,7 @@
     link_to(course.abbreviation, course_path(course.id)), 
     link_to('New Assignment', new_course_task_path(course.id)))
     
-  == info_message(@message)
+  == display_alert(@message)
     
   = semantic_form_for task, remote: true, url: url_for_event(:submit, course_id: course.id), html: {class: 'form-horizontal'} do |f|
     = f.semantic_errors

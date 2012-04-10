@@ -2,7 +2,7 @@
 
   .title Your submission
 
-  == info_message(@message)
+  == display_alert(@message)
 
   = semantic_form_for submission, remote: true, url: url_for_event(:submit_submission, submission_id: submission.id), html: {class: 'form-horizontal'} do |f|
     = f.semantic_errors

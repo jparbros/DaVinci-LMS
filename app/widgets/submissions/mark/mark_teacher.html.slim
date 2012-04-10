@@ -1,6 +1,6 @@
 = widget_div do
   
-  == info_message(@message)
+  == display_alert(@message)
   
   = semantic_form_for submission, remote: true, remote: true, url: url_for_event(:mark, submission_id: submission.id), :html => {:class=>'form-search'} do |f|
     = f.label :mark, 'Mark &nbsp;'.html_safe

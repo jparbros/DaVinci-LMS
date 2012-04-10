@@ -4,7 +4,7 @@
     link_to('Users', management_users_path),
     link_to(user.name, management_user_path(user.id)))
 
-  == info_message(@message)
+  == display_alert(@message)
 
   .title = user.name
   = semantic_form_for user, remote: true, url: url_for_event(:submit, user_id: user.id), html: {} do |f|

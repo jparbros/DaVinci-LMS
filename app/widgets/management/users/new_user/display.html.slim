@@ -4,7 +4,7 @@
     link_to('Users', management_users_path), 
     link_to('New User', new_management_user_path))
 
-  == info_message(@message)
+  == display_alert(@message)
       
   = semantic_form_for user, remote: true, url: url_for_event(:submit), :html => {class: 'form-horizontal'} do |f|
     = f.semantic_errors

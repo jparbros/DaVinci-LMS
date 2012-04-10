@@ -7,7 +7,7 @@
   input name='course_id' type='hidden' class='course_id'
   button type="submit" class="btn" data-disable-with="Please wait..." Add
 
-== info_message(@message)
+== display_alert(@message)
 
 ul.nav.nav-list.nav-tabs.nav-stacked
   - user.student_in.each do |course|

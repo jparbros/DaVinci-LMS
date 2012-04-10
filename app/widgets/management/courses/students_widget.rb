@@ -4,13 +4,14 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
   responds_to_event :done
   responds_to_event :add_student
   responds_to_event :remove_student
-  
+
   responds_to_event :set_add_mode, passing: :course_panel, from: :teachers, with: :done
   responds_to_event :set_remove_mode, passing: :course_panel, from: :teachers, with: :done
 
   helper :application
+  include ApplicationHelper
 
-  def display(course)    
+  def display(course)
     render locals: {course: course}
   end
 
@@ -25,7 +26,7 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     student = User.find(evt[:student_id])
     course = Course.find(evt[:course_id])
     course.students.delete(student)
-    @message = "Removed <a href='/management/users/#{student.id}'>#{student.name}</a> from <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
+    alert_message(:success, "Removed <a href='/management/users/#{student.id}'>#{student.name}</a> from the course")
     render({state: :set_remove_mode}, evt, course)
   end
 
@@ -42,9 +43,9 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.students << student
     if course.save
-      @message = "Added <a href='/management/users/#{student.id}'>#{student.name}</a> as a student in <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
-      render({state: :set_add_mode}, evt, course)
+      alert_message(:success, "Added <a href='/management/users/#{student.id}'>#{student.name}</a> as a student")
     end
+    render({state: :set_add_mode}, evt, course)
   end
 
   def done(evt)
@@ -53,6 +54,6 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
 
   private
     def candidates(users = [])
-      users.map.each { |user| {'student_id' => user.id, 'value' => user.name} }      
+      users.map.each { |user| {'student_id' => user.id, 'value' => user.name} }
     end
 end

@@ -3,6 +3,7 @@ class Submissions::SubmissionWidget < Apotomo::Widget
   responds_to_event :remove
 
   helper :application
+  include ApplicationHelper
 
   def display(submission)
     user = options[:user]
@@ -21,7 +22,7 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     submission = user.submissions.find(evt[:submission_id])
     submission.comment = evt[:submission][:comment]
     submission.save
-    @message = 'Change saved!'
+    alert_message(:success, 'Change saved!')
     update({state: :display}, submission)
   end
 

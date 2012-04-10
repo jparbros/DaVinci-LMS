@@ -1,7 +1,7 @@
 = widget_div do
   .title = "#{submission.user.name}'s Submission"
 
-  == info_message(@message)
+  == display_alert(@message)
 
   = semantic_form_for submission, remote: true, url: '', html: {class: 'form-horizontal', multipart: true} do |f|
     = f.semantic_errors

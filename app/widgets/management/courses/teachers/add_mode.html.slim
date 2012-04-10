@@ -8,7 +8,7 @@
   input name='teacher_id' type='hidden' class='teacher_id'
   button type="submit" class="btn" data-disable-with="Please wait..." Add
   
-== info_message(@message)
+== display_alert(@message)
       
 ul.nav.nav-list.nav-tabs.nav-stacked
   - teachers.each do |teacher|

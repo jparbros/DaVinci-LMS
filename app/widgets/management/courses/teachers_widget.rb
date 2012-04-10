@@ -9,6 +9,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   responds_to_event :set_remove_mode, passing: :course_panel, from: :students, with: :done
   
   helper :application
+  include ApplicationHelper
 
   def display(course)
     render locals: {course: course, teachers: course.teachers}
@@ -25,7 +26,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     teacher = User.find(evt[:teacher_id])
     course = Course.find(evt[:course_id])
     course.teachers.delete(teacher)
-    @message = "Removed <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> from <a href='/management/courses/#{course.id}'>#{course.full_name}</a>"
+    alert_message(:success, "Removed <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> from the course")
     render({state: :set_remove_mode}, evt, course)
   end
   
@@ -42,10 +43,10 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.teachers << teacher
     if course.save
-      @message = "Added <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> as a teacher in <a href='/management/courses/#{course.id}'>#{course.full_name}</a> "
+      alert_message(:success, "Added <a href='/management/users/#{teacher.id}'>#{teacher.name}</a> as a teacher")
       render({state: :set_add_mode}, evt, course)
     else
-      @message = "Something didn't work as expected. Reload the page and try again."
+      alert_message(:error, "Something didn't work as expected. Reload the page and try again.")
       render({state: :set_add_mode}, evt, course)
     end
   end
