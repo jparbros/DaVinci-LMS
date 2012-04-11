@@ -7,12 +7,20 @@
     
 - if Rails.env.development?
   ul.nav.nav-list.nav-tabs.nav-stacked
-    li.nav-header User Admin
+    .title 
+      span User Admin
+      = link_to 'Login', session_index_path(email: 'admin@test.com', password: 'admin'), :method => :post
     li admin@test.com
     li admin
-    li.nav-header User Student
+    
+    .title
+      span User Student
+      = link_to 'Login', session_index_path(email: 'student@test.com', password: 'student'), :method => :post
     li student@test.com
     li student
-    li.nav-header User Teacher
+    
+    .title
+      span User Teacher
+      = link_to 'Login', session_index_path(email: 'teacher@test.com', password: 'teacher'), :method => :post
     li teacher@test.com
     li teacher
