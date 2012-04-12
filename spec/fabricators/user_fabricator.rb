@@ -5,5 +5,5 @@ Fabricator(:user) do
   email { Forgery(:internet).email_address }
   password { 'password' }
   owner { false }
-  administrator { false }
+  admin { false }
 end

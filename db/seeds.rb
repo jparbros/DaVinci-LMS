@@ -33,4 +33,4 @@ admin.save
 
 Course.all.each {|c| 10.times { c.students << Fabricate(:user) }; c.save }
 
-5.times { Fabricate(:user, administrator: true) }
+5.times { Fabricate(:user, admin: true) }
