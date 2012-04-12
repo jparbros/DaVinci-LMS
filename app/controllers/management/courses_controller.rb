@@ -1,4 +1,6 @@
 class Management::CoursesController < ApplicationController
+  
+  before_filter :require_admin_rights
 
   has_widgets do |root|
     root << widget('management/courses/new_course', :new_course)

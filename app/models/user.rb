@@ -30,6 +30,14 @@ class User
   def name
     "#{self.first_name} #{self.last_name}"
   end
+  
+  def admin?
+    self.admin
+  end
+  
+  def owner?
+    self.owner
+  end
 
   def teacher?(course)
     self.teacher_in_ids.include?(course.id)
