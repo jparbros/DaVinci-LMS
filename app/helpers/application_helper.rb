@@ -25,5 +25,9 @@ module ApplicationHelper
   def alert_message(type = :info, message)
     @message = {type: type, message: message}
   end
+  
+  def create_link(description, link)
+    ActionController::Base.helpers.link_to description, link
+  end
 
 end

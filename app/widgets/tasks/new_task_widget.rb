@@ -14,7 +14,8 @@ class Tasks::NewTaskWidget < Apotomo::Widget
     course.tasks << task
     if course.save
       create_task(task, course)
-      alert_message(:success, "Assignment <a href='/courses/#{course.id}/tasks/#{task.id}'>#{task.title}</a> created")
+      alert_message(:success, "Assignment #{view_context.link_to(task.title, course_task_path(course.id, task.id))} created")
+      
       update view: :display, locals: {course: course, task: Task.new}
     else
       update view: :display, locals: {course: course, task: task}

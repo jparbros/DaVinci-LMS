@@ -11,7 +11,7 @@ class Management::Courses::NewCourseWidget < Apotomo::Widget
   def submit(evt)
     course = Course.new(params[:course])
     if course.save
-      alert_message(:success, "Course <a href='/management/courses/#{course.id}'>#{course.full_name}</a> saved")
+      alert_message(:success, "Course #{view_context.link_to course.full_name, management_course_path(course.id)} saved")
       update view: :display, locals: {course: Course.new}
     else
       update view: :display, locals: {course: course}
