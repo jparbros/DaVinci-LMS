@@ -17,8 +17,7 @@ table.table.table-bordeless
         td
           = link_to teacher.name, management_user_path(teacher.id)
         td.span2
-          = link_to url_for_event(:remove_teacher, teacher_id: teacher.id, course_id: course.id), remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..." do
-            i class='icon-remove'
+          = link_to url_for_event(:remove_teacher, teacher_id: teacher.id, course_id: course.id), remote: true, :class =>'btn btn-small btn-danger ', 'data-disable-with'=>"Please wait..." do       
             span  Remove
 
 javascript:

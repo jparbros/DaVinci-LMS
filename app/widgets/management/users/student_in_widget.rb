@@ -17,7 +17,7 @@ class Management::Users::StudentInWidget < Apotomo::Widget
   end
 
   def done(evt)
-    update({state: :display}, User.find(evt[:user_id]))
+    replace({state: :display}, User.find(evt[:user_id]))
   end
 
   def activate_add_mode(evt)

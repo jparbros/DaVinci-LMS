@@ -1,8 +1,10 @@
-.title 
-  span Administrators
-  = link_to 'Add'
-  = link_to 'Remove'
+= widget_div do
+  .title
+    i class='icon-user'
+    span  Administrators
+    = link_to 'Add', url_for_event(:activate_add_mode), :remote => true
+    = link_to 'Remove', url_for_event(:activate_remove_mode), :remote => true
 
-ul.nav.nav-list.nav-tabs.nav-stacked
-  - administrators.each do |administrator|
-    li = link_to administrator.name, user_path(administrator.id)
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    - administrators.each do |administrator|
+      li = link_to administrator.name, user_path(administrator.id)

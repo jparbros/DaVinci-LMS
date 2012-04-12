@@ -17,7 +17,7 @@ table.table.table-bordeless
         td
           = link_to student.name, management_user_path(student.id)
         td          
-          = link_to url_for_event(:remove_student, student_id: student.id, course_id: course.id), 'data-skip-pjax' => true, remote: true, :class =>'destroy-link', 'data-disable-with'=>"Please wait..." do
+          = link_to url_for_event(:remove_student, student_id: student.id, course_id: course.id), remote: true, :class =>'btn btn-small btn-danger', 'data-disable-with'=>"Please wait..." do
             i class='icon-remove'
             span  Remove
             

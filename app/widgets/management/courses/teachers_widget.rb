@@ -52,7 +52,7 @@ class Management::Courses::TeachersWidget < Apotomo::Widget
   end
 
   def done(evt)
-    update({state: :display}, Course.find(evt[:course_id]))
+    replace({state: :display}, Course.find(evt[:course_id]))
   end
   
   def teacher(teacher)
