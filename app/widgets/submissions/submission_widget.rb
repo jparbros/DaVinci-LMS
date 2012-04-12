@@ -21,8 +21,10 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     user = options[:user]
     submission = user.submissions.find(evt[:submission_id])
     submission.comment = evt[:submission][:comment]
-    submission.save
-    alert_message(:success, 'Change saved!')
+    if submission.active?
+      submission.save
+      alert_message(:success, 'Change saved!')
+    end
     update({state: :display}, submission)
   end
 

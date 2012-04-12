@@ -12,7 +12,7 @@
       #attachments
         .title 
           span Attachments 
-          = link_to 'Add file', "#new_file", 'data-toggle' => "modal"
+          = link_to 'Add file', "#new_file", 'data-toggle' => "modal" if submission.active?
         table.table.table-bordeless
           tbody
             - files.each do |upload|
@@ -22,20 +22,21 @@
                 td = link_to url_for_event(:remove, file_id: upload.files_id, submission_id: submission.id), remote: true, class: 'destroy-link' do
                     i class='icon-remove'
                     span  Remove
-
-    = f.actions do
-      = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }
-          
-  #new_file.modal.hide
-    .modal-header
-      a class="close" data-dismiss="modal" ×
-      h3 Add new file
-    = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), html: { multipart: 'true'} do |f|
-      .modal-body
-        = f.inputs do
-          = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
-          = f.input :new_file, as: 'file', label: 'Select the file you wish to upload', input_html: {class: 'required'}
-      .modal-footer
-        = f.commit_button 'Close', button_html: {'data-dismiss' =>"modal", class: 'btn'}
-        = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }          
+    
+    - if submission.active?
+      = f.actions do 
+        = f.action :submit, label: 'Save', button_html: { disable_with: "Please wait..." }
+  - if submission.active?
+    #new_file.modal.hide
+      .modal-header
+        a class="close" data-dismiss="modal" ×
+        h3 Add new file
+      = semantic_form_for submission,  url: course_submission_add_file_path(course.id, submission.id), html: { multipart: 'true'} do |f|
+        .modal-body
+          = f.inputs do
+            = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
+            = f.input :new_file, as: 'file', label: 'Select the file you wish to upload', input_html: {class: 'required'}
+        .modal-footer
+          = f.commit_button 'Close', button_html: {'data-dismiss' =>"modal", class: 'btn'}
+          = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }          
           

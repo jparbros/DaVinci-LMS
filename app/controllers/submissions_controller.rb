@@ -12,8 +12,10 @@ class SubmissionsController < ApplicationController
 
   def add_file
     submission = Submission.find(params[:submission_id])
-    file = params[:submission][:new_file]
-    AddUploadContext.call(submission, file) unless file.nil?
+    if submission.active?
+      file = params[:submission][:new_file]
+      AddUploadContext.call(submission, file) unless file.nil?    
+    end
     redirect_to course_submission_path(params[:course_id], submission.id) + "#attachments"
   end
 
