@@ -122,7 +122,7 @@ GEM
     guard-sprockets (0.3.1)
       guard (~> 0.2.2)
       sprockets (~> 2)
-    heroku (2.24.0)
+    heroku (2.24.1)
       launchy (>= 0.3.2)
       netrc (~> 0.7.1)
       rest-client (~> 1.6.1)
