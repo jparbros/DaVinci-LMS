@@ -12,7 +12,9 @@ Course.create(full_name: 'Projects in Computer Networks', abbreviation: 'CS-344'
 Course.create(full_name: 'Computer Graphics Geometric Modeling', abbreviation: 'CS-348-A', description: lorem)
 Course.create(full_name: 'Web Development', abbreviation: 'CS-124', description: lorem)
 
-admin = Fabricate(:user, email: 'admin@test.com', password: 'admin', owner: true)
+
+owner = Fabricate(:user, email: 'owner@test.com', password: 'owner', owner: true)
+admin = Fabricate(:user, email: 'admin@test.com', password: 'admin', admin: true)
 student = Fabricate(:user, email: 'student@test.com', password: 'student')
 teacher = Fabricate(:user, email: 'teacher@test.com', password: 'teacher')
 

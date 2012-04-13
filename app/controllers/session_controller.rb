@@ -1,6 +1,9 @@
 class SessionController < ApplicationController
   skip_before_filter :require_login, except: [:destroy]
+  
   layout 'session'
+  
+  helper :application
 
   def new
   end
@@ -9,8 +12,8 @@ class SessionController < ApplicationController
     if login(params[:email], params[:password])
       redirect_to root_path
     else
-      flash.now[:alert] = "Login failed."
-      render action: "new"
+      @message = view_context.alert_message(:error, "Login failed.")
+      render :new
     end
   end
 

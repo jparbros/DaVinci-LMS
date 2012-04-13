@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     end
     
     def require_admin_rights
-      redirect_to :root unless current_user.admin?
+      redirect_to :root unless current_user.admin? or current_user.owner?
     end
   
     def require_owner_rights
