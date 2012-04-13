@@ -18,7 +18,7 @@ class Management::Courses::IndexPanelWidget < Apotomo::Widget
 
   def remove(evt)
     course = Course.find(evt[:course_id])
-    if course.delete
+    if course.destroy
       alert_message(:success, "Course <b>#{course.full_name}</b> deleted")
     end
     trigger :activate_remove_mode
