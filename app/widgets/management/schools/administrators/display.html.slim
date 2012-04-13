@@ -6,5 +6,9 @@
     = link_to 'Remove', url_for_event(:activate_remove_mode), :remote => true
 
   ul.nav.nav-list.nav-tabs.nav-stacked
-    - administrators.each do |administrator|
-      li = link_to administrator.name, user_path(administrator.id)
+    - if administrators.present?
+      - administrators.each do |administrator|
+        li = link_to administrator.name, user_path(administrator.id)
+    - else
+      p There are not users with administrator permissions.
+    

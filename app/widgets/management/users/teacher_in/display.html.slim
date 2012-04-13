@@ -5,5 +5,8 @@
     = link_to 'Remove', url_for_event(:activate_remove_mode, user_id: user.id), remote: true unless user.teacher_in.empty?
 
   ul.nav.nav-list.nav-tabs.nav-stacked
-    - user.teacher_in.each do |course|
-      li = link_to course.full_name, management_course_path(course.id)
+    - if user.teacher_in.present?
+      - user.teacher_in.each do |course|
+        li = link_to course.full_name, management_course_path(course.id)
+    - else
+      p The user is not currently a teacher in any course.

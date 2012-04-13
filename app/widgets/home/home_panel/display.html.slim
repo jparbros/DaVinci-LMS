@@ -5,7 +5,8 @@ ul.breadcrumb
 .title My courses
 
 - if courses_as_student.empty? && courses_as_teacher.empty?
-  p When you enrol a course as a student or a teacher, they will appear here.
+  ul.nav.nav-list.nav-tabs.nav-stacked
+    p You are not currently a student or a teacher in any course.
 - else
   ul.nav.nav-list.nav-tabs.nav-stacked
     - if courses_as_student.present?

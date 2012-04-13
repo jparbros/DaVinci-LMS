@@ -6,5 +6,8 @@
     = link_to 'Remove', url_for_event(:set_remove_mode, :course_id => course.id), :remote => true unless course.students.empty?
 
   ul.nav.nav-list.nav-tabs.nav-stacked
-    - course.students.each do |student|
-      li = link_to student.name, management_user_path(student.id)
+    - if course.students.present?
+      - course.students.each do |student|
+        li = link_to student.name, management_user_path(student.id)
+    - else
+      p There are not students in this course
