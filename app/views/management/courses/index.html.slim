@@ -1,29 +1,4 @@
-= breadcrumb('Management', link_to('Courses'))
-
-.title
-  span Courses
-  = link_to 'New', new_management_course_path
-.form-search
-  .input-append
-    = text_field_tag :query, '', placeholder: 'Jump to a course', :name => 'query', 'data-remote' => true, 'data-url' => 'blablabla', :class => 'search-query'
-    span.add-on
-      = link_to 'blablabla', {:remote => true, :style => 'color:black'} do
-        i
-          span Jump
-br
-
-- if @courses.empty?
-  p 
-    span There are not courses. Start by 
-    = link_to 'creating one.', new_management_course_path
-- else
-  ul.nav.nav-stacked.nav-list.nav-tabs
-    - @courses.each do |course|
-      li = link_to management_course_path(course.id) do
-        .row-fluid
-          .span2
-            .hide-mobile = course.abbreviation
-          .span10 = course.full_name
+= render_widget :index_panel, :display, @courses
 
 javascript:
   window.scrollTo(0,0);

@@ -1,0 +1,31 @@
+= breadcrumb('Management', link_to('Courses'))
+
+.title
+  span Courses
+  = link_to 'Done', url_for_event(:done), remote: true
+
+= semantic_form_for '', remote: true, :url => url_for_event(:remove), :html => {:class=>'form-search management_form'} do
+  input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-medium"
+  input name='course_id' type='hidden' class='course_id'
+  button type="submit" class="btn btn-danger" data-disable-with="Please wait..." Remove
+
+== display_alert(@message)
+
+table.table.table-bordeless
+  tbody
+    - courses.each do |course|
+      tr
+        td.hide-mobile
+          = link_to course.abbreviation, management_course_path(course.id)
+        td
+          = link_to course.full_name, management_course_path(course.id)
+        td
+          = link_to url_for_event(:remove, course_id: course.id), remote: true, :class =>'btn btn-small btn-danger', 'data-disable-with'=>"Please wait..." do            
+            i class='icon-remove'
+            span  Remove
+
+javascript:
+  var candidates=#{candidates.to_json.html_safe};
+  $(window).scrollTop($('#index_panel').position().top-70);
+  $('.typeahead').typeahead({source: candidates, onselect: function(obj) { $('.course_id').attr('value', obj.course_id) }});
+  $('.fadein').fadeIn();
