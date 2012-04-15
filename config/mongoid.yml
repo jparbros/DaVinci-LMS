@@ -13,3 +13,5 @@ test:
 production:
   uri: <%= ENV['MONGOLAB_URI'] %>
 
+demo:
+  uri: <%= ENV['MONGOLAB_URI'] %>

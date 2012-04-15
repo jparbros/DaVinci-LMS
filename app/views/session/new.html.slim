@@ -7,7 +7,7 @@
   = f.actions do
     = f.action :submit, disable_with: 'Logging in...', label: 'Log in'
     
-- if Rails.env.development?
+- if Rails.env.development? or Rails.env.demo?
   ul.nav.nav-list.nav-tabs.nav-stacked
     .title 
       span User Owner
