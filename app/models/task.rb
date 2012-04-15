@@ -9,7 +9,7 @@ class Task
   validates :last_day_to_submit, :presence => true
   validates :description, :presence => true
   
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
 
   belongs_to :course
 end

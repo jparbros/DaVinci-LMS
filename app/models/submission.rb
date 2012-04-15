@@ -8,6 +8,10 @@ class Submission
   belongs_to :task
   belongs_to :user
   
+  before_destroy do |submission|    
+    submission.uploads.each { |upload| RemoveUploadContext.call(submission, upload) }
+  end
+  
   def archived?
     self.task.last_day_to_submit < Date.today
   end
