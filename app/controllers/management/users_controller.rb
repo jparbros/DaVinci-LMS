@@ -5,6 +5,7 @@ class Management::UsersController < ApplicationController
   has_widgets do |root|
     root << widget('management/users/new_user', :new_user)
     root << widget('management/users/user_panel', :user_panel)
+    root << widget('management/users/index_panel', :index_panel)
   end
 
   def index
