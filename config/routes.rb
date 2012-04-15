@@ -20,7 +20,7 @@ Davinci::Application.routes.draw do
     match 'logout' => 'session#destroy', :as => :logout    
   end
   
-  match "uploads/:id/:name" => "gridfs#serve", :as => :serve
+  match "uploads/:id/*name" => "gridfs#serve", :as => :serve
 
   match '/:locale' => 'home#index'
   root to: 'home#index'
