@@ -22,14 +22,6 @@ Check the demo:
 
 Feel free to do whatever you like there, it is automatically rebuilt.
 
-* Teacher & admin
-  * Username: admin@test.com
-  * Password: admin
-    
-* Student
-  * Username: student@test.com
-  * Password: student
-
 ## Setting up development
 
 You will need
@@ -52,14 +44,6 @@ rails s
 ```
 
 The website will be available at [localhost:3000](localhost:3000)
-
-* Teacher & admin
-  * Username: admin@test.com
-  * Password: admin
-    
-* Student
-  * Username: student@test.com
-  * Password: student
 
 ## How to contribute
 
