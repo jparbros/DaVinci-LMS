@@ -45,6 +45,23 @@ rails s
 
 The website will be available at [localhost:3000](localhost:3000)
 
+## Configuration
+
+DaVinci LMS will send an email to users when their account is created. If you want those messages to be sent you will need to configure ActionMailer. You have many options. For example, you can Gmail or Sendgrid or Sendmail, etc.
+
+Configure Gmail by defining:
+
+* ENV['DOMAIN_NAME']
+* ENV['GMAIL_USERNAME']
+* ENV['GMAIL_PASSWORD']
+
+Configure Sendmail by defining:
+
+* ENV['SENDGRID_USERNAME']
+* ENV['SENDGRID_PASSWORD']
+
+The database will need to be configured too. Take a look at `config/mongoid.yml`.
+
 ## How to contribute
 
 Take a look at the [issues](https://github.com/Nerian/DaVinci-LMS/issues) and pick one that you like. Feel free to ask questions. You may also propose things; just open an issue and we will talk about it.
