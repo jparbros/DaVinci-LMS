@@ -1,3 +1,3 @@
 Fabricator(:school) do
-  name "Universidad Pablo de Olavide"
+  name "The coolest school in the world"
 end
