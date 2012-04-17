@@ -1,0 +1,13 @@
+Hi, <%= @user.name %>
+
+<%= @school.name %> has registered you in DaVinci LMS.
+
+Your user details:
+
+Name: <%= @user.name %>
+Email: <%= @user.email %>
+Password: <%= @password %>
+ 
+To login to the site, just follow this link: <%= "http://#{@url}/login" %>.
+ 
+Thanks for joining and have a great day!
