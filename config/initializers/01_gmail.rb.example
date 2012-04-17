@@ -1,0 +1,5 @@
+# Copy this file to config/initializers/gmail.rb and write your own values for domain_name, gmail_username and gmail_password.
+
+ENV['DOMAIN_NAME']    = 'davinci.dev'
+ENV['GMAIL_USERNAME'] = 'user'
+ENV['GMAIL_PASSWORD'] = 'password'
