@@ -7,7 +7,7 @@ class Deploy < Thor::Group
     say '# Deploying to Heroku'
     `git push heroku`
     say '# reseeding'
-    `heroku run rake db:reseed`
+    `heroku run thor populate`
   end
 
 end
