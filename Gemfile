@@ -25,6 +25,8 @@ gem 'font-awesome-rails'
 gem 'thin'
 
 gem 'i18n-inflector-rails'
+gem 'rails-i18n'
+gem "bcrypt-ruby", :require => "bcrypt"
 
 group :production do
   gem 'dalli'

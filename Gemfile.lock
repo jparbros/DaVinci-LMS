@@ -194,6 +194,8 @@ GEM
       activesupport (= 3.2.3)
       bundler (~> 1.0)
       railties (= 3.2.3)
+    rails-i18n (0.6.3)
+      i18n (~> 0.5)
     railties (3.2.3)
       actionpack (= 3.2.3)
       activesupport (= 3.2.3)
@@ -239,11 +241,9 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       slim (~> 1.0)
-    sorcery (0.7.7)
-      bcrypt-ruby (~> 3.0.0)
+    sorcery (0.7.11)
       oauth (~> 0.4.4)
       oauth2 (~> 0.5.1)
-      sorcery
     spork (0.9.0)
     sprockets (2.1.2)
       hike (~> 1.2)
@@ -270,6 +270,7 @@ PLATFORMS
 DEPENDENCIES
   anjlab-bootstrap-rails (>= 2.0)
   apotomo!
+  bcrypt-ruby
   bootstrap-datepicker-rails
   bson_ext
   cells
@@ -294,6 +295,7 @@ DEPENDENCIES
   pjax_rails!
   powder
   rails
+  rails-i18n
   rb-fsevent
   rspec
   rspec-apotomo!
