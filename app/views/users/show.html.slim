@@ -12,15 +12,21 @@ ul class="thumbnails"
 .row-fluid
   .span6
     .title Studying
-
     ul.nav.nav-list.nav-tabs.nav-stacked
-      - @user.student_in.each do |course|
-        li = link_to course.full_name, management_course_path(course.id)
+      - if @user.student_in.present?      
+        - @user.student_in.each do |course|
+          li = link_to course.full_name, management_course_path(course.id)
+      - else
+        p No courses
     
   .span6
     .title Teaching
-
     ul.nav.nav-list.nav-tabs.nav-stacked
-      - @user.teacher_in.each do |course|
-        li = link_to course.full_name, management_course_path(course.id)
+      - if @user.teacher_in.present?
+        - @user.teacher_in.each do |course|
+          li = link_to course.full_name, management_course_path(course.id)
+      - else
+        p No courses
+      
+      
     
