@@ -24,6 +24,8 @@ gem 'font-awesome-rails'
 
 gem 'thin'
 
+gem 'i18n-inflector-rails'
+
 group :production do
   gem 'dalli'
 end

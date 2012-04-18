@@ -24,16 +24,16 @@ html
               li
                 = link_to root_path do
                   i class='icon-home'
-                  span  Home
+                  span  = t(:home)
               li class="divider-vertical"
-              li = link_to 'Courses', management_courses_path if current_user.admin? or current_user.owner?
-              li = link_to 'Users', management_users_path if current_user.admin? or current_user.owner?
-              li = link_to 'School', management_school_path if current_user.owner?
+              li = link_to t(:courses), management_courses_path if current_user.admin? or current_user.owner?
+              li = link_to t(:users), management_users_path if current_user.admin? or current_user.owner?
+              li = link_to t(:school), management_school_path if current_user.owner?
             ul.nav.pull-right
               li = link_to "#{current_user.name}", user_path(current_user.id)
               li = link_to :logout do
                 i class='icon-off'
-                span  Logout
+                span  = t(:logout)
 
     .container
       .row

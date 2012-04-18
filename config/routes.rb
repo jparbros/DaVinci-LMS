@@ -1,6 +1,6 @@
 Davinci::Application.routes.draw do
     
-  scope "(:locale)", :locale => /en|nl/ do
+  scope "(:locale)", :locale => /en|es/ do
     namespace :management do
       resources :courses, :only => [:index, :new, :show]
       resources :users, :only => [:index, :new, :show]

@@ -1,16 +1,16 @@
 ul.breadcrumb
   li
-    = link_to 'Home', root_path
+    = link_to t(:home), root_path
 
-.title My courses
+.title = t(:my_courses)
 
 - if courses_as_student.empty? && courses_as_teacher.empty?
   ul.nav.nav-list.nav-tabs.nav-stacked
-    p You are not currently a student or a teacher in any course.
+    p = t(:courses_as_student_empty)
 - else
   ul.nav.nav-list.nav-tabs.nav-stacked
     - if courses_as_student.present?
-      li.nav-header As a student
+      li.nav-header = t(:as_a_student)
       - courses_as_student.each do |course|
         li = link_to course_path(course.id) do
           .row-fluid
@@ -19,7 +19,7 @@ ul.breadcrumb
             .span10 = course.full_name
 
     - if courses_as_teacher.present?
-      li.nav-header As a teacher
+      li.nav-header = t(:as_a_teacher)
       - courses_as_teacher.each do |course|
         li = link_to course_path(course.id) do
           .row-fluid

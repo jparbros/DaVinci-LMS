@@ -1,0 +1,32 @@
+es:
+  i18n:
+    inflections:
+      gender:
+        f:        "female"
+        m:        "male"
+        female:   :@f
+        male:     :@m
+        man:      :@male
+        woman:    :@female
+        default:  m
+  
+  formtastic:
+    placeholders:
+      course:
+        full_name: "Matemáticas"
+        abbreviation: "Bach2-Mat"
+      user:
+        email: "you@yours.com"
+    actions:
+      create: "Crear"
+      update: "Guardar cambios"
+      reset: "Reset"
+      cancel: "Cancelar"
+    
+  courses: 'Asignaturas'
+  users: 'Usuarios'
+  school: 'Escuela'
+  home: 'Inicio'
+  logout: 'Salir'
+  new: "@{f:Nueva|m:Nuevo}"
+  remove: 'Eliminar'

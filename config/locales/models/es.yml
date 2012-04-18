@@ -1,0 +1,8 @@
+es:
+  mongoid:
+    attributes:
+      course:
+        full_name: 'Nombre completo'
+        abbreviation: 'Abreviación'
+        description: 'Descripción'
+        uploads: 'Ficheros'

@@ -1,25 +1,24 @@
 = widget_div do
-  = breadcrumb('Management', link_to('Courses'))
+  = breadcrumb(t(:management), link_to(t(:courses)))
 
   .title
-    span Courses
-    = link_to 'New', new_management_course_path
-    = link_to 'Remove', url_for_event(:activate_remove_mode), remote: true
-  .form-search
-    .input-append
-      = text_field_tag :query, '', placeholder: 'Jump to a course', :name => 'query', 'data-remote' => true, 'data-url' => 'blablabla', :class => 'search-query'
-      span.add-on
-        = link_to 'blablabla', {:remote => true, :style => 'color:black'} do
-          i
-            span Jump
-  br
+    span = t(:courses)
+    = link_to t(:new, :gender => :female), new_management_course_path
+    = link_to t(:remove), url_for_event(:activate_remove_mode), remote: true
 
-  - if courses.empty?
-    p 
-      span No courses found. Start by 
-      = link_to 'creating one.', new_management_course_path
-  - else
-    ul.nav.nav-stacked.nav-list.nav-tabs
+  ul.nav.nav-stacked.nav-list.nav-tabs
+    - if courses.empty?
+      p 
+        span = t(:no_courses)
+    - else    
+      .form-search
+        .input-append
+          = text_field_tag :query, '', placeholder: 'Jump to a course', :name => 'query', 'data-remote' => true, 'data-url' => 'blablabla', :class => 'search-query'
+          span.add-on
+            = link_to 'blablabla', {:remote => true, :style => 'color:black'} do
+              i
+                span Jump
+      br
       - courses.each do |course|
         li = link_to management_course_path(course.id) do
           .row-fluid

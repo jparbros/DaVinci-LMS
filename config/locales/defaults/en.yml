@@ -1,0 +1,24 @@
+en:
+  formtastic:
+    placeholders:
+      course:
+        full_name: "Introduction to computer science"
+        abbreviation: "CS101"
+      user:
+        email: "you@yours.com"
+    actions:
+      create: "Create new %{model}"
+      update: "Save changes"
+      reset: "Reset form"
+      cancel: "Cancel and go back"
+      dummie: "Launch!"
+      
+  courses: 'Courses'
+  users: 'Users'
+  school: 'School'
+  home: 'Home'
+  logout: 'Logout'
+  new: 'New'
+  remove: 'Remove'
+    
+
