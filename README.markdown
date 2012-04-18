@@ -14,6 +14,13 @@ This piece of technology sits upon many other top notch technologies such as Rub
 
 ![alt text](http://dl.dropbox.com/u/834494/DaVinci%20LMS/DaVinci%20LMS%20home.png "DaVinci LMS ")
 
+
+## Project Information
+
+The status of the development can be follow here:
+
+https://trello.com/board/features/4f8dd69ee04240575b532234
+
 ## Online testing environment
 
 Check the demo:
