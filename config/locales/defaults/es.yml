@@ -30,3 +30,5 @@ es:
   logout: 'Salir'
   new: "@{f:Nueva|m:Nuevo}"
   remove: 'Eliminar'
+  add: 'Añadir'
+  done: 'Hecho'

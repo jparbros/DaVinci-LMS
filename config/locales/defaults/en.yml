@@ -12,7 +12,7 @@ en:
       reset: "Reset form"
       cancel: "Cancel and go back"
       dummie: "Launch!"
-      
+
   courses: 'Courses'
   users: 'Users'
   school: 'School'
@@ -20,5 +20,7 @@ en:
   logout: 'Logout'
   new: 'New'
   remove: 'Remove'
-    
+  add: 'Add'
+  done: 'Done'
+
 

@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/pjax_rails.git
-  revision: 755b2988184607af87186046612efb0c9c2d99ba
+  revision: 7e23d646507014b80ed68abb3a3b757fb3a0311f
   specs:
     pjax_rails (0.2.0)
       jquery-rails

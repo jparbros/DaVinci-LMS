@@ -26,7 +26,8 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     student = User.find(evt[:student_id])
     course = Course.find(evt[:course_id])
     course.students.delete(student)
-    alert_message(:success, "Removed #{view_context.link_to student.name, management_user_path(student.id)} from the course")
+    link = view_context.link_to student.name, management_user_path(student.id)
+    alert_message(:success, t(:student_removed, link: link))
     render({state: :set_remove_mode}, evt, course)
   end
 
@@ -43,7 +44,8 @@ class Management::Courses::StudentsWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.students << student
     if course.save
-      alert_message(:success, "Added #{view_context.link_to student.name, management_user_path(student.id)} as a student")
+      link = view_context.link_to student.name, management_user_path(student.id)
+      alert_message(:success, t(:student_added, link: link))
     end
     render({state: :set_add_mode}, evt, course)
   end

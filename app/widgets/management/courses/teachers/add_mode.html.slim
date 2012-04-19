@@ -1,12 +1,12 @@
 .title
   i class='icon-user'
-  span  Teachers
-  = link_to 'Done', url_for_event(:done, :course_id => course.id), :remote => true
+  span = t(:teachers)
+  = link_to t(:done), url_for_event(:done, :course_id => course.id), :remote => true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:add_teacher, :course_id => course.id), :html => {:class=>'form-search management_form'} do
   input name='teacher_name' type="text" autofocus="autofocus" class="search-query typeahead input-medium"
   input name='teacher_id' type='hidden' class='teacher_id'
-  button type="submit" class="btn" data-disable-with="Please wait..." Add
+  button type="submit" class="btn" data-disable-with="Please wait..." = t(:add)
   
 == display_alert(@message)
       

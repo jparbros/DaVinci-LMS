@@ -2,4 +2,19 @@ en:
   management: 'Management'
   no_courses: 'There are no courses'
   
-  new_course: 'New Course'
+  new_course: 'New Course'  
+  course_created: "Course %{link} created."
+  
+  course_edited: "Changes in %{link} saved."
+  no_students: 'There are no students in this course'
+  
+  students: 'Students'
+  student_removed: "Removed %{link} from the course"
+  student_added: 'Added %{link} as a student'
+  
+  teachers: 'Teachers'
+  no_teachers: 'There are not teachers in this course'
+  teacher_removed: 'Removed %{link} from the course'
+  teacher_added: 'Removed %{link} from the course'
+  
+  course_removed: "Course <b>%{course}</b> deleted"

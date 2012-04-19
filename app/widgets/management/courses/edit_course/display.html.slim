@@ -1,6 +1,6 @@
 = widget_div do
 
-  = breadcrumb('Management', link_to('Courses', management_courses_path), link_to("#{course.abbreviation}", management_course_path(course.id)))
+  = breadcrumb(t(:management), link_to(t(:courses), management_courses_path), link_to("#{course.abbreviation}", management_course_path(course.id)))
   
   == display_alert(@message)
   
@@ -11,4 +11,4 @@
       = f.input :abbreviation, :placeholder => 'CS-101', :input_html => {:class=>'row-fluid'}
       = f.input :description, :as => 'text', input_html: {rows: 4, :class=>'row-fluid' }
     = f.actions do
-      = f.action :submit, label: 'Save changes', button_html: { disable_with: "Please wait..." }
+      = f.action :submit, button_html: { disable_with: "Please wait..." }

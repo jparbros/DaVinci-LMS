@@ -3,3 +3,18 @@ es:
   no_courses: 'No hay asignaturas'
   
   new_course: 'Nueva asignatura'
+  course_created: "Asignatura %{link} creada."
+  
+  course_edited: "Cambios en %{link} guardados."
+  no_students: 'No hay estudiantes en esta asignatura'
+  
+  students: 'Estudiantes'
+  student_removed: "%{link} ya no está en la asignatura"
+  student_added: '%{link} fue añadido como estudiante'
+  
+  teachers: 'Profesorado'
+  no_teachers: 'No hay profesores en esta asignatura'
+  teacher_removed: '%{link} ya no está en la asignatura'
+  teacher_added: '%{link} fue añadido como profesor'
+  
+  course_removed: "La asignatura <b>%{course}</b> ha sido eliminada"
