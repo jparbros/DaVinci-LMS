@@ -22,3 +22,12 @@ es:
   
   edit_photo: 'Cambiar foto de perfil'
   an_error_just_happen: "Algo ha fallado. Recarga la página y vuelve a intertarlo."
+  
+  login: 'Entrar'
+  email: 'Email'
+  password: 'Contraseña'
+  
+  user_owner: 'Usuario Propietario'
+  user_admin: 'Usuario Administrador'
+  user_student: 'Usuario Estudiante'
+  user_teacher: 'Usuario Profesor'

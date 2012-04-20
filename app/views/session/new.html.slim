@@ -1,33 +1,33 @@
 == display_alert(@message)
 
 = semantic_form_for '', url: session_index_path, html: {class: 'form-horizontal'} do |f|  
-  = f.inputs 'Login' do
-      = f.input :email, as: :email, input_html: { autofocus: "autofocus" }
-      = f.input :password
+  = f.inputs t(:login) do
+      = f.input :email, label: t(:email), as: :email, input_html: { autofocus: "autofocus" }
+      = f.input :password, label: t(:password)
   = f.actions do
     = f.action :submit, disable_with: 'Logging in...', label: 'Log in'
     
 - if Rails.env.development? or Rails.env.demo?
   ul.nav.nav-list.nav-tabs.nav-stacked
     .title 
-      span User Owner
-      = link_to 'Login', session_index_path(email: 'owner@test.com', password: 'owner'), :method => :post
+      span = t(:user_owner)
+      = link_to t(:login), session_index_path(email: 'owner@test.com', password: 'owner'), :method => :post
     li owner@test.com
     li owner
     .title 
-      span User Admin
-      = link_to 'Login', session_index_path(email: 'admin@test.com', password: 'admin'), :method => :post
+      span = t(:user_admin)
+      = link_to t(:login), session_index_path(email: 'admin@test.com', password: 'admin'), :method => :post
     li admin@test.com
     li admin
     
     .title
-      span User Student
-      = link_to 'Login', session_index_path(email: 'student@test.com', password: 'student'), :method => :post
+      span = t(:user_student)
+      = link_to t(:login), session_index_path(email: 'student@test.com', password: 'student'), :method => :post
     li student@test.com
     li student
     
     .title
-      span User Teacher
-      = link_to 'Login', session_index_path(email: 'teacher@test.com', password: 'teacher'), :method => :post
+      span = t(:user_teacher)
+      = link_to t(:login), session_index_path(email: 'teacher@test.com', password: 'teacher'), :method => :post
     li teacher@test.com
     li teacher

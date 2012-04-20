@@ -12,5 +12,14 @@ en:
   edit_photo: 'Change profile photo'
   
   an_error_just_happen: "Something didn't work as expected. Reload the page and try again."
+  
+  login: 'Login'
+  email: 'Email'
+  password: 'Password'
+  
+  user_owner: 'User Owner'
+  user_admin: 'User Admin'
+  user_student: 'User student'
+  user_teacher: 'User teacher'
 
 
