@@ -13,7 +13,8 @@ class Management::Users::NewUserWidget < Apotomo::Widget
     user = User.new(evt[:user])
     if user.save
       UserMailer.register_user(user, evt[:user][:password]).deliver
-      alert_message(:success, "User #{view_context.link_to user.name, management_user_path(user.id)} saved!")
+      link = view_context.link_to user.name, management_user_path(user.id)
+      alert_message(:success, t(:user_created, link: link))
       update view: :display, locals: {user: User.new}
     else
       update view: :display, locals: {user: user}

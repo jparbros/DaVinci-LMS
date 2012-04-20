@@ -1,0 +1,13 @@
+es:
+  assignments: 'Tareas'
+  no_assignments: 'No hay ninguna tarea'
+  active: 'Activas'
+  
+  due_at: "%{title}: %{due}, o en %{time}"
+  pending_revision: 'Pendientes de revisión'
+  archived: 'Archivadas'
+  
+  files: 'Documentos'
+  add_new_file: 'Añadir nuevo documento'
+  
+  no_files: 'No hay ningún documento'

@@ -2,7 +2,16 @@ es:
   mongoid:
     attributes:
       course:
-        full_name: 'Nombre completo'
+        full_name:    'Nombre completo'
         abbreviation: 'Abreviación'
-        description: 'Descripción'
-        uploads: 'Ficheros'
+        description:  'Descripción'
+        uploads:      'Ficheros'
+        
+      user:
+        first_name: 'Nombre'
+        last_name:  'Apellidos'
+        dni:        'ID'
+        email:      'Email'
+        password:   'Contraseña'
+        admin:      'Administrador'
+        owner:      'Propietario'

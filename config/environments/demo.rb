@@ -16,6 +16,8 @@ Davinci::Application.configure do
 
   # Fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
+  
+  config.i18n.available_locales = [:en, :es]
 
   # Generate digests for assets URLs
   config.assets.digest = true

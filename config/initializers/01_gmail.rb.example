@@ -1,3 +1,4 @@
+# If you want to use a Gmail account to send the mail, follow the following steps.
 # Copy this file to config/initializers/gmail.rb and write your own values for domain_name, gmail_username and gmail_password.
 
 ENV['DOMAIN_NAME']    = 'davinci.dev'

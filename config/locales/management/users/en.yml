@@ -1,0 +1,21 @@
+en:
+  user_removed: "User <b>%{user}</b> deleted"
+  new_user: 'New User'
+  user_created: "The user %{link} has been created"
+  
+  user_edited: "Changes in %{link} saved!"
+  
+  studying: 'Studying'
+  add_course: 'Add Course'
+  no_course_as_student: 'The user is not currently a student in any course'
+  add_student: "Added %{user} as a student in %{course}"  
+  student_removed: "Removed %{user} from %{course}"
+  
+  teaching: 'Teaching'
+  no_course_as_teacher: 'The user is not currently a teacher in any course'
+  
+  teacher_removed_from_course: 'Removed #{user} from #{course}'
+  teacher_added_to_course: '%{user} is now a teacher of %{course}'
+  
+  student_removed_from_course: 'Removed #{user} from #{course}'
+  student_added_to_course: '%{user} is now a student of %{course}'

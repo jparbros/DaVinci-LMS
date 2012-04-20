@@ -1,9 +1,9 @@
 .title 
   i class='icon-user'
-  span  Teachers
+  span = t(:teachers)
 
 - if teachers.empty?
-  p No teachers found.
+  p = t(:no_teachers)
 - else    
   ul.nav.nav-list.nav-tabs.nav-stacked
     - teachers.each do |teacher|

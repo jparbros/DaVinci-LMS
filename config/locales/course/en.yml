@@ -1,0 +1,13 @@
+en:
+  assignments: 'Assignments'
+  no_assignments: 'No assignments found'
+  active: 'Active'
+  
+  due_at: "%{title}: %{due}, or in %{time}"
+  pending_revision: 'Pending Revision'
+  archived: 'Archived'
+  
+  files: 'Files'
+  add_new_file: 'Add new file'
+  
+  no_files: 'There are not files uploaded'

@@ -1,6 +1,6 @@
 = widget_div do  
   
-  = breadcrumb link_to('Home', root_path), link_to(course.abbreviation, course_path(course.id))
+  = breadcrumb link_to(t(:home), root_path), link_to(course.abbreviation, course_path(course.id))
   
   .title = course.full_name
   

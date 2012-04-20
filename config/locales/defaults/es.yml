@@ -9,26 +9,16 @@ es:
         man:      :@male
         woman:    :@female
         default:  m
+      
+  courses:  'Asignaturas'
+  users:    'Usuarios'
+  school:   'Escuela'
+  home:     'Inicio'
+  logout:   'Salir'
+  new:      "@{f:Nueva|m:Nuevo}"
+  remove:   'Eliminar'
+  add:      'Añadir'
+  done:     'Hecho'  
   
-  formtastic:
-    placeholders:
-      course:
-        full_name: "Matemáticas"
-        abbreviation: "Bach2-Mat"
-      user:
-        email: "you@yours.com"
-    actions:
-      create: "Crear"
-      update: "Guardar cambios"
-      reset: "Reset"
-      cancel: "Cancelar"
-    
-  courses: 'Asignaturas'
-  users: 'Usuarios'
-  school: 'Escuela'
-  home: 'Inicio'
-  logout: 'Salir'
-  new: "@{f:Nueva|m:Nuevo}"
-  remove: 'Eliminar'
-  add: 'Añadir'
-  done: 'Hecho'
+  edit_photo: 'Cambiar foto de perfil'
+  an_error_just_happen: "Algo ha fallado. Recarga la página y vuelve a intertarlo."

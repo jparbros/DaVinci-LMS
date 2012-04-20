@@ -1,0 +1,18 @@
+es:  
+  formtastic:
+    labels:
+      course:
+        new_file: 'Selecciona el documento que quieres añadir'
+    placeholders:
+      course:
+        full_name: "Matemáticas"
+        abbreviation: "Bach2-Mat"        
+      user:
+        email: "you@yours.com"
+    actions:
+      create: "Crear"
+      update: "Guardar cambios"
+      reset: "Reset"
+      cancel: "Cancelar"
+      close: 'Cerrar'
+      upload: 'Enviar'

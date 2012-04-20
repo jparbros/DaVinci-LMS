@@ -1,26 +1,16 @@
 en:
-  formtastic:
-    placeholders:
-      course:
-        full_name: "Introduction to computer science"
-        abbreviation: "CS101"
-      user:
-        email: "you@yours.com"
-    actions:
-      create: "Create new %{model}"
-      update: "Save changes"
-      reset: "Reset form"
-      cancel: "Cancel and go back"
-      dummie: "Launch!"
-
-  courses: 'Courses'
-  users: 'Users'
-  school: 'School'
-  home: 'Home'
-  logout: 'Logout'
-  new: 'New'
-  remove: 'Remove'
-  add: 'Add'
-  done: 'Done'
+  courses:  'Courses'
+  users:    'Users'
+  school:   'School'
+  home:     'Home'
+  logout:   'Logout'
+  new:      'New'
+  remove:   'Remove'
+  add:      'Add'
+  done:     'Done'
+  
+  edit_photo: 'Change profile photo'
+  
+  an_error_just_happen: "Something didn't work as expected. Reload the page and try again."
 
 

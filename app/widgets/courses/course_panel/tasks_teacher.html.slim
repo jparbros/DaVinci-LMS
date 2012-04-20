@@ -1,25 +1,24 @@
 .title
   i class='icon-inbox'
-  span  Assignments
-  = link_to 'New', new_course_task_path(course.id)
+  span = t(:assignments)
+  = link_to t(:new, gender: :female), new_course_task_path(course.id)
   
 - if active_tasks.empty? && pending_revision_tasks.empty? && archived_tasks.empty?
-  p No assignments found
+  p = t(:no_assignments)
 - else 
 
   ul.nav.nav-list.nav-tabs.nav-stacked
     - unless active_tasks.empty?
-      li.nav-header Active
+      li.nav-header = t(:active)
       - active_tasks.each do |task|
-        li = link_to "#{task.title}: Due at \
-          #{task.last_day_to_submit}, that is in \
-          #{distance_of_time_in_words_to_now(task.last_day_to_submit + 1.day)} ", \
-          course_task_path(course.id, task.id)
+        li = link_to t(:due_at, title: task.title, due: task.last_day_to_submit, time: distance_of_time_in_words_to_now(task.last_day_to_submit + 1.day)), course_task_path(course.id, task.id)
+          
     - unless pending_revision_tasks.empty?  
-      li.nav-header Pending revision
+      li.nav-header = t(:pending_revision)
       - pending_revision_tasks.each do |task|
         li = link_to task.title, course_task_path(course.id, task.id)
+        
     - unless archived_tasks.empty?
-      li.nav-header Archived
+      li.nav-header = t(:archived)
       - archived_tasks.each do |task|
         li = link_to task.title, course_task_path(course.id, task.id)

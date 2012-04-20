@@ -1,0 +1,18 @@
+en:
+  formtastic:
+    labels:
+      course:        
+        new_file: 'Select the file you wish to upload'
+    placeholders:
+      course:
+        full_name: "Introduction to computer science"
+        abbreviation: "CS101"        
+      user:
+        email: "you@yours.com"
+    actions:
+      create: "Create new %{model}"
+      update: "Save changes"
+      reset: "Reset form"
+      cancel: "Cancel and go back"
+      close: 'Close'
+      upload: 'Upload'

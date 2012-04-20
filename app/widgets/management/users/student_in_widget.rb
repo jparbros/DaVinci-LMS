@@ -31,10 +31,12 @@ class Management::Users::StudentInWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.students << user
     if course.save
-      alert_message(:success, "Added #{view_context.link_to user.name, management_user_path(user.id)} as a student in  #{view_context.link_to course.full_name, management_course_path(course.id)}")
+      link_user   = view_context.link_to user.name, management_user_path(user.id)
+      link_course = view_context.link_to course.full_name, management_course_path(course.id)
+      alert_message(:success, t(:student_added_to_course, user: link_user, course: link_course))
       render({state: :activate_add_mode}, evt)
     else
-      alert_message(:success, "Something didn't work as expected. Reload the page and try again.")
+      alert_message(:success, t(:an_error_just_happen))
       render({state: :activate_add_mode}, evt)
     end
   end
@@ -50,7 +52,9 @@ class Management::Users::StudentInWidget < Apotomo::Widget
     course = Course.find(evt[:course_id])
     course.students.delete(user)
     if course.save
-      alert_message(:success, "Removed #{view_context.link_to user.name, management_user_path(user.id)} from #{view_context.link_to course.full_name, management_course_path(course.id)}")
+      link_user   = view_context.link_to user.name, management_user_path(user.id)
+      link_course = view_context.link_to course.full_name, management_course_path(course.id)      
+      alert_message(:success, t(:student_removed_from_course, user: link_user, course: link_course))            
       render({state: :activate_remove_mode}, evt)
     else
       alert_message(:success, "Something didn't work as expected. Reload the page and try again.")

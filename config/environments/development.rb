@@ -14,11 +14,15 @@ Davinci::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   
+  config.i18n.available_locales = [:en, :es]
+  
   class InspectableMemoryStore < ActiveSupport::Cache::MemoryStore
     def keys
       @data.keys
     end
   end
+  
+  config.action_mailer.delivery_method = :test
 
   config.cache_store = InspectableMemoryStore.new
   # config.cache_store = :memory_store

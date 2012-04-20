@@ -1,5 +1,5 @@
 - if files.empty?
-  p No files found.
+  p = t(:no_files)
 - else
   table.table.table-bordeless
     tbody
@@ -9,5 +9,5 @@
           td.hide-mobile.span2 = number_to_human_size(upload.file_length)
           td.span2 = link_to url_for_event(:remove, :file_id => upload.files_id, :course_id => course.id), :remote => true, :class =>'destroy-link' do
               i class='icon-remove'
-              span  Remove
+              span = t(:remove)
           

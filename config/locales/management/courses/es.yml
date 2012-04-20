@@ -3,9 +3,9 @@ es:
   no_courses: 'No hay asignaturas'
   
   new_course: 'Nueva asignatura'
-  course_created: "Asignatura %{link} creada."
+  course_created: "Asignatura %{link} creada"
   
-  course_edited: "Cambios en %{link} guardados."
+  course_edited: "Cambios en %{link} guardados"
   no_students: 'No hay estudiantes en esta asignatura'
   
   students: 'Estudiantes'

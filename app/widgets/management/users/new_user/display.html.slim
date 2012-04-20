@@ -1,17 +1,17 @@
 = widget_div do
 
-  = breadcrumb('Management', 
-    link_to('Users', management_users_path), 
-    link_to('New User', new_management_user_path))
+  = breadcrumb(t(:management), 
+    link_to(t(:users), management_users_path), 
+    link_to(t(:new_user), new_management_user_path))
 
   == display_alert(@message)
       
   = semantic_form_for user, remote: true, url: url_for_event(:submit), :html => {class: 'form-horizontal'} do |f|
     = f.semantic_errors
-    = f.inputs 'New User' do
-      = f.input :first_name, placeholder: 'Gonzalo', input_html: {class: 'row-fluid', autofocus: "autofocus"}
-      = f.input :last_name, placeholder: 'Rodríguez', input_html: {class: 'row-fluid'}
-      = f.input :dni, label: 'DNI', input_html: {class: 'row-fluid'}
+    = f.inputs t(:new_user) do
+      = f.input :first_name, input_html: {class: 'row-fluid', autofocus: "autofocus"}
+      = f.input :last_name, input_html: {class: 'row-fluid'}
+      = f.input :dni, input_html: {class: 'row-fluid'}
       = f.input :email, as: :email, input_html: {class: 'row-fluid'}
     = f.actions do
-      = f.action :submit, label: 'Save new user', button_html: { disable_with: "Please wait..." }
+      = f.action :submit, button_html: { disable_with: "Please wait..." }

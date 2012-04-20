@@ -1,12 +1,12 @@
 = widget_div do
   .title
-    span Teaching
-    = link_to 'Add Course', url_for_event(:activate_add_mode, user_id: user.id), remote: true
-    = link_to 'Remove', url_for_event(:activate_remove_mode, user_id: user.id), remote: true unless user.teacher_in.empty?
+    span = t(:teaching)
+    = link_to t(:add_course), url_for_event(:activate_add_mode, user_id: user.id), remote: true
+    = link_to t(:remove), url_for_event(:activate_remove_mode, user_id: user.id), remote: true unless user.teacher_in.empty?
 
   ul.nav.nav-list.nav-tabs.nav-stacked
     - if user.teacher_in.present?
       - user.teacher_in.each do |course|
         li = link_to course.full_name, management_course_path(course.id)
     - else
-      p The user is not currently a teacher in any course.
+      p = t(:no_course_as_teacher)

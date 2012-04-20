@@ -3,12 +3,12 @@ en:
   no_courses: 'There are no courses'
   
   new_course: 'New Course'  
-  course_created: "Course %{link} created."
+  course_created: "Course %{link} created"
   
-  course_edited: "Changes in %{link} saved."
-  no_students: 'There are no students in this course'
+  course_edited: "Changes in %{link} saved."  
   
   students: 'Students'
+  no_students: 'There are no students in this course'
   student_removed: "Removed %{link} from the course"
   student_added: 'Added %{link} as a student'
   

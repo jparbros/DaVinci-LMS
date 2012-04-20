@@ -1,20 +1,20 @@
 = widget_div do
   .title
     i class='icon-folder-open' 
-    span  Files
-    = link_to 'Add', "#new_file", 'data-toggle' => "modal"
+    span = t(:files)
+    = link_to t(:add), "#new_file", 'data-toggle' => "modal"
   
   = render({state: :files}, course, current_user)
       
   #new_file.modal.hide
     .modal-header
       a class="close" data-dismiss="modal" ×
-      h3 Add new file
+      h3 = t(:add_new_file)
     = semantic_form_for course,  url: course_file_path(course.id), html: {multipart: 'true'} do |f|
       .modal-body
         = f.inputs do
           = f.input :authenticity_token, as: "hidden", value: form_authenticity_token.to_s
-          = f.input :new_file, as: 'file', label: 'Select the file you wish to upload'        
+          = f.input :new_file, as: 'file', label: true        
       .modal-footer
-        = f.commit_button 'Close', button_html: {'data-dismiss' =>"modal", class: 'btn'}
-        = f.action :submit, label: 'Upload new file', button_html: { disable_with: "Please wait..." }
+        = f.commit_button :close, button_html: {'data-dismiss' =>"modal", class: 'btn'}
+        = f.commit_button :upload, button_html: { disable_with: "Please wait..." }
