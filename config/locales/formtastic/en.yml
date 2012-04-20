@@ -2,17 +2,24 @@ en:
   formtastic:
     labels:
       course:        
-        new_file: 'Select the file you wish to upload'
+        new_file:     'Select the file you wish to upload'
+      submission:
+        mark:         'Mark'
+        new_file:     'Select the file you wish to upload'
     placeholders:
       course:
-        full_name: "Introduction to computer science"
+        full_name:    "Introduction to computer science"
         abbreviation: "CS101"        
       user:
-        email: "you@yours.com"
+        email:        "you@yours.com"
+      task:
+        title:        'Write an essay about chapter 4'
+        description:  '5 pages max'
     actions:
+      save:   "Save"
       create: "Create new %{model}"
       update: "Save changes"
-      reset: "Reset form"
+      reset:  "Reset form"
       cancel: "Cancel and go back"
-      close: 'Close'
-      upload: 'Upload'
+      close:  "Close"
+      upload: "Upload"

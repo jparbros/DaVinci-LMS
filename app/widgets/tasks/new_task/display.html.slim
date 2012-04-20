@@ -1,16 +1,16 @@
 = widget_div do
 
-  = breadcrumb(link_to('Home', root_path),  
+  = breadcrumb(link_to(t(:home), root_path),  
     link_to(course.abbreviation, course_path(course.id)), 
-    link_to('New Assignment', new_course_task_path(course.id)))
+    link_to(t(:new_task), new_course_task_path(course.id)))
     
   == display_alert(@message)
     
   = semantic_form_for task, remote: true, url: url_for_event(:submit, course_id: course.id), html: {class: 'form-horizontal'} do |f|
     = f.semantic_errors
-    = f.inputs 'New Assignment' do
-      = f.input :title, placeholder: 'Write an essay about chapter 4', input_html: {class: 'row-fluid', autofocus: "autofocus"}
+    = f.inputs t(:new_task) do
+      = f.input :title, input_html: {class: 'row-fluid', autofocus: "autofocus"}
       = f.input :description, as: 'text', input_html: {rows: 14, class: 'row-fluid' }
-      = f.input :last_day_to_submit, input_html: {class: 'data-datepicker', 'data-date'=>task.last_day_to_submit}
+      = f.input :last_day_to_submit, input_html: {class: 'data-datepicker', 'data-date'=>task.last_day_to_submit, 'language' => I18n.locale}
     = f.actions do
-      = f.action :submit, label: 'Save new assignment', button_html: { disable_with: "Please wait..." }
+      = f.action :submit, button_html: { disable_with: "Please wait..." }

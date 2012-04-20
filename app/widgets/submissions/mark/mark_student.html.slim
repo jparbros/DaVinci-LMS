@@ -1,4 +1,5 @@
 = widget_div do
-  p 
-    b
-      span Mark: #{submission.mark ? submission.mark : 'Not yet rated'}
+  p     
+    span = t(:mark) + ': '
+    span 
+      b = submission.mark ? submission.mark : t(:not_yet_rated)

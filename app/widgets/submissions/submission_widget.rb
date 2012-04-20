@@ -23,7 +23,7 @@ class Submissions::SubmissionWidget < Apotomo::Widget
     submission.comment = evt[:submission][:comment]
     if submission.active?
       submission.save
-      alert_message(:success, 'Change saved!')
+      alert_message(:success, t(:change_saved))
     end
     update({state: :display}, submission)
   end

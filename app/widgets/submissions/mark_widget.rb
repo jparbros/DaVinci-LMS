@@ -15,9 +15,14 @@ class Submissions::MarkWidget < Apotomo::Widget
   def mark(evt)
     user = options[:user]
     submission = Submission.find(evt[:submission_id])
-    submission.mark = evt[:submission][:mark]
-    submission.save
-    alert_message(:success, "Mark saved! #{view_context.link_to 'Go back to the submission list', course_task_path(submission.task.course.id, submission.task.id)+'#submissions'}")
+    if evt[:submission][:mark].present?
+      submission.mark = evt[:submission][:mark]
+      submission.save
+      list_link = view_context.link_to(t(:go_back_to_submission_list), course_task_path(submission.task.course.id, submission.task.id)+'#submissions')
+      alert_message(:success, t(:mark_saved, list_link: list_link))
+    else
+      alert_message(:error, t(:mark_empty, list_link: list_link))
+    end
     update({state: :display}, user, submission.task.course, submission)
   end
 

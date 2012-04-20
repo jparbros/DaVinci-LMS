@@ -12,7 +12,8 @@ class Tasks::EditTaskWidget < Apotomo::Widget
     course = Course.find(evt[:course])    
     task = course.tasks.find(evt[:id])
     if task.update_attributes(evt[:task])
-      alert_message(:success, "Changes in #{view_context.link_to task.title, course_task_path(course.id, task.id)} saved")
+      task_link = view_context.link_to task.title, course_task_path(course.id, task.id)
+      alert_message(:success, t(:task_changed, task: task_link))
       update view: :display, locals: {course: course, task: task}
     else
       update view: :display, locals: {course: course, task: task}

@@ -6,7 +6,7 @@ p = task.description
 
 p 
   b 
-    span To deliver before 
+    span = t(:to_deliver_before)
     span = task.last_day_to_submit
     
 = render_widget :mark, :display, user, course, submission

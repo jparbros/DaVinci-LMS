@@ -15,3 +15,13 @@ es:
         password:   'Contraseña'
         admin:      'Administrador'
         owner:      'Propietario'
+        
+      task:
+        title: 'Título'
+        description: 'Descripción'
+        last_day_to_submit: 'Último día de entrega'
+        
+      submission:
+        comment: 'Comentario'
+        mark: 'Nota'
+        uploads: 'Documentos'

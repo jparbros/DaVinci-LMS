@@ -1,9 +1,11 @@
-#submissions.title Submissions
+#submissions.title = t(:submissions)
 
-ul
+dl.dl-horizontal
   - ungraded_submissions.each do |submission|
-    li = link_to "#{submission.user.name} (No mark assigned)", course_submission_path(course.id, submission.id)
+    dt = link_to submission.user.name, course_submission_path(course.id, submission.id)
+    dd = "(#{t :no_mark})"
       
-ul
+dl.dl-horizontal
   - graded_submissions.each do |submission|
-    li = link_to "#{submission.user.name} (#{submission.mark})", course_submission_path(course.id, submission.id)
+    dt = link_to submission.user.name, course_submission_path(course.id, submission.id)
+    dd = "(#{submission.mark})"

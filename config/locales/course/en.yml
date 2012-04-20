@@ -11,3 +11,26 @@ en:
   add_new_file: 'Add new file'
   
   no_files: 'There are not files uploaded'
+  
+  new_task: 'New Assignment'
+  task_created: "Assignment %{task} created"  
+  task_changed: "Changes in %{task} saved"
+  
+  submissions: 'Submissions'
+  no_mark: 'No mark yet'
+  
+  to_deliver_before: 'To deliver before: '
+  
+  user_submission: "%{user}'s Submission"
+  attachments: 'Attachments'
+  
+  mark: 'Mark'
+  mark_saved: "Mark saved! %{list_link}"
+  go_back_to_submission_list: 'Go back to the submission list'
+  mark_empty: "The mark is empty. Write something"
+  mark_placeholder: "Write the mark here"
+  not_yet_rated: 'Not yet rated'
+  
+  your_submission: 'Your submission'
+  
+  change_saved: 'Change saved'
