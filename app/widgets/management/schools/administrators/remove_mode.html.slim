@@ -1,12 +1,12 @@
 .title 
   i class='icon-user'
-  span  Administrators
-  = link_to 'Done', url_for_event(:done), :remote => true
+  span = t(:administrators)
+  = link_to t(:done), url_for_event(:done), :remote => true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:remove), :html => {:class=>'form-search management_form'} do
   input name='user_name' type="text" autofocus="autofocus" class="search-query typeahead input-medium"
   input name='user_id' type='hidden' class='user_id'
-  button type="submit" class="btn btn-danger" data-disable-with="Please wait..." Remove
+  button type="submit" class="btn btn-danger" data-disable-with="Please wait..." = t(:remove)
 
 == display_alert(@message)
     
@@ -16,7 +16,7 @@ table.table.table-bordeless
       tr
         td = link_to administrator.name, user_path(administrator.id)
         td.span2 = link_to url_for_event(:remove, user_id: administrator.id), remote: true, class: 'btn btn-small btn-danger', 'data-disable-with'=>"Please wait..." do
-          span  Remove
+          span = t(:remove)
     
 javascript:
   var candidates=#{candidates.to_json.html_safe};

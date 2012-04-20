@@ -1,6 +1,6 @@
-= breadcrumb('Management', link_to('School', management_school_path))
+= breadcrumb(t(:management), link_to(t(:school), management_school_path))
 
-.title School
+.title = t(:school)
 
 = semantic_form_for school, remote: true, url: url_for_event(:submit), html: {class: 'form-horizontal'} do |f|
   = f.semantic_errors

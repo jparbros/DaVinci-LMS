@@ -31,3 +31,6 @@ es:
   user_admin: 'Usuario Administrador'
   user_student: 'Usuario Estudiante'
   user_teacher: 'Usuario Profesor'
+  
+  owner: 'Propietario'
+  administrators: 'Administradores'

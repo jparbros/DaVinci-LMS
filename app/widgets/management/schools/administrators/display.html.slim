@@ -1,9 +1,9 @@
 = widget_div do
   .title
     i class='icon-user'
-    span  Administrators
-    = link_to 'Add', url_for_event(:activate_add_mode), :remote => true
-    = link_to 'Remove', url_for_event(:activate_remove_mode), :remote => true
+    span = t(:administrators)
+    = link_to t(:add), url_for_event(:activate_add_mode), :remote => true
+    = link_to t(:remove), url_for_event(:activate_remove_mode), :remote => true
 
   ul.nav.nav-list.nav-tabs.nav-stacked
     - if administrators.present?

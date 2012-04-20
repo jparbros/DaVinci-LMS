@@ -1,0 +1,3 @@
+es:
+  user_is_admin: "%{user} es ahora administrador"
+  user_not_admin: "%{user} ya no es administrador"

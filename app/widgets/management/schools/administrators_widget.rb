@@ -24,7 +24,8 @@ class Management::Schools::AdministratorsWidget < Apotomo::Widget
     user = User.find(evt[:user_id])
     user.admin = true
     user.save
-    alert_message(:success, "#{view_context.link_to user.name, management_user_path(user.id)} is now an administrator")
+    user_link = view_context.link_to user.name, management_user_path(user.id)
+    alert_message(:success, t(:user_is_admin, user: user_link))
     render({:state => :activate_add_mode}, evt)
   end
   
@@ -39,7 +40,8 @@ class Management::Schools::AdministratorsWidget < Apotomo::Widget
     user = User.find(evt[:user_id])
     user.admin = false
     user.save
-    alert_message(:success, "#{view_context.link_to user.name, management_user_path(user.id)} is no longer an administrator")
+    user_link = view_context.link_to user.name, management_user_path(user.id)
+    alert_message(:success, t(:user_not_admin, user: user_link))
     render({:state => :activate_remove_mode}, evt)
   end
 

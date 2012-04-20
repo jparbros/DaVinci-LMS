@@ -25,3 +25,6 @@ es:
         comment: 'Comentario'
         mark: 'Nota'
         uploads: 'Documentos'
+        
+      school:
+        name: 'Nombre'
