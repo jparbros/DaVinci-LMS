@@ -34,3 +34,7 @@ es:
   
   owner: 'Propietario'
   administrators: 'Administradores'
+  
+  languages: 'Idiomas'
+  spanish: 'Español'
+  english: 'English'
