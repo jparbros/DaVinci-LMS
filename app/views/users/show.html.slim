@@ -5,28 +5,24 @@ ul class="thumbnails"
     .thumbnail
       img src="http://placehold.it/260x180" alt=""
 
-      .title Profile
-      p = "Name: #{@user.name}"
-      p = "Email:  #{@user.email}"
+      .title = @user.name
+      a href="mailto:#{@user.email}" = @user.email
 
 .row-fluid
   .span6
-    .title Studying
+    .title = t(:studying)
     ul.nav.nav-list.nav-tabs.nav-stacked
-      - if @user.student_in.present?      
+      - if @user.student_in.present?
         - @user.student_in.each do |course|
           li = link_to course.full_name, management_course_path(course.id)
       - else
-        p No courses
-    
+        p = t(:no_course_as_student)
+
   .span6
-    .title Teaching
+    .title = t(:teaching)
     ul.nav.nav-list.nav-tabs.nav-stacked
       - if @user.teacher_in.present?
         - @user.teacher_in.each do |course|
           li = link_to course.full_name, management_course_path(course.id)
       - else
-        p No courses
-      
-      
-    
+        p = t(:no_course_as_teacher)
