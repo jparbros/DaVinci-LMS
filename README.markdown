@@ -62,7 +62,7 @@ Configure Gmail by defining:
 * ENV['GMAIL_USERNAME']
 * ENV['GMAIL_PASSWORD']
 
-Configure Sendmail by defining:
+Configure Sendgrid by defining:
 
 * ENV['SENDGRID_USERNAME']
 * ENV['SENDGRID_PASSWORD']
