@@ -21,6 +21,11 @@ The status of the development can be follow here:
 
 https://trello.com/board/features/4f8dd69ee04240575b532234
 
+## Languages availables
+
+* English (default)
+* Spanish
+
 ## Online testing environment
 
 Check the demo:
@@ -67,7 +72,11 @@ Configure Sendgrid by defining:
 * ENV['SENDGRID_USERNAME']
 * ENV['SENDGRID_PASSWORD']
 
-The database will need to be configured too. Take a look at `config/mongoid.yml`.
+The database will need to be configured too. Take a look at `config/mongoid.yml and set your production database. It must be a MongoDB.
+
+## Tasks
+
+`thor populate` will fill the database with fake data.
 
 ## How to contribute
 
