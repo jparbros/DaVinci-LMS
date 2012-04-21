@@ -19,3 +19,5 @@ en:
   
   student_removed_from_course: 'Removed #{user} from #{course}'
   student_added_to_course: '%{user} is now a student of %{course}'
+  
+  no_users: 'There are not any registered user'

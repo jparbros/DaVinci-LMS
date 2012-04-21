@@ -2,19 +2,20 @@ es:
   user_removed: "<b>%{user}</b> ha sido eliminado"
   new_user: 'Nuevo Usuario'
   user_created: "El usuaro %{link} ha sido creado"
-  
+
   user_edited: "Cambios en %{link} guardados"
-  
+
+  studying: 'Estudiante'
   add_course: 'Añadir'
-  
-  studying: 'Estudiante'  
   no_course_as_student: 'No está asignado como estudiante a ninguna asignatura'
-  
+
   teaching: 'Profesor'
   no_course_as_teacher: 'No está asignado como profesor a ninguna asignatura'
-  
+
   teacher_removed_from_course: '%{user} ya no es profesor de la asignatura %{course}'
   teacher_added_to_course: '%{user} es ahora profesor en %{course}'
-  
+
   student_removed_from_course: '%{user} ya no es estudiante de la asignatura %{course}'
   student_added_to_course: '%{user} es ahora estudiante en %{course}'
+
+  no_users: 'No hay ningún usuario registrado'
