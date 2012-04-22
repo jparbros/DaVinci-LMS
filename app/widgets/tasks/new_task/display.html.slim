@@ -11,6 +11,6 @@
     = f.inputs t(:new_task) do
       = f.input :title, input_html: {class: 'row-fluid', autofocus: "autofocus"}
       = f.input :description, as: 'text', input_html: {rows: 14, class: 'row-fluid' }
-      = f.input :last_day_to_submit, input_html: {class: 'data-datepicker', 'data-date'=>task.last_day_to_submit, 'language' => I18n.locale}
+      = f.input :last_day_to_submit, input_html: {class: 'data-datepicker', 'data-date'=>task.last_day_to_submit, 'data-date-language' => I18n.locale}
     = f.actions do
       = f.action :submit, button_html: { disable_with: "Please wait..." }
