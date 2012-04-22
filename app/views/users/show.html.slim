@@ -14,7 +14,7 @@ ul class="thumbnails"
     ul.nav.nav-list.nav-tabs.nav-stacked
       - if @user.student_in.present?
         - @user.student_in.each do |course|
-          li = link_to course.full_name, management_course_path(course.id)
+          li = link_to course.full_name, course_path(course.id)
       - else
         p = t(:no_course_as_student)
 
@@ -23,6 +23,6 @@ ul class="thumbnails"
     ul.nav.nav-list.nav-tabs.nav-stacked
       - if @user.teacher_in.present?
         - @user.teacher_in.each do |course|
-          li = link_to course.full_name, management_course_path(course.id)
+          li = link_to course.full_name, course_path(course.id)
       - else
         p = t(:no_course_as_teacher)
