@@ -19,8 +19,8 @@ en:
 
   user_owner: 'User Owner'
   user_admin: 'User Admin'
-  user_student: 'User student'
-  user_teacher: 'User teacher'
+  user_student: 'User Student'
+  user_teacher: 'User Teacher'
 
   owner: 'Owner'
   administrators: 'Administrators'
