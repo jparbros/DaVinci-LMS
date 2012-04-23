@@ -6,7 +6,7 @@ Project based teaching is a very simple concept. If solving problems is an integ
 
 This technology is open source, which means that you can access the source code and modify it to fit your particular needs. Nonetheless, DaVinci LMS will be crafted in such way that you won't need to modify the code to integrate it with your existing infrastructure. Instead, you will interact with a well defined API, an Application Programming Interface, which will be consistent, documented and easy to use. 
 
-The current state of the project is early development. This is an excellent opportunity for you to be part of a fascinating project on educational technology. We would love to get contributions regarding the implementation of currently planned features (which you can see in the Issues section above). Design is going to be a first grade citizen in DaVinci LMS so we would love to get usability suggestions and art contributions. We are aiming for minimalist layout with an organic look. 
+The current state of the project is early development. This is an excellent opportunity for you to be part of a fascinating project on educational technology. We would love to get contributions regarding the implementation of currently planned features (which you can see in the Issues section above). Design is going to be a first grade citizen in DaVinci LMS so we would love to get usability suggestions and art contributions. We are aiming for a  minimalist layout.
 
 This piece of technology sits upon many other top notch technologies such as Ruby on Rails and MongoDB.
 
@@ -20,6 +20,8 @@ This piece of technology sits upon many other top notch technologies such as Rub
 The status of the development can be follow here:
 
 https://trello.com/board/features/4f8dd69ee04240575b532234
+
+There is already a lot of features perfectly working and the application is usable. Feel free to use it on your school. Also I am considering offering commercial support and services such as managed hosting, let me know if that may interest you. You can contact me in the following email address: gonzalo.rodriguez at nerian.es
 
 ## Features
 
