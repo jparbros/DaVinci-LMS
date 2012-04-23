@@ -41,5 +41,5 @@
             = f.input :new_file, as: 'file', label: true, input_html: {class: 'required'}
         .modal-footer
           = f.commit_button :close, button_html: {'data-dismiss' =>"modal", class: 'btn'}
-          = f.commit_button :upload, button_html: { disable_with: "Please wait..." }          
+          = f.commit_button :upload, button_html: { class: 'btn btn-primary', disable_with: "Please wait..." }          
           
