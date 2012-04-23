@@ -18,7 +18,9 @@ class Management::Users::IndexPanelWidget < Apotomo::Widget
 
   def remove(evt)
     user = User.find(evt[:user_id])
-    if user.destroy    
+    if user.owner?
+      alert_message(:error, t(:owner_cant_be_removed, user: user.name))
+    elsif user.destroy    
       alert_message(:success, t(:user_removed, user: user.name))
     end
     trigger :activate_remove_mode

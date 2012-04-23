@@ -21,3 +21,5 @@ en:
   student_added_to_course: '%{user} is now a student of %{course}'
   
   no_users: 'There are not any registered user'
+  
+  owner_cant_be_removed: "%{user} is the owner and can't be removed"

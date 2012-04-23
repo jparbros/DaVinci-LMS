@@ -19,3 +19,5 @@ es:
   student_added_to_course: '%{user} es ahora estudiante en %{course}'
 
   no_users: 'No hay ningún usuario registrado'
+  
+  owner_cant_be_removed: "%{user} es el propietario y no puede ser eliminado"
