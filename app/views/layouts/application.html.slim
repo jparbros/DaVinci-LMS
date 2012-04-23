@@ -38,6 +38,7 @@ html
                     li
                       = link_to t(:english), root_path(locale: :en), 'data-skip-pjax' => true
                       = link_to t(:spanish), root_path(locale: :es), 'data-skip-pjax' => true
+              li class="divider-vertical"
               li = link_to "#{current_user.name}", user_path(current_user.id)
               li = link_to :logout do
                 i class='icon-off'
