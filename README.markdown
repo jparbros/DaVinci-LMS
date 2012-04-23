@@ -21,10 +21,15 @@ The status of the development can be follow here:
 
 https://trello.com/board/features/4f8dd69ee04240575b532234
 
-## Languages availables
+## Features
 
-* English (default)
-* Spanish
+* Share all kind of documents with your students
+* Give assignments to your students.
+* It adapts to the available screen space, so it is perfectly usable with mobile devices such the iPad or smart phones.
+* Open Source, so you can modify it to suit your needs.
+* Multi-language support:
+  * English (default)
+  * Spanish
 
 ## Online testing environment
 
