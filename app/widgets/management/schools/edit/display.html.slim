@@ -5,6 +5,10 @@
 = semantic_form_for school, remote: true, url: url_for_event(:submit), html: {class: 'form-horizontal'} do |f|
   = f.semantic_errors
   = f.inputs do    
-    = f.input :name, :input_html => {:class=>'row-fluid'}
+    = f.input :name
+    = f.input :file_space_used, :input_html => {value: number_to_human_size(school.file_space_used), disabled: true}
+    = f.input :number_of_files, :input_html => {disabled: true}
+    = f.input :number_of_users, :input_html => {value: User.all.count, disabled: true}
+    = f.input :number_of_courses, :input_html => {value: Course.all.count, disabled: true}
   = f.actions do
     = f.action :submit, 'data-disable-with' => "Please wait..."

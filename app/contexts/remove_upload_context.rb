@@ -13,7 +13,11 @@ class RemoveUploadContext
   end
 
   def call
-    @target.destroy_file(@file)  
+    @target.destroy_file(@file)
+    school = School.first
+    school.file_space_used -= @file.size
+    school.number_of_files -= 1
+    school.save
   end
 
 end

@@ -13,7 +13,11 @@ class AddUploadContext
   end
 
   def call
-    @target.add_file(@file)  
+    @target.add_file(@file)
+    school = School.first
+    school.file_space_used += @file.size
+    school.number_of_files += 1 
+    school.save
   end
 
 end
