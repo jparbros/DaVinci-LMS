@@ -12,8 +12,9 @@ class User
   field :password, type: String
   field :admin, type: Boolean
   field :owner, type: Boolean
+  field :language, type: String, default: 'en'
 
-  attr_accessible :first_name, :last_name, :dni, :email, :password
+  attr_accessible :first_name, :last_name, :dni, :email, :password, :language
 
   default_scope asc(:first_name, :last_name)
 

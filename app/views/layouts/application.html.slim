@@ -30,7 +30,7 @@ html
               li = link_to t(:users), management_users_path if current_user.admin? or current_user.owner?
               li = link_to t(:school), management_school_path if current_user.owner?
             ul.nav.pull-right
-              = render :partial => 'shared/languages'
+              = render_widget :language
               li class="divider-vertical"
               li = link_to "#{current_user.name}", user_path(current_user.id)
               li = link_to :logout do

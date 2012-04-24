@@ -10,7 +10,7 @@ class SessionController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
-      redirect_to root_path
+      redirect_to root_path(locale: current_user.language)
     else
       @message = view_context.alert_message(:error, "Login failed.")
       render :new

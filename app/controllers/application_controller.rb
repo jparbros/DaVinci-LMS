@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
   before_filter :set_locale
   
+  has_widgets do |root|
+    root << widget('management/language', :language, current_user: current_user)
+  end
+  
   def default_url_options(options={})
     { :locale => I18n.locale }
   end    
