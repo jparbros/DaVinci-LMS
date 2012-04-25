@@ -28,9 +28,7 @@ gem 'i18n-inflector-rails'
 gem 'rails-i18n'
 gem "bcrypt-ruby", :require => "bcrypt"
 
-group :production do
-  gem 'dalli'
-end
+gem 'dalli'
 
 group :assets do
   gem 'sass-rails'  
