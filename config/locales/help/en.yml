@@ -1,0 +1,20 @@
+en:
+  help:
+    mycourses:
+      title: 'My courses'
+      content: 'Here you can find all the courses where you are either a teacher or a student. 
+        <ul>
+          <li>Click on any course to see a detailed view of it</li>
+          <li>If you think you should be in a course that is not listed here you should contact the technical support people at you educational center</li>
+        </ul>'
+      
+    management:
+      courses:
+        title: 'Courses'
+        content: "Here you can see a list of all registered courses.
+          <ul>
+            <li>If you would like to create a course, click on <b>New</b>.</li>
+            <li>If you would like to remove a course, click on <b>Remove</b>.</li>
+            <li>If you would like to add students or teachers to a course, <b>click on the course</b>.</li>
+            <li>If you would like to filter the course list, <b>start writing on the search box.</b>Results that match the entered text will be shown.</li>
+          </ul>"          

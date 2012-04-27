@@ -2,7 +2,10 @@ ul.breadcrumb
   li
     = link_to t(:home), root_path
 
-.title = t(:my_courses)
+.title 
+  span = t(:my_courses)
+  a.pull-right{rel='popover' data-content=t('help.mycourses.content') title=t('help.mycourses.title')}
+    i.icon-info-sign
 
 - if courses_as_student.empty? && courses_as_teacher.empty?
   ul.nav.nav-list.nav-tabs.nav-stacked

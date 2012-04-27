@@ -1,0 +1,20 @@
+es:
+  help:
+    mycourses:
+      title: 'Mis asignaturas'
+      content: "Aqui puedes ver todas las asignaturas en las que eres un alumno o profesor. 
+        <ul>
+          <li>Haz click en alguna de ellas para una vista detallada.</li>
+          <li>Si crees que deberías estas en alguna asignatura y no lo estás deberías ponerte en contacto con el servicio de soporte técnico de tu centro educativo.</li>
+        </ul>"
+      
+    management:
+      courses:
+        title: 'Asignaturas'
+        content: "Aqui puedes ver una lista de todas las asignaturas registradas.
+          <ul>
+            <li>Si deseas crear una asignatura, haz click en <b>Crear</b>.</li>
+            <li>Si deseas eliminar una asignatura, haz click en <b>Eliminar</b>.</li>
+            <li>Si deseas añadir o quitar estudiantes o profesores de una asignatura, <b>haz click en la asignatura</b>.</li>
+            <li>Si deseas filtrar la lista de asignaturas, <b>empieza a escribir en el cuadro de búsqueda.</b>. Se mostrarán los resultados que coincidan con el texto de búsqueda.</li>
+          </ul>"

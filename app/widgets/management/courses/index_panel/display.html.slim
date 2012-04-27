@@ -5,6 +5,8 @@
     span = t(:courses)
     = link_to t(:new, :gender => :female), new_management_course_path
     = link_to t(:remove), url_for_event(:activate_remove_mode), remote: true
+    a.pull-right{rel='popover' data-content=t('help.management.courses.content') title=t('help.management.courses.title')}
+      i.icon-info-sign    
 
   #course_list.ul.nav.nav-stacked.nav-list.nav-tabs
     - if courses.empty?
