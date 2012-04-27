@@ -24,6 +24,6 @@ es:
         content: 'Aqui puedes ver una lista de todas las asignaturas que pueden ser eliminadas.
           <ul>
             <li>Si deseas volver a la vista anterior, haz click en <b>Hecho</b>.</li>
-            <li>Puede eliminar una asignatura haciendo click en el botón <b>Eliminar</b>, que está al lado de cada asignatura.</li>
+            <li>Puedes eliminar una asignatura haciendo click en el botón <b>Eliminar</b>, que está al lado de cada asignatura.</li>
             <li>También puedes escribir el nombre de la asignatura en la cuadro de búsqueda y hacer click en el botón <b>Eliminar</b> una vez selecciones la asignatura que deseas borrar.</li>
           </ul>'
