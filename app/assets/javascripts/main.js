@@ -2,12 +2,12 @@ $(document).ready(function() {
 	$(document).on("focus", ".data-datepicker", function(e){
 	    $(this).datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
 	});
-	  
-	$(document).on("mouseover", "a[rel=popover]", function(e){
-	    $(this).popover({placement: 'bottom'});
-	    $(this).popover('show');
-	});
+	  	
+	$('a[rel=popover]').popover({placement: 'bottom'});
+	$('[data-pjax-container]')
+    .on('pjax:end', function() { $('a[rel=popover]').popover({placement: 'bottom'}); });
+    
 		  
   $('[data-pjax-container]')
-    .on('pjax:start', function() { $('.nav-collapse').collapse('hide') })
+    .on('pjax:start', function() { $('.nav-collapse').collapse('hide') });
 });
