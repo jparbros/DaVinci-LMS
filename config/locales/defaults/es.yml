@@ -38,3 +38,5 @@ es:
   languages: 'Idiomas'
   spanish: 'Español'
   english: 'English'
+  
+  users_in_demo: "Esta es una lista de usuarios que ya están creados en el entorno Demo. O bien escribe el nombre de usuario y la contraseña en el formulario anterior o haz click en el link 'Login' al lado de cada usuario."

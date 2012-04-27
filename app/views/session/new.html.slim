@@ -8,6 +8,7 @@
     = f.action :submit, disable_with: 'Logging in...', label: 'Log in'
     
 - if Rails.env.development? or Rails.env.demo?
+  p = t(:users_in_demo)
   ul.nav.nav-list.nav-tabs.nav-stacked
     .title 
       span = t(:user_owner)

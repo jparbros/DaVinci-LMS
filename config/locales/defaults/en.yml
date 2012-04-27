@@ -28,4 +28,6 @@ en:
   languages: 'Languages'
   spanish: 'Español'
   english: 'English'
+  
+  users_in_demo: "This is a list of users that are already created in this demo environment. Either write the username and password on the form or click on the Login link near each user."
 
