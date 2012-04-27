@@ -37,6 +37,6 @@ jQuery.fn.liveUpdate = function(list){
 
 $(document).ready(function() {
 	$(document).on("focus", "[data-list-filter]", function(e){
-      $(this).liveUpdate('.filtered_list')
+      $(this).liveUpdate($(this).data('target-list'))
 	  });
 });

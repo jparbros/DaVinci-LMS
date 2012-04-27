@@ -6,13 +6,13 @@
     = link_to t(:new), new_management_user_path
     = link_to t(:remove), url_for_event(:activate_remove_mode), remote: true
 
-  ul.nav.nav-stacked.nav-list.nav-tabs.filtered_list
+  #user_list.ul.nav.nav-stacked.nav-list.nav-tabs
     - if users.empty?
       p
         span = t(:no_users)
     - else
       .form-search
-        = text_field_tag :query, '', placeholder: t(:write_to_search), :name => 'query', :class => 'search-query', 'data-list-filter' => true
+        = text_field_tag :query, '', placeholder: t(:write_to_search), :name => 'query', :class => 'search-query', 'data-list-filter' => true, 'data-target-list' => '#user_list'
           
       br
       

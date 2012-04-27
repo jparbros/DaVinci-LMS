@@ -6,13 +6,13 @@
     = link_to t(:new, :gender => :female), new_management_course_path
     = link_to t(:remove), url_for_event(:activate_remove_mode), remote: true
 
-  ul.nav.nav-stacked.nav-list.nav-tabs.filtered_list
+  #course_list.ul.nav.nav-stacked.nav-list.nav-tabs
     - if courses.empty?
       p 
         span = t(:no_courses)
     - else    
       .form-search
-        = text_field_tag :query, '', placeholder: t(:write_to_search), :name => 'query', :class => 'search-query', 'data-list-filter' => true
+        = text_field_tag :query, '', placeholder: t(:write_to_search), name: 'query', class: 'search-query', 'data-list-filter' => true, 'data-target-list' => '#course_list'
           
       br
       
