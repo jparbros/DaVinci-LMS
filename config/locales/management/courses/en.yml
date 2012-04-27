@@ -18,3 +18,5 @@ en:
   teacher_added: 'Removed %{link} from the course'
   
   course_removed: "Course <b>%{course}</b> deleted"
+  
+  write_to_remove: "ie: Web Development"

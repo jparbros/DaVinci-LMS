@@ -18,3 +18,5 @@ es:
   teacher_added: '%{link} fue añadido como profesor'
   
   course_removed: "La asignatura <b>%{course}</b> ha sido eliminada"
+  
+  write_to_remove: "ie: Web Development"

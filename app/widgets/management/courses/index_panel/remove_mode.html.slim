@@ -5,7 +5,7 @@
   = link_to t(:done), url_for_event(:done), remote: true
 
 = semantic_form_for '', remote: true, :url => url_for_event(:remove), :html => {:class=>'form-search management_form'} do
-  input name='course_name' type="text" autofocus="autofocus" class="search-query typeahead input-medium"
+  input name='course_name' placeholder=t(:write_to_remove) type="text" autofocus="autofocus" class="typeahead search-query input-large"
   input name='course_id' type='hidden' class='course_id'
   button type="submit" class="btn btn-danger" data-disable-with="Please wait..." = t(:remove)
 
