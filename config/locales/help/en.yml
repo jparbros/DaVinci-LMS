@@ -18,3 +18,12 @@ en:
             <li>If you would like to add students or teachers to a course, <b>click on the course</b>.</li>
             <li>If you would like to filter the course list, <b>start writing on the search box.</b> Results that match the entered text will be shown.</li>
           </ul>"          
+          
+      courses_remove:
+        title: "Remove Course"
+        content: "Here you can see a list of courses that can be removed
+          <ul>
+            <li>If you would like to go back, click on <b>Done</b></li>
+            <li>You can remove a course by click on the <b>Remove</b> button near each course</li>
+            <li>You can also start typing the name of a course in the search box and click on the <b>Remove</b> button when you have have selected the course that you wish to remove</li>
+          </ul>"

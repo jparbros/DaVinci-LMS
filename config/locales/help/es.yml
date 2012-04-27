@@ -18,3 +18,12 @@ es:
             <li>Si deseas añadir o quitar estudiantes o profesores de una asignatura, <b>haz click en la asignatura</b>.</li>
             <li>Si deseas filtrar la lista de asignaturas, <b>empieza a escribir en el cuadro de búsqueda.</b>. Se mostrarán los resultados que coincidan con el texto de búsqueda.</li>
           </ul>"
+          
+      courses_remove:
+        title: 'Eliminar Asignatura'
+        content: 'Aqui puedes ver una lista de todas las asignaturas que pueden ser eliminadas.
+          <ul>
+            <li>Si deseas volver a la vista anterior, haz click en <b>Hecho</b>.</li>
+            <li>Puede eliminar una asignatura haciendo click en el botón <b>Eliminar</b>, que está al lado de cada asignatura.</li>
+            <li>También puedes escribir el nombre de la asignatura en la cuadro de búsqueda y hacer click en el botón <b>Eliminar</b> una vez selecciones la asignatura que deseas borrar.</li>
+          </ul>'

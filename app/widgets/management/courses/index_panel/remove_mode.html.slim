@@ -3,6 +3,8 @@
 .title
   span = t(:courses)
   = link_to t(:done), url_for_event(:done), remote: true
+  a.pull-right{rel='popover' data-content=t('help.management.courses_remove.content') title=t('help.management.courses_remove.title')}
+    i.icon-info-sign
 
 = semantic_form_for '', remote: true, :url => url_for_event(:remove), :html => {:class=>'form-search management_form'} do
   input name='course_name' placeholder=t(:write_to_remove) type="text" autofocus="autofocus" class="typeahead search-query input-large"
