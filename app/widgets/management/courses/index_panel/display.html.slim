@@ -8,7 +8,7 @@
     a.pull-right{rel='popover' data-content=t('help.management.courses.content') title=t('help.management.courses.title')}
       i.icon-info-sign    
 
-  #course_list.ul.nav.nav-stacked.nav-list.nav-tabs
+  ul#course_list.nav.nav-stacked.nav-list.nav-tabs
     - if courses.empty?
       p 
         span = t(:no_courses)
