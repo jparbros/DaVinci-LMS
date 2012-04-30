@@ -10,7 +10,7 @@ en:
   files: 'Files'
   add_new_file: 'Add new file'
   
-  no_files: 'There are not files uploaded'
+  no_files: 'There are no files uploaded'
   
   new_task: 'New Assignment'
   task_created: "Assignment %{task} created"  
