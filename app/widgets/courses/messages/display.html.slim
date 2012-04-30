@@ -1,0 +1,27 @@
+= widget_div do
+  .title
+    i class='icon-envelope'
+    span Messages
+    = link_to 'Add', '#1', 'data-target'=>'#new_message', 'data-behaviour'=>'toggle', 'data-skip-pjax'=>'true' if current_user.teacher?(course)
+
+  #new_message.hide
+    = semantic_form_for message, url: url_for_event(:add_message, course: course.id), remote: true do |f|            
+      = f.semantic_errors
+      = f.inputs do
+        = f.input :contents, label: false, as: :text, input_html: {rows: 3, class: 'row-fluid', :autofocus=> "autofocus" }
+      = f.actions do
+        = f.action :submit, button_html: { class: 'btn btn-primary', disable_with: "Please wait..."}
+
+  ul
+    - if messages.present?
+      - messages.each do |message|
+        li{id="#{message.id}-short"}
+          span = truncate(message.contents, length: 100)
+          - if message.contents.length > 100
+            = link_to " Show more", '#1', 'data-target'=>"##{message.id}-long", 'data-behaviour'=>'toggle-text-lenght'
+        li.hide{id="#{message.id}-long" style='margin: 10px 10px 10px'}
+          span = message.contents
+          = link_to " Show less", '#1', 'data-target'=>"##{message.id}-short", 'data-behaviour'=>'toggle-text-lenght'
+
+    - else
+      p There are no messages

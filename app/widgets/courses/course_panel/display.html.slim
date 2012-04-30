@@ -1,56 +1,22 @@
-= widget_div do  
-  
-  = breadcrumb link_to(t(:home), root_path), link_to(course.abbreviation, course_path(course.id))
-  
-  .title = course.full_name
-  
-  p = course.description
-  
-  br
-  
-  / = render({state: :tasks}, course, current_user)
-  
-  .title
-    i class='icon-envelope'
-    span Messages
-    = link_to 'Add'        
-  
-  ul
-   li Todo exercises 5,6,7,8,9 of chapter 11.
-   li Make sure to bring the exercises book for tomorrows class.
-   li Read Chapter 10 of the reading book.
-   
-   br
-   
-  .title
-    i class='icon-inbox'
-    span To Do
-    = link_to 'Add'        
-  
-  br
-  
-  = render_widget :files, :display, course, current_user
-  
-  br
+= widget_div do
 
-  .title
-    i class='icon-bar-chart'
-    span Grades
-    span = link_to 'Edit'
-    ul.nav      
-      li.dropdown
-        a class="dropdown-toggle" data-toggle="dropdown" href="#" 
-          span Graphs 
-          b class="caret"
-        ul class="dropdown-menu"
-          li = link_to 'Graph1'
-          li = link_to 'Graph2'
-          li = link_to 'Graph3'
-  
-  br
-  
-  .row-fluid
-    .span6 = render({state: :teachers}, course)
-    .span6 = render({state: :students}, course)
-    
-  
+  = breadcrumb link_to(t(:home), root_path), link_to(course.abbreviation, course_path(course.id))
+
+  .section
+    .title = course.full_name
+
+    p = course.description
+
+  .section = render_widget :messages, :display, course
+
+  .section = render_widget :todo
+
+  .section = render_widget :files, :display, course, current_user
+
+  .section = render_widget :grades
+
+  .section
+    .row-fluid
+      .span6 = render({state: :teachers}, course)
+      .span6 = render({state: :students}, course)
+
