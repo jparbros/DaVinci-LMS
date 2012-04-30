@@ -29,14 +29,14 @@ gem 'rails-i18n'
 gem "bcrypt-ruby", :require => "bcrypt"
 
 gem 'dalli'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails'  
   gem 'formtastic', git: 'git://github.com/justinfrench/formtastic.git', branch: '2.1-stable'
   gem 'formtastic-bootstrap', git: 'git://github.com/cgunther/formtastic-bootstrap.git', branch: 'bootstrap2-rails3-2-formtastic-2-1'
   gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
-  gem "slim-rails"
-  gem 'kaminari'
+  gem "slim-rails"  
   gem 'jquery-rails'
   gem 'coffee-rails'
   gem 'pjax_rails', git: 'git://github.com/rails/pjax_rails.git'
