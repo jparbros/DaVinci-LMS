@@ -8,7 +8,7 @@
     = semantic_form_for message, url: url_for_event(:add_message, course: course.id), remote: true do |f|            
       = f.semantic_errors
       = f.inputs do
-        = f.input :contents, label: false, as: :text, input_html: {rows: 3, class: 'row-fluid', :autofocus=> "autofocus" }
+        = f.input :contents, label: false, as: :text, input_html: {rows: 3, class: 'row-fluid', :autofocus =>  "autofocus" }
       = f.actions do
         = f.action :submit, button_html: { class: 'btn btn-primary', disable_with: "Please wait..."}
 
@@ -21,7 +21,11 @@
             = link_to " Show more", '#1', 'data-target'=>"##{message.id}-long", 'data-behaviour'=>'toggle-text-lenght'
         li.hide{id="#{message.id}-long" style='margin: 10px 10px 10px'}
           span = message.contents
-          = link_to " Show less", '#1', 'data-target'=>"##{message.id}-short", 'data-behaviour'=>'toggle-text-lenght'
-
+          = link_to " Show less", '#1', 'data-target'=>"##{message.id}-short", 'data-behaviour'=>'toggle-text-length'
+  
+      #more_messages
+        = link_to 'Show more messages', url_for_event(:show_more, page: next_page, course: course.id), remote: true, class: 'link_to_show_more'
+      #new_batch_of_messages.hide
+  
     - else
       p There are no messages

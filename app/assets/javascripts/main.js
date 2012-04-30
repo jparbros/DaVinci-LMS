@@ -9,7 +9,7 @@ $(document).ready(function() {
   $(document).on("ajaxComplete ready", function(){
     $("[data-behaviour~='toggle']").on('click', function() { $($(this).data('target')).toggle(); });
     
-    $("[data-behaviour~='toggle-text-lenght']").on('click', function() { 
+    $("[data-behaviour~='toggle-text-length']").on('click', function() { 
       $(this).parent('li').hide(); 
       $($(this).data('target')).show(); });
           

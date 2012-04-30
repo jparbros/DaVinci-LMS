@@ -1,0 +1,18 @@
+- messages.each do |message|
+  li{id="#{message.id}-short"}
+    span = truncate(message.contents, length: 100)
+    - if message.contents.length > 100
+      = link_to " Show more", '#1', 'data-target'=>"##{message.id}-long", 'data-behaviour'=>'toggle-text-length'
+  li.hide{id="#{message.id}-long" style='margin: 10px 10px 10px'}
+    span = message.contents
+    = link_to " Show less", '#1', 'data-target'=>"##{message.id}-short", 'data-behaviour'=>'toggle-text-length'
+
+
+= link_to 'Show Less', url_for_event(:show_less, course: course.id), remote: true, class: 'link_to_show_more'
+
+- if next_page.present?
+  = link_to 'Show More', url_for_event(:show_more, page: next_page, course: course.id), remote: true, class: 'link_to_show_more'
+    
+javascript:
+  $('#more_messages .link_to_show_more').remove();
+  $('#more_messages').append($('#new_batch_of_messages').html());
