@@ -4,7 +4,8 @@ class Courses::MessagesWidget < Apotomo::Widget
   responds_to_event :activate_add_mode
 
   def display(course)
-    render view: :display, locals: {course: course, messages: course.messages, message: Message.new, current_user: options[:current_user]}
+    messages = course.messages.order_by([:date, :desc])
+    render view: :display, locals: {course: course, messages: messages, message: Message.new, current_user: options[:current_user]}
   end
 
   def add_message(evt)
