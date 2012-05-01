@@ -1,7 +1,7 @@
 = widget_div do
   .title
     i class='icon-envelope'
-    span Messages
+    span Course Messages
     = link_to 'Add', '#1', 'data-target'=>'#new_message', 'data-behaviour'=>'toggle', 'data-alternative-text'=>'Close', 'data-skip-pjax'=>'true' if current_user.teacher?(course)
 
   #new_message.hide
