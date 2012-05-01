@@ -6,12 +6,10 @@
 
   #new_message.hide
     = semantic_form_for message, url: url_for_event(:add_message, course: course.id), remote: true do |f|            
-      = f.semantic_errors
-      = f.inputs do
-        = f.input :contents, label: false, as: :text, input_html: {rows: 3, class: 'row-fluid', :autofocus =>  "autofocus" }
-      = f.actions do
-        = f.action :submit, button_html: { class: 'btn btn-primary', disable_with: "Please wait..."}
-
+      .input-append
+        = f.text_field :contents, class: "input-large", autofocus: 'autofocus'
+        = f.commit_button :create, 'data-disable-with' => "Please wait..."
+        
   ul
     - if messages.present?
       - messages.each do |message|
