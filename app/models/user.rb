@@ -21,6 +21,7 @@ class User
   has_and_belongs_to_many :student_in, class_name: 'Course', inverse_of: :students
   has_and_belongs_to_many :teacher_in, class_name: 'Course', inverse_of: :teachers
   has_many :submissions
+  has_many :todos
 
   validates :dni, :presence => true
   validates :email, :presence => true

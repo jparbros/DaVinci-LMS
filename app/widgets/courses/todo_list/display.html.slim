@@ -1,0 +1,21 @@
+= widget_div do
+  .title
+    i class='icon-inbox'
+    span Todo List
+    = link_to 'Add', '#1', 'data-target'=>'#new_todo', 'data-behaviour'=>'toggle', 'data-alternative-text'=>'Close', 'data-skip-pjax'=>'true'
+
+  #new_todo.hide
+    = semantic_form_for todo, remote: true, url: url_for_event(:add_todo, course: course.id) do |f|
+      .input-append
+        = f.text_field :content, class: "input-large", autofocus: 'autofocus'
+        = f.commit_button :create, 'data-disable-with' => "Please wait..."
+
+  - if todos.present?
+    table.table.table-bordeless
+      tbody
+        - todos.each do |todo|
+          tr
+            td = todo.content
+            td = link_to 'Mark as completed', url_for_event(:mark_as_completed, todo: todo.id, course: course.id), remote: true
+  - else
+    p The list is empty

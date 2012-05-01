@@ -2,7 +2,7 @@
   
   == display_alert(@message)
   
-  = semantic_form_for submission, remote: true, remote: true, url: url_for_event(:mark, submission_id: submission.id), :html => {:class=>'form-search'} do |f|    
+  = semantic_form_for submission, remote: true, url: url_for_event(:mark, submission_id: submission.id), :html => {:class=>'form-search'} do |f|    
     .input-append
       = f.text_field :mark, placeholder: t(:mark_placeholder), class: "input-medium"
       = f.commit_button :save, 'data-disable-with' => "Please wait...", class: 'btn'

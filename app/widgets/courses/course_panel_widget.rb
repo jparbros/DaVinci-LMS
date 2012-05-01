@@ -5,7 +5,7 @@ class Courses::CoursePanelWidget < Apotomo::Widget
   has_widgets do |root|
     root << widget("courses/files", :files, current_user: options[:current_user])
     root << widget("courses/messages", :messages, current_user: options[:current_user])
-    root << widget("courses/todo", :todo)
+    root << widget("courses/todo_list", :todo_list, current_user: options[:current_user])
     root << widget("courses/grades", :grades)
   end
 

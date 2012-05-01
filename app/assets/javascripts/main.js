@@ -7,7 +7,12 @@ $(document).ready(function() {
     .on('pjax:start', function() { $('.nav-collapse').collapse('hide') });
     
   $(document).on("ajaxComplete ready", function(){
-    $("[data-behaviour~='toggle']").on('click', function() { $($(this).data('target')).toggle(); });
+    $("[data-behaviour~='toggle']").on('click', function() { 
+      $($(this).data('target')).toggle();
+      alternative_text = $(this).data('alternative-text');
+      $(this).data('alternative-text', $(this).html());
+      $(this).html(alternative_text);
+    });
     
     $("[data-behaviour~='toggle-text-length']").on('click', function() { 
       $(this).parent('li').hide(); 

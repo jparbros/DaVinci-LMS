@@ -1,0 +1,2 @@
+Fabricator(:todo) do
+end
