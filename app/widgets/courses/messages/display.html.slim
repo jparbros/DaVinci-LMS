@@ -21,9 +21,10 @@
           span = message.contents
           = link_to " Show less", '#1', 'data-target'=>"##{message.id}-short", 'data-behaviour'=>'toggle-text-length', 'data-skip-pjax'=>'true'
   
-      #more_messages
-        = link_to 'Show more messages', url_for_event(:show_more, page: next_page, course: course.id), remote: true, class: 'link_to_show_more'
-      #new_batch_of_messages.hide
+      - unless messages.last_page?
+        #more_messages
+          = link_to 'Show more messages', url_for_event(:show_more, page: next_page, course: course.id), remote: true, class: 'link_to_show_more'
+        #new_batch_of_messages.hide
   
   - else
     p There are no messages
