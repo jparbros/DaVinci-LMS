@@ -15,16 +15,6 @@ en:
         password:   'Password'
         admin:      'Admin'
         owner:      'Owner'
-      
-      task:
-        title: 'Title'
-        description: 'Description'
-        last_day_to_submit: 'Last day to send'
-        
-      submission:
-        comment: 'Comment'
-        mark: 'Mark'
-        uploads: 'Uploads'
         
       school:
         name: 'Name'

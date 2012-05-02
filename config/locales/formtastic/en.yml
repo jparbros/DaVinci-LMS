@@ -3,18 +3,12 @@ en:
     labels:
       course:        
         new_file:     'Select the file you wish to upload'
-      submission:
-        mark:         'Mark'
-        new_file:     'Select the file you wish to upload'
     placeholders:
       course:
         full_name:    "Introduction to computer science"
         abbreviation: "CS101"        
       user:
         email:        "you@yours.com"
-      task:
-        title:        'Write an essay about chapter 4'
-        description:  '5 pages max'
     actions:
       save:   "Save"
       create: "Create new %{model}"

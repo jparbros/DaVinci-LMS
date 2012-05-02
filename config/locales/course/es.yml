@@ -12,27 +12,4 @@ es:
   
   no_files: 'No hay ningún documento'
   
-  new_task: 'Nueva Tarea'
-  task_created: "Tarea %{task} creada"
-  task_changed: "Cambios en %{task} guardados"
-  
-  submissions: 'Entregas'
-  no_mark: 'Sin revisar'
-  
-  to_deliver_before: 'Para entregar antes de: '
-  
-  user_submission: "La entrega de %{user}"
-  attachments: 'Documentos adjuntos'
-  
-  mark: 'Nota'
-  mark_saved: "Nota guardada! %{list_link}"
-  go_back_to_submission_list: 'Volver a la lista de entregas'
-  mark_empty: "La nota no puede estar en blanco"
-  mark_placeholder: "Escribe la nota aqui"
-  not_yet_rated: 'Sin revisar'
-  
-  your_submission: 'Tu entrega'
-  
-  change_saved: 'Cambios guardado'
-  
   write_to_search: 'Escribe aqui para buscar'

@@ -10,8 +10,8 @@
         = f.text_field :contents, class: "input-large", autofocus: 'autofocus'
         = f.commit_button :create, 'data-disable-with' => "Please wait..."
         
-  ul
-    - if messages.present?
+  - if messages.present?
+    ul    
       - messages.each do |message|
         li{id="#{message.id}-short"}
           span = truncate(message.contents, length: 100)
@@ -25,5 +25,5 @@
         = link_to 'Show more messages', url_for_event(:show_more, page: next_page, course: course.id), remote: true, class: 'link_to_show_more'
       #new_batch_of_messages.hide
   
-    - else
-      p There are no messages
+  - else
+    p There are no messages

@@ -3,18 +3,12 @@ es:
     labels:
       course:
         new_file: 'Selecciona el documento que quieres añadir'
-      submission:
-        mark:     'Nota'
-        new_file: 'Selecciona el documento que quieres añadir'
     placeholders:
       course:
         full_name:    "Matemáticas"
         abbreviation: "Bach2-Mat"        
       user:
         email:        "you@yours.com"
-      task:
-        title:        'Escribir un ensayo sobre el capítulo 4'
-        description:  'Máximo 5 páginas'
     actions:
       save:           "Guardar"
       create:         "Crear"
