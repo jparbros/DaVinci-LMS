@@ -5,7 +5,7 @@ class Deploy < Thor::Group
     say '# Pushing to github'
     `git push`
     say '# Deploying to Heroku'
-    `git push heroku`
+    `git push heroku master`
     say '# Populating the database with fake data'
     `heroku run thor populate`
   end
