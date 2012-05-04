@@ -9,6 +9,7 @@ Davinci::Application.routes.draw do
 
     resources :courses, :only => [:show] do
       match "file" => "courses#add_file"
+      resources :grades, :only => [:index]
     end
 
     resources :users, only: [:show]

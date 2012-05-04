@@ -1,13 +1,13 @@
 .title
   i class='icon-bar-chart'
   span Grades
-  span = link_to 'Edit'
+  span = link_to 'Edit', course_grades_path(course.id)
   ul.nav      
     li.dropdown
       a class="dropdown-toggle" data-toggle="dropdown" href="#" 
-        span Graphs 
+        span Reports 
         b class="caret"
       ul class="dropdown-menu"
-        li = link_to 'Graph1'
-        li = link_to 'Graph2'
-        li = link_to 'Graph3'
+        li = link_to 'Students'
+        li = link_to 'Course'
+        li = link_to 'Tasks'

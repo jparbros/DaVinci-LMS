@@ -1,0 +1,15 @@
+= breadcrumb link_to(t(:home), root_path), link_to(course.abbreviation, course_path(course.id)), link_to('Grades', course_grades_path(course.id))
+
+
+.title 
+  span Grades
+  = link_to 'Add a grade to all students'
+
+.form-search
+  = text_field_tag :query, '', placeholder: t(:write_to_search), name: 'query', class: 'search-query', 'data-list-filter' => true, 'data-target-list' => '#students_list'
+  
+br
+
+#students_list{data-list-selector='.student_grade'}
+  - course.students.each do |student|    
+    = render({:state => :grade}, course, student)

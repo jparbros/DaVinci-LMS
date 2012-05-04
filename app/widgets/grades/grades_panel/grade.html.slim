@@ -1,0 +1,44 @@
+.student_grade{data-list-value=user.name}
+  .title
+    span = user.name
+    = link_to 'Add'
+    = link_to 'Edit'
+    ul.nav
+      li.dropdown
+        a class="dropdown-toggle" data-toggle="dropdown" href="#"
+          span Remove
+          b class="caret"
+        ul class="dropdown-menu"
+          li = link_to 'Task1'
+          li = link_to 'Task2'
+          li = link_to 'Task3'
+          
+  table.table
+    thead
+      tr
+        th Test Name
+        th Grade (%)
+        th Total Value (%)
+        th Comment
+    tbody
+      tr
+        td Task 1
+        td 70
+        td 10
+        td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...
+      tr
+        td Task 2
+        td 90
+        td 10
+        td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...
+
+      tr
+        td Final exam
+        td 68
+        td 70
+        td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...
+      tr
+        td Extra Task
+        td 96
+        td 10
+        td Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et...

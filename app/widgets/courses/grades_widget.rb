@@ -1,7 +1,7 @@
 class Courses::GradesWidget < Apotomo::Widget
 
-  def display
-    render
+  def display(course)
+    render locals: {course: course}
   end
 
 end

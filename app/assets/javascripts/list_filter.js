@@ -1,11 +1,22 @@
 jQuery.fn.liveUpdate = function(list){
   list = jQuery(list);
   if ( list.length ) {
-    var rows = list.children('li'),
-      cache = rows.map(function(){
+    var selector = list.data('list-selector');
+    var list_value = list.data('list-value');
+    if (selector){
+      var rows = list.children(selector);
+      var cache = rows.map(function(){        
+        return $(this).data('list-value').toLowerCase();
+      });
+      
+    }else{
+      var rows = list.children('li');
+      var cache = rows.map(function(){
         return $('a', this)[0].innerHTML.toLowerCase();
       });
       
+    }
+    
     this
       .keyup(filter).keyup()
       .parents('form').submit(function(){
