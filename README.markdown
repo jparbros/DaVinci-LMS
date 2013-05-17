@@ -14,15 +14,6 @@ This piece of technology sits upon many other top notch technologies such as Rub
 
 ![alt text](http://dl.dropbox.com/u/834494/DaVinci%20LMS/DaVinci%20LMS%20home.png "DaVinci LMS ")
 
-
-## Project Information
-
-The status of the development can be follow here:
-
-https://trello.com/board/features/4f8dd69ee04240575b532234
-
-There is already a lot of features perfectly working and the application is usable. Feel free to use it on your school. Also I am considering offering commercial support and services such as managed hosting, let me know if that may interest you. You can contact me in the following email address: gonzalo.rodriguez at nerian.es
-
 ## Features
 
 * Share all kind of documents with your students
