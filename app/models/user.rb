@@ -14,9 +14,7 @@ class User
   field :owner, type: Boolean
   field :language, type: String, default: 'en'
 
-  attr_accessible :first_name, :last_name, :dni, :email, :password, :language
-
-  default_scope asc(:first_name, :last_name)
+  default_scope -> {asc(:first_name, :last_name)}
 
   has_and_belongs_to_many :student_in, class_name: 'Course', inverse_of: :students
   has_and_belongs_to_many :teacher_in, class_name: 'Course', inverse_of: :teachers
@@ -32,11 +30,11 @@ class User
   def name
     "#{self.first_name} #{self.last_name}"
   end
-  
+
   def admin?
     self.admin
   end
-  
+
   def owner?
     self.owner
   end

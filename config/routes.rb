@@ -8,20 +8,20 @@ Davinci::Application.routes.draw do
     end
 
     resources :courses, :only => [:show] do
-      match "file" => "courses#add_file"
+      get "file" => "courses#add_file"
       resources :grades, :only => [:index]
     end
 
     resources :users, only: [:show]
 
     resources :session, only: [:create]
-    match 'login' => 'session#new', :as => :login
-    match 'logout' => 'session#destroy', :as => :logout
+    get 'login' => 'session#new', :as => :login
+    get 'logout' => 'session#destroy', :as => :logout
   end
 
-  match "uploads/:id/*name" => "gridfs#serve", :as => :serve
+  get "uploads/:id/*name" => "gridfs#serve", :as => :serve
 
-  match '/:locale' => 'home#index'
+  get '/:locale' => 'home#index'
   root to: 'home#index'
 
 end

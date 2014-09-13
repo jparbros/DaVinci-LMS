@@ -8,15 +8,15 @@ html
     = csrf_meta_tags
     meta http-equiv="Content-Type" content="text/html;charset=UTF-8"
   body
-    .navbar
-      .navbar-inner
-        .container
+    .navbar.navbar-default role= 'navigation'
+      .container-fluid
+        .navbar-header
           a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
             span.icon-bar
             span.icon-bar
             span.icon-bar
 
-          = link_to 'DaVinci LMS', root_path, :class => 'brand'
+          = link_to 'DaVinci LMS', root_path, :class => 'navbar-brand'
 
     .container
       .row
